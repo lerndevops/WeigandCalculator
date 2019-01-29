@@ -22,58 +22,58 @@ Partial Class BinaryDataControl
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.UserControlC44 = New WindowsApp1.UserControlC4()
-        Me.UserControlC43 = New WindowsApp1.UserControlC4()
-        Me.UserControlC42 = New WindowsApp1.UserControlC4()
-        Me.UserControlC41 = New WindowsApp1.UserControlC4()
-        Me.UserControlF43 = New WindowsApp1.UserControlF4()
-        Me.UserControlF41 = New WindowsApp1.UserControlF4()
+        Me.UserControlC_0 = New WindowsApp1.UserControlC4()
+        Me.UserControlC_1 = New WindowsApp1.UserControlC4()
+        Me.UserControlC_2 = New WindowsApp1.UserControlC4()
+        Me.UserControlC_3 = New WindowsApp1.UserControlC4()
+        Me.UserControlF_0 = New WindowsApp1.UserControlF4()
+        Me.UserControlF_1 = New WindowsApp1.UserControlF4()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.UserControlP1 = New WindowsApp1.UserControlP_Even()
         Me.UserControlP2 = New WindowsApp1.UserControlP_Odd()
         Me.SuspendLayout()
         '
-        'UserControlC44
+        'UserControlC_0
         '
-        Me.UserControlC44.Location = New System.Drawing.Point(712, 32)
-        Me.UserControlC44.Name = "UserControlC44"
-        Me.UserControlC44.Size = New System.Drawing.Size(132, 59)
-        Me.UserControlC44.TabIndex = 44
+        Me.UserControlC_0.Location = New System.Drawing.Point(712, 32)
+        Me.UserControlC_0.Name = "UserControlC_0"
+        Me.UserControlC_0.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC_0.TabIndex = 44
         '
-        'UserControlC43
+        'UserControlC_1
         '
-        Me.UserControlC43.Location = New System.Drawing.Point(574, 31)
-        Me.UserControlC43.Name = "UserControlC43"
-        Me.UserControlC43.Size = New System.Drawing.Size(132, 59)
-        Me.UserControlC43.TabIndex = 41
+        Me.UserControlC_1.Location = New System.Drawing.Point(574, 31)
+        Me.UserControlC_1.Name = "UserControlC_1"
+        Me.UserControlC_1.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC_1.TabIndex = 41
         '
-        'UserControlC42
+        'UserControlC_2
         '
-        Me.UserControlC42.Location = New System.Drawing.Point(436, 31)
-        Me.UserControlC42.Name = "UserControlC42"
-        Me.UserControlC42.Size = New System.Drawing.Size(132, 59)
-        Me.UserControlC42.TabIndex = 40
+        Me.UserControlC_2.Location = New System.Drawing.Point(436, 31)
+        Me.UserControlC_2.Name = "UserControlC_2"
+        Me.UserControlC_2.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC_2.TabIndex = 40
         '
-        'UserControlC41
+        'UserControlC_3
         '
-        Me.UserControlC41.Location = New System.Drawing.Point(298, 31)
-        Me.UserControlC41.Name = "UserControlC41"
-        Me.UserControlC41.Size = New System.Drawing.Size(132, 59)
-        Me.UserControlC41.TabIndex = 39
+        Me.UserControlC_3.Location = New System.Drawing.Point(298, 31)
+        Me.UserControlC_3.Name = "UserControlC_3"
+        Me.UserControlC_3.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC_3.TabIndex = 39
         '
-        'UserControlF43
+        'UserControlF_0
         '
-        Me.UserControlF43.Location = New System.Drawing.Point(174, 30)
-        Me.UserControlF43.Name = "UserControlF43"
-        Me.UserControlF43.Size = New System.Drawing.Size(117, 61)
-        Me.UserControlF43.TabIndex = 38
+        Me.UserControlF_0.Location = New System.Drawing.Point(174, 30)
+        Me.UserControlF_0.Name = "UserControlF_0"
+        Me.UserControlF_0.Size = New System.Drawing.Size(117, 61)
+        Me.UserControlF_0.TabIndex = 38
         '
-        'UserControlF41
+        'UserControlF_1
         '
-        Me.UserControlF41.Location = New System.Drawing.Point(51, 30)
-        Me.UserControlF41.Name = "UserControlF41"
-        Me.UserControlF41.Size = New System.Drawing.Size(117, 61)
-        Me.UserControlF41.TabIndex = 37
+        Me.UserControlF_1.Location = New System.Drawing.Point(51, 30)
+        Me.UserControlF_1.Name = "UserControlF_1"
+        Me.UserControlF_1.Size = New System.Drawing.Size(117, 61)
+        Me.UserControlF_1.TabIndex = 37
         '
         'Label9
         '
@@ -105,12 +105,12 @@ Partial Class BinaryDataControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.UserControlC44)
-        Me.Controls.Add(Me.UserControlC43)
-        Me.Controls.Add(Me.UserControlC42)
-        Me.Controls.Add(Me.UserControlC41)
-        Me.Controls.Add(Me.UserControlF43)
-        Me.Controls.Add(Me.UserControlF41)
+        Me.Controls.Add(Me.UserControlC_0)
+        Me.Controls.Add(Me.UserControlC_1)
+        Me.Controls.Add(Me.UserControlC_2)
+        Me.Controls.Add(Me.UserControlC_3)
+        Me.Controls.Add(Me.UserControlF_0)
+        Me.Controls.Add(Me.UserControlF_1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.UserControlP1)
         Me.Controls.Add(Me.UserControlP2)
@@ -121,12 +121,12 @@ Partial Class BinaryDataControl
 
     End Sub
 
-    Friend WithEvents UserControlC44 As UserControlC4
-    Friend WithEvents UserControlC43 As UserControlC4
-    Friend WithEvents UserControlC42 As UserControlC4
-    Friend WithEvents UserControlC41 As UserControlC4
-    Friend WithEvents UserControlF43 As UserControlF4
-    Friend WithEvents UserControlF41 As UserControlF4
+    Friend WithEvents UserControlC_0 As UserControlC4
+    Friend WithEvents UserControlC_1 As UserControlC4
+    Friend WithEvents UserControlC_2 As UserControlC4
+    Friend WithEvents UserControlC_3 As UserControlC4
+    Friend WithEvents UserControlF_0 As UserControlF4
+    Friend WithEvents UserControlF_1 As UserControlF4
     Friend WithEvents Label9 As Label
     Friend WithEvents UserControlP1 As UserControlP_Even
     Friend WithEvents UserControlP2 As UserControlP_Odd
