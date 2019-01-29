@@ -65,6 +65,12 @@ Public Class BinaryDataControl
             UserControlC4_1.CurrentErrorMessage = Me.CurrentErrorMessage
             UserControlC4_0.CurrentErrorMessage = Me.CurrentErrorMessage
 
+            ''Added 1/29/2019 td
+            UserControlC4_3.NextOneToTheRight = UserControlC4_2
+            UserControlC4_2.NextOneToTheRight = UserControlC4_1
+            UserControlC4_1.NextOneToTheRight = UserControlC4_0
+            UserControlC4_0.NextOneToTheRight = Nothing
+
             ''Added 1/28/2019 td
             UpdateParityControls()
 

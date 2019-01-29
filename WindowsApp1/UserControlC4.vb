@@ -7,6 +7,13 @@ Public Class UserControlC4
 
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
 
+    Public NextOneToTheRight As UserControlC4 ''Added 1/29/2019 thomas downes
+    Public PushOutToTheRight As Long ''Added 1/29/2019 thomas downes
+    Public ReceivedFromTheLeft As Long ''Added 1/29/2019 thomas downes
+    Public JustForMe_Actual As Long ''Added 1/29/2019 thomas downes
+    Public JustForMe_Under16 As Int16 ''Added 1/29/2019 thomas downes
+    Public Binary1111 As String ''Added 1/29/2019 thomas downes
+
     Private _currentErrorMessage As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
 
     Private _intPowerOf16 As Integer = 0 ''Added 1/28/2019 td
@@ -145,6 +152,13 @@ Public Class UserControlC4
         End Set
     End Property
 
+    Public Function PowerOf16_Calculated() As Long
+
+        ''Added 1/29/2019 td 
+        Return CLng(16 ^ _intPowerOf16)
+
+    End Function ''End of "Public Function PowerOf16_Calculated() As Long"
+
     Public Overrides Function ToString() As String
         ''Return MyBase.ToString()
 
@@ -158,5 +172,28 @@ Public Class UserControlC4
         Return strOutput
 
     End Function ''End of "Public Overrides Function ToString() As String"
+
+    Public Sub PopulateTextboxes(par_strBinary1111 As String)
+
+        ''Added 1/29/2019 td 
+        ''
+        ''
+        Dim boolSuspicious As Boolean
+        Dim boolWrongLength As Boolean
+        Dim boolWrongDigits As Boolean
+
+        boolWrongLength = (par_strBinary1111.Length <> 4)
+        boolWrongDigits = ("" <> par_strBinary1111.Replace("0", "").Replace("1", ""))
+        boolSuspicious = (boolWrongLength Or boolWrongDigits)
+        ''If (boolSuspicious) Then Me.CurrentErrorMessage.Append("Wrong length or wrong digits!")
+        If (boolSuspicious) Then Me.ErrorMessageBuilder.AppendLine("Wrong length or wrong digits!")
+        If (boolSuspicious) Then System.Diagnostics.Debugger.Break()
+
+        UserControlC3.BinaryValue = par_strBinary1111.Substring(0, 1)
+        UserControlC2.BinaryValue = par_strBinary1111.Substring(1, 1)
+        UserControlC1.BinaryValue = par_strBinary1111.Substring(2, 1)
+        UserControlC0.BinaryValue = par_strBinary1111.Substring(3, 1)
+
+    End Sub ''ENd of " Public Sub PopulateTextboxes(par_strBinary1111 As String)"
 
 End Class
