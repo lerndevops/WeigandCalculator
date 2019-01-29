@@ -96,7 +96,7 @@ Public Class UserControlC4
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
     Description("Card Number"),
     Browsable(True)>
-    Public Property CardNumber() As String
+    Public Property CardNumber_NotInUse() As String
         Get
             Return _longCardNumber.ToString()
         End Get

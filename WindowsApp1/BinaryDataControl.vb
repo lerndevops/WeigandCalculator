@@ -12,6 +12,7 @@ Public Class BinaryDataControl
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
     Public CurrentErrorMessage As System.Text.StringBuilder ''String ''Added 1/29/2019 thomas downes
 
+    Private _classCardNumber As ClassCardNumber ''Added 1/29/2019 td  
     Private _intFacilityCode As Integer ''Added 1/28/2019 td
     Private _longCardNumber As Long ''Added 1/28/2019 td
 
@@ -71,6 +72,12 @@ Public Class BinaryDataControl
             UserControlC4_1.NextOneToTheRight = UserControlC4_0
             UserControlC4_0.NextOneToTheRight = Nothing
 
+            ''Added 1/29/2019 td
+            If (_classCardNumber Is Nothing) Then
+                ''Added 1/29/2019 td
+                _classCardNumber = New ClassCardNumber(UserControlC4_3, UserControlC4_2, UserControlC4_1, UserControlC4_0)
+            End If ''End of "If (_classCardNumber Is Nothing) Then"
+
             ''Added 1/28/2019 td
             UpdateParityControls()
 
@@ -95,10 +102,11 @@ Public Class BinaryDataControl
             UserControlC4_3.PowerOf16 = "3"
 
             ''Propagate to the sub-controls.  
-            UserControlC4_0.CardNumber = _longCardNumber.ToString
-            UserControlC4_1.CardNumber = _longCardNumber.ToString
-            UserControlC4_2.CardNumber = _longCardNumber.ToString
-            UserControlC4_3.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''UserControlC4_0.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''UserControlC4_1.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''UserControlC4_2.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''UserControlC4_3.CardNumber = _longCardNumber.ToString
+            _classCardNumber.CardNumber = value ''_longCardNumber
 
             ''Added 1/28/2019 td
             UpdateParityControls()
@@ -169,11 +177,14 @@ Public Class BinaryDataControl
 
     Public Sub UpdateParityControls()
 
+        ''Even Parity Bit
+        ''   --Added 1/28/2019 td
         UserControlParityEven.LongBinaryString =
                 UserControlF4_1.ToString() & UserControlF4_0.ToString() &
                 UserControlC4_3.ToString()
 
-        ''Added 1/28/2019 td
+        ''Odd Parity Bit
+        ''  --Added 1/28/2019 td
         UserControlParityOdd.LongBinaryString =
                 UserControlC4_2.ToString() & UserControlC4_1.ToString() &
                 UserControlC4_0.ToString()

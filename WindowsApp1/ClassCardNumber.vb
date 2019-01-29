@@ -32,10 +32,10 @@ Public Class ClassCardNumber
 
             ''Propagate to the sub-controls.
             ''
-            ControlC4_4096.CardNumber = _longCardNumber.ToString
-            ControlC4__256.CardNumber = _longCardNumber.ToString
-            ControlC4___16.CardNumber = _longCardNumber.ToString
-            ControlC4____1.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''ControlC4_4096.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''ControlC4__256.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''ControlC4___16.CardNumber = _longCardNumber.ToString
+            ''  Doesn't work well. ---1/29 td''ControlC4____1.CardNumber = _longCardNumber.ToString
 
             ''A new strategy for computation. ---1/29/2019 td 
             ''    ''ControlC4_4096.PushOutToTheRight = (_longCardNumber Mod 4096)
@@ -47,7 +47,7 @@ Public Class ClassCardNumber
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 4096)
                 .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
-            End With
+            End With ''End of "With ControlC4_4096"
 
             With ControlC4__256
                 .ReceivedFromTheLeft = ControlC4_4096.PushOutToTheRight
@@ -56,7 +56,7 @@ Public Class ClassCardNumber
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 256)
                 .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
-            End With
+            End With ''End of "With ControlC4__256"
 
             ''ControlC4___16.ReceivedFromTheLeft = ControlC4__256.PushOutToTheRight
             ''ControlC4___16.PushOutToTheRight = (ControlC4___16.ReceivedFromTheLeft Mod 16)
@@ -67,7 +67,7 @@ Public Class ClassCardNumber
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 16)
                 .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
-            End With
+            End With ''End of " With ControlC4___16"
 
             ''ControlC4____1.ReceivedFromTheLeft = ControlC4___16.PushOutToTheRight
             ''ControlC4____1.PushOutToTheRight = (ControlC4____1.ReceivedFromTheLeft Mod 1)
@@ -78,7 +78,7 @@ Public Class ClassCardNumber
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 1)
                 .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
-            End With
+            End With ''End of " With ControlC4____1"
 
         End Set
     End Property
