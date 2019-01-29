@@ -13,6 +13,8 @@ Public Class BinaryDataControl
     Public CurrentErrorMessage As System.Text.StringBuilder ''String ''Added 1/29/2019 thomas downes
 
     Private _classCardNumber As ClassCardNumber ''Added 1/29/2019 td  
+    Private Const mc_bUseCardNumberClass As Boolean = True ''1/29 td''False ''Added 1/29/2019 td 
+
     Private _intFacilityCode As Integer ''Added 1/28/2019 td
     Private _longCardNumber As Long ''Added 1/28/2019 td
 
@@ -99,14 +101,25 @@ Public Class BinaryDataControl
             UserControlC4_3.PowerOf16 = "3"
 
             ''Added 1/29/2019 td
-            BuildClassNumberIfNeeded()
+            If (mc_bUseCardNumberClass) Then
 
-            ''Propagate to the sub-controls.  
-            ''  Doesn't work well. ---1/29 td''UserControlC4_0.CardNumber = _longCardNumber.ToString
-            ''  Doesn't work well. ---1/29 td''UserControlC4_1.CardNumber = _longCardNumber.ToString
-            ''  Doesn't work well. ---1/29 td''UserControlC4_2.CardNumber = _longCardNumber.ToString
-            ''  Doesn't work well. ---1/29 td''UserControlC4_3.CardNumber = _longCardNumber.ToString
-            _classCardNumber.CardNumber = value ''_longCardNumber
+                ''Added 1/29/2019 td
+                BuildClassNumberIfNeeded()
+
+                ''Propagate to the sub-controls.  
+                ''  Doesn't work well. ---1/29 td''UserControlC4_0.CardNumber = _longCardNumber.ToString
+                ''  Doesn't work well. ---1/29 td''UserControlC4_1.CardNumber = _longCardNumber.ToString
+                ''  Doesn't work well. ---1/29 td''UserControlC4_2.CardNumber = _longCardNumber.ToString
+                ''  Doesn't work well. ---1/29 td''UserControlC4_3.CardNumber = _longCardNumber.ToString
+                _classCardNumber.CardNumber = value ''_longCardNumber
+
+            Else
+                UserControlC4_0.CardNumber_Deprecated = _longCardNumber.ToString
+                UserControlC4_1.CardNumber_Deprecated = _longCardNumber.ToString
+                UserControlC4_2.CardNumber_Deprecated = _longCardNumber.ToString
+                UserControlC4_3.CardNumber_Deprecated = _longCardNumber.ToString
+
+            End If ''eNd of "If (mc_boolCardNumberClass) Then .... Else ...."
 
             ''Added 1/28/2019 td
             UpdateParityControls()

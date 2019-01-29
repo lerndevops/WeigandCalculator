@@ -96,7 +96,7 @@ Public Class UserControlC4
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
     Description("Card Number"),
     Browsable(True)>
-    Public Property CardNumber_NotInUse() As String
+    Public Property CardNumber_Deprecated() As String
         Get
             Return _longCardNumber.ToString()
         End Get
@@ -150,7 +150,7 @@ Public Class UserControlC4
             UserControlC0.CardNumber = value.ToString
 
         End Set
-    End Property
+    End Property ''End of "Public Property CardNumber_Deprecated() As String"
 
     Public Function PowerOf16_Calculated() As Long
 

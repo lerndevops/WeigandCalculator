@@ -52,14 +52,15 @@ Partial Class UserControlP_Odd
         'LabelOddParityField
         '
         Me.LabelOddParityField.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelOddParityField.AutoSize = True
         Me.LabelOddParityField.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelOddParityField.ForeColor = System.Drawing.Color.Black
-        Me.LabelOddParityField.Location = New System.Drawing.Point(139, 65)
+        Me.LabelOddParityField.Location = New System.Drawing.Point(3, 67)
         Me.LabelOddParityField.Name = "LabelOddParityField"
-        Me.LabelOddParityField.Size = New System.Drawing.Size(120, 20)
+        Me.LabelOddParityField.Size = New System.Drawing.Size(459, 20)
         Me.LabelOddParityField.TabIndex = 26
+        Me.LabelOddParityField.Tag = "Odd Parity Field  ({0} P, there are {1} one-1 digits)"
         Me.LabelOddParityField.Text = "Odd Parity Field"
+        Me.LabelOddParityField.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'UserControlP_Odd
         '

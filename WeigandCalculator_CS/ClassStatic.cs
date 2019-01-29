@@ -194,14 +194,36 @@ namespace WeigandCalculator_CS
             return GetOddParityBit(par_strHugeBinary);
         }
 
+        public static char GetParityBit_Odd(string par_strHugeBinary, ref int pref_intNumOnes)
+        {
+            //Added 1/28/2019 td
+            return GetOddParityBit(par_strHugeBinary, ref pref_intNumOnes);
+        }
+
+        //public static char GetParityBit_Even(string par_strHugeBinary) // , ref int pref_intNumOnes)
+        //{
+        //    //Added 1/28/2019 td
+        //    return GetEvenParityBit(par_strHugeBinary);
+        //}
+
+        public static char GetParityBit_Even(string par_strHugeBinary, ref int pref_intNumOnes)
+        {
+            //Added 1/28/2019 td
+            return GetEvenParityBit(par_strHugeBinary, ref pref_intNumOnes);
+        }
+
         public static char GetParityBit_Even(string par_strHugeBinary)
         {
             //Added 1/28/2019 td
-            return GetEvenParityBit(par_strHugeBinary);
+            int int_dummy = 0; 
+
+            return GetEvenParityBit(par_strHugeBinary, ref int_dummy);
         }
 
-        public static char GetEvenParityBit(string par_strHugeBinary)
+        public static char GetEvenParityBit(string par_strHugeBinary, ref int pref_intNumOnes)
         {
+            //  1/29 td''public static char GetEvenParityBit(string par_strHugeBinary)
+            //
             //
             //Added 1/28/2019 td
             //
@@ -220,6 +242,9 @@ namespace WeigandCalculator_CS
             bool boolEvenNumber;
             boolEvenNumber = (0 == (intNumberOfOnes % 2));
 
+            //Added 1/29/2019 thomas downes
+            pref_intNumOnes = (intNumberOfOnes + (int)(boolEvenNumber ? 0 : 1));
+
             //If the number of "1"s is 122 (intNumberOfOnes = 122, for example), then
             //   __zero(0) more__ "1"s are needed (to create an even-numbered set of 1s). 
             //
@@ -231,6 +256,16 @@ namespace WeigandCalculator_CS
         }
 
         public static char GetOddParityBit(string par_strHugeBinary)
+        {
+            //
+            //Added 1/29/2019 td
+            //
+            int int_dummy = 0;
+            return GetOddParityBit(par_strHugeBinary, ref int_dummy);
+
+        }
+
+        public static char GetOddParityBit(string par_strHugeBinary, ref int pref_intNumOnes)
         {
             //
             //Added 1/28/2019 td
@@ -245,10 +280,14 @@ namespace WeigandCalculator_CS
             //
             //return (GetEvenParityBit(par_strHugeBinary) == '0' ? '1' : '0');
 
-            int intNumberOfOnes;
+            int intNumberOfOnes = 0;
+            bool boolOddNumber = false;
+
             intNumberOfOnes = GetNumberOfDigit1s(par_strHugeBinary);
 
-            bool boolOddNumber;
+            //Added 1/29/2019 thomas downes
+            pref_intNumOnes = (intNumberOfOnes + (int)(boolOddNumber ? 0 : 1));
+
             boolOddNumber = (1 == (intNumberOfOnes % 2));
             return (boolOddNumber ? '0' : '1');
 

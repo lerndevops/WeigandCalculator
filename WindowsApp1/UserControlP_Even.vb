@@ -19,7 +19,7 @@ Public Class UserControlP_Even
     ''End Property
 
     Private _intBinaryValue As Integer ''ADded 1/28/2019 td 
-    Private _strLongBinaryString As String ''ADded 1/28/2019 td 
+    Private _strLongBinaryString As String = "" ''Added 1/28/2019 td 
 
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
   Description("Sequential position (0-based) counting from the right."),
@@ -44,9 +44,18 @@ Public Class UserControlP_Even
         End Get
         Set(value As String)
             ''Dim int_Result As Integer
+            Dim intNumOnes As Integer = 0 ''Added 1/29/2019 thomas downes  
+            Dim str_out As String = "out" ''Added 1/29/2019 thomas downes  
+
             _strLongBinaryString = value
-            TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Even(_strLongBinaryString)
+            ''1/29/2019 td''TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Even(_strLongBinaryString)
+            TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Even(_strLongBinaryString, intNumOnes)
             _intBinaryValue = Integer.Parse(TextBox1.Text) ''Added 1/29/2019 td
+
+            ''Add "with" or "without" to  the label caption.   --- 1/29/2019 td
+            str_out = IIf("1" = TextBox1.Text, "with", "without").ToString() ''Added 1/29/2019 td
+            LabelEvenParityField.Text = String.Format(LabelEvenParityField.Tag.ToString(), str_out, intNumOnes)
+
         End Set
     End Property
 

@@ -105,6 +105,7 @@ Partial Class BinaryDataControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.UserControlC4_0)
         Me.Controls.Add(Me.UserControlC4_1)
         Me.Controls.Add(Me.UserControlC4_2)
@@ -115,7 +116,7 @@ Partial Class BinaryDataControl
         Me.Controls.Add(Me.UserControlParityEven)
         Me.Controls.Add(Me.UserControlParityOdd)
         Me.Name = "BinaryDataControl"
-        Me.Size = New System.Drawing.Size(901, 131)
+        Me.Size = New System.Drawing.Size(899, 125)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
