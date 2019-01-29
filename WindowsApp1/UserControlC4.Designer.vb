@@ -22,19 +22,19 @@ Partial Class UserControlC4
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.UserControlC1 = New WindowsApp1.UserControlC()
-        Me.UserControlC2 = New WindowsApp1.UserControlC()
         Me.UserControlC3 = New WindowsApp1.UserControlC()
-        Me.UserControlC5 = New WindowsApp1.UserControlC()
+        Me.UserControlC2 = New WindowsApp1.UserControlC()
+        Me.UserControlC1 = New WindowsApp1.UserControlC()
+        Me.UserControlC0 = New WindowsApp1.UserControlC()
         Me.SuspendLayout()
         '
-        'UserControlC1
+        'UserControlC3
         '
-        Me.UserControlC1.BackColor = System.Drawing.Color.DarkRed
-        Me.UserControlC1.Location = New System.Drawing.Point(1, 3)
-        Me.UserControlC1.Name = "UserControlC1"
-        Me.UserControlC1.Size = New System.Drawing.Size(39, 54)
-        Me.UserControlC1.TabIndex = 0
+        Me.UserControlC3.BackColor = System.Drawing.Color.DarkRed
+        Me.UserControlC3.Location = New System.Drawing.Point(1, 3)
+        Me.UserControlC3.Name = "UserControlC3"
+        Me.UserControlC3.Size = New System.Drawing.Size(39, 54)
+        Me.UserControlC3.TabIndex = 0
         '
         'UserControlC2
         '
@@ -44,38 +44,38 @@ Partial Class UserControlC4
         Me.UserControlC2.Size = New System.Drawing.Size(39, 54)
         Me.UserControlC2.TabIndex = 1
         '
-        'UserControlC3
+        'UserControlC1
         '
-        Me.UserControlC3.BackColor = System.Drawing.Color.DarkRed
-        Me.UserControlC3.Location = New System.Drawing.Point(62, 3)
-        Me.UserControlC3.Name = "UserControlC3"
-        Me.UserControlC3.Size = New System.Drawing.Size(39, 54)
-        Me.UserControlC3.TabIndex = 2
+        Me.UserControlC1.BackColor = System.Drawing.Color.DarkRed
+        Me.UserControlC1.Location = New System.Drawing.Point(62, 3)
+        Me.UserControlC1.Name = "UserControlC1"
+        Me.UserControlC1.Size = New System.Drawing.Size(39, 54)
+        Me.UserControlC1.TabIndex = 2
         '
-        'UserControlC5
+        'UserControlC0
         '
-        Me.UserControlC5.BackColor = System.Drawing.Color.DarkRed
-        Me.UserControlC5.Location = New System.Drawing.Point(93, 3)
-        Me.UserControlC5.Name = "UserControlC5"
-        Me.UserControlC5.Size = New System.Drawing.Size(39, 54)
-        Me.UserControlC5.TabIndex = 3
+        Me.UserControlC0.BackColor = System.Drawing.Color.DarkRed
+        Me.UserControlC0.Location = New System.Drawing.Point(93, 3)
+        Me.UserControlC0.Name = "UserControlC0"
+        Me.UserControlC0.Size = New System.Drawing.Size(39, 54)
+        Me.UserControlC0.TabIndex = 3
         '
         'UserControlC4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.UserControlC5)
-        Me.Controls.Add(Me.UserControlC3)
-        Me.Controls.Add(Me.UserControlC2)
+        Me.Controls.Add(Me.UserControlC0)
         Me.Controls.Add(Me.UserControlC1)
+        Me.Controls.Add(Me.UserControlC2)
+        Me.Controls.Add(Me.UserControlC3)
         Me.Name = "UserControlC4"
         Me.Size = New System.Drawing.Size(132, 59)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents UserControlC1 As UserControlC
-    Friend WithEvents UserControlC2 As UserControlC
     Friend WithEvents UserControlC3 As UserControlC
-    Friend WithEvents UserControlC5 As UserControlC
+    Friend WithEvents UserControlC2 As UserControlC
+    Friend WithEvents UserControlC1 As UserControlC
+    Friend WithEvents UserControlC0 As UserControlC
 End Class

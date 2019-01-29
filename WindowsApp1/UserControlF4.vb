@@ -65,6 +65,12 @@ Public Class UserControlF4
             _intMultiplicandOf2 = CInt(Math.Floor((_longMultiplicand_Clean - 8 * _intMultiplicandOf8 - 4 * _intMultiplicandOf4) / 2))
             _intMultiplicandOf1 = CInt(Math.Floor((_longMultiplicand_Clean - 8 * _intMultiplicandOf8 - 4 * _intMultiplicandOf4 - 2 * _intMultiplicandOf2) / 1))
 
+            ''Added 1/28/2019 td  
+            UserControlF3.BinaryValue = _intMultiplicandOf8.ToString
+            UserControlF2.BinaryValue = _intMultiplicandOf4.ToString
+            UserControlF1.BinaryValue = _intMultiplicandOf2.ToString
+            UserControlF0.BinaryValue = _intMultiplicandOf1.ToString
+
         End Set
     End Property
 
