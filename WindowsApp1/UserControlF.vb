@@ -19,10 +19,16 @@ Public Class UserControlF
         Set(value As String)
             ''Dim int_Result As Integer
             Integer.TryParse(value, _intBinaryValue)
+            TextBox1.Text = _intBinaryValue.ToString
         End Set
     End Property
 
+    Public Overrides Function ToString() As String
+        ''Return MyBase.ToString()
 
+        Return _intBinaryValue.ToString
+
+    End Function ''End of "Public Overrides Function ToString() As String"
 
 
 

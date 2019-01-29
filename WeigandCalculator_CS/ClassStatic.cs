@@ -99,7 +99,7 @@ namespace WeigandCalculator_CS
             int intPowerOf2 = (-1 + strHuge.Length);
             long longPowerOf2_calculated = 0;
             long multiplicand = 0;
-            bool boolNext = false; 
+            bool boolNext = false;
 
             //var binary = System.Convert.ToString(huge, 2);
             //return binary.ToString();
@@ -124,7 +124,7 @@ namespace WeigandCalculator_CS
             //Added 1/28/2019  thomas downes 
             //string strHuge = "0b11001011100000110011110111";
             string strHuge = par_strHugeBinary;
-            
+
             strHuge = strHuge.Replace("0b", "");
             strHuge = strHuge.Replace(" ", "");
             strHuge = strHuge.Replace("-", "");
@@ -175,13 +175,25 @@ namespace WeigandCalculator_CS
             if (lengthOfTempOutput < par_lengthOfString)
             {
                 while (strTempOutput.Length < par_lengthOfString) strTempOutput = ("0" + strTempOutput);
-                return strTempOutput; 
+                return strTempOutput;
             }
             else
             {
                 return strTempOutput;
             }
 
+        }
+
+        public static char GetParityBit_Odd(string par_strHugeBinary)
+        {
+            //Added 1/28/2019 td
+            return GetOddParityBit(par_strHugeBinary);
+        }
+
+        public static char GetParityBit_Even(string par_strHugeBinary)
+        {
+            //Added 1/28/2019 td
+            return GetEvenParityBit(par_strHugeBinary);
         }
 
         public static char GetEvenParityBit(string par_strHugeBinary)
@@ -253,7 +265,7 @@ namespace WeigandCalculator_CS
             strHugeBinary_NoZeros = strHuge.Replace("0", "");
             int intNumberOfOnes;
             intNumberOfOnes = strHugeBinary_NoZeros.Length;
-            return intNumberOfOnes; 
+            return intNumberOfOnes;
 
         }
 

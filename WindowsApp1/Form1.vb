@@ -18,10 +18,11 @@ Public Class Form1
 
         strLongBinary &= "..."
 
+        BinaryDataControl1.CardNumber = txtCardCode_Dec_Start.Text
+        BinaryDataControl1.FacilityCode = txtFacility_Dec.Text
 
-
-
-
+        txtRawData_Dec.Text = BinaryDataControl1.GetDecimalValue().ToString
+        txtRawData_Hex.Text = ""
 
     End Sub
 

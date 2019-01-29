@@ -41,7 +41,8 @@ Public Class UserControlC4
             ''Dim int_Result As Integer
             Long.TryParse(value, _longCardNumber)
 
-            _longMultiplicand_Raw = CLng(_longCardNumber / (16 ^ CLng(_intPowerOf16)))
+            ''1/28 td''_longMultiplicand_Raw = CLng(_longCardNumber / (16 ^ CLng(_intPowerOf16)))
+            _longMultiplicand_Raw = CLng(Math.Floor(_longCardNumber / (16 ^ CLng(_intPowerOf16))))
 
             ''
             ''Remove the next-higher power of 16, since the next-higher power of 16 is __NOT__ displayed in this control.   
@@ -50,7 +51,9 @@ Public Class UserControlC4
             ''We do this by using the Mod operator (Mod = Modulus).
             ''  https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/mod-operator
             ''
-            _longMultiplicand_Clean = CLng(_longMultiplicand_Raw Mod (16 ^ CLng(1 + _intPowerOf16)))
+            ''#1 1/28 td''_longMultiplicand_Clean = CLng(_longMultiplicand_Raw Mod (16 ^ CLng(1 + _intPowerOf16)))
+            '' #2 1/28 td''_longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (16 ^ CLng(1 + _intPowerOf16))))
+            _longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (2 * (16 ^ CLng(_intPowerOf16)))))
 
             ''Added 1/28/2019 td  
             ''_intMultiplicandOf8 = CInt(Math.Floor(_longMultiplicand_Clean / 8))
@@ -70,5 +73,19 @@ Public Class UserControlC4
 
         End Set
     End Property
+
+    Public Overrides Function ToString() As String
+        ''Return MyBase.ToString()
+
+        Dim strOutput As String = ""
+
+        strOutput = UserControlC3.ToString()
+        strOutput &= ("" & UserControlC2.ToString())
+        strOutput &= ("" & UserControlC1.ToString())
+        strOutput &= ("" & UserControlC0.ToString())
+
+        Return strOutput
+
+    End Function ''End of "Public Overrides Function ToString() As String"
 
 End Class

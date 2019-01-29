@@ -19,9 +19,20 @@ Public Class UserControlC
         Set(value As String)
             ''Dim int_Result As Integer
             Integer.TryParse(value, _intBinaryValue)
+            TextBox1.Text = _intBinaryValue.ToString
+
+            ''Added 1/28/2018 thomas downes 
+            If (value = "8") Then System.Diagnostics.Debugger.Break()
+            If (_intBinaryValue > 1) Then System.Diagnostics.Debugger.Break()
+
         End Set
     End Property
 
+    Public Overrides Function ToString() As String
+        ''Return MyBase.ToString()
 
+        Return _intBinaryValue.ToString
+
+    End Function ''End of "Public Overrides Function ToString() As String"
 
 End Class
