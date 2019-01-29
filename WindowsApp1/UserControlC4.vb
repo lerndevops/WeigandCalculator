@@ -80,6 +80,12 @@ Public Class UserControlC4
             UserControlC1.BinaryValue = _intMultiplicandOf2.ToString
             UserControlC0.BinaryValue = _intMultiplicandOf1.ToString
 
+            ''Added 1/28/2019 td  
+            UserControlC3.CardNumber = value.ToString
+            UserControlC2.CardNumber = value.ToString
+            UserControlC1.CardNumber = value.ToString
+            UserControlC0.CardNumber = value.ToString
+
         End Set
     End Property
 

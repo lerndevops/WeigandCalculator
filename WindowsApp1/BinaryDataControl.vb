@@ -12,6 +12,15 @@ Public Class BinaryDataControl
     Private _intFacilityCode As Integer ''Added 1/28/2019 td
     Private _longCardNumber As Long ''Added 1/28/2019 td
 
+    Public Overrides Property Text() As String
+        Get
+            Return Me.ToString() ''Added 1/29/2019 td 
+        End Get
+        Set(value As String)
+            ''Do nothing
+        End Set
+    End Property
+
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
     Description("Facility Code"), Browsable(True)>
     Public Property FacilityCode() As String
