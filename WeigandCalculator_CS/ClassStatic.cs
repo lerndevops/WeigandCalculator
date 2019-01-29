@@ -155,12 +155,107 @@ namespace WeigandCalculator_CS
 
         public static string ConvertLongIntegerToBinaryString(long par_longInteger)
         {
+            //
+            //Added 1/28/2019 td
+            //
             // Example input integer:  int huge = 0b1_10010111_0000011001111011_1; 
             //  Example result:    "11001011100000110011110111"
             return System.Convert.ToString(par_longInteger, 2).ToString();
 
         }
 
+        public static string ConvertLongIntegerToBinaryString(long par_longInteger, int par_lengthOfString)
+        {
+            //
+            //Added 1/28/2019 td
+            //
+            string strTempOutput = ConvertLongIntegerToBinaryString(par_longInteger);
+            int lengthOfTempOutput = strTempOutput.Length;
+
+            if (lengthOfTempOutput < par_lengthOfString)
+            {
+                while (strTempOutput.Length < par_lengthOfString) strTempOutput = ("0" + strTempOutput);
+                return strTempOutput; 
+            }
+            else
+            {
+                return strTempOutput;
+            }
+
+        }
+
+        public static char GetEvenParityBit(string par_strHugeBinary)
+        {
+            //
+            //Added 1/28/2019 td
+            //
+            //string strHuge = par_strHugeBinary;
+            //strHuge = strHuge.Replace("0b", "");
+            //strHuge = strHuge.Replace(" ", "");
+            //strHuge = strHuge.Replace("-", "");
+            //strHuge = strHuge.Replace("_", "");
+
+            //string strHugeBinary_NoZeros;
+            //strHugeBinary_NoZeros = strHuge.Replace("0", "");
+            int intNumberOfOnes;
+            //intNumberOfOnes = strHugeBinary_NoZeros.Length;
+            intNumberOfOnes = GetNumberOfDigit1s(par_strHugeBinary);
+
+            bool boolEvenNumber;
+            boolEvenNumber = (0 == (intNumberOfOnes % 2));
+
+            //If the number of "1"s is 122 (intNumberOfOnes = 122, for example), then
+            //   __zero(0) more__ "1"s are needed (to create an even-numbered set of 1s). 
+            //
+            //If the number of "1"s is 133 (intNumberOfOnes = 133, for example), then
+            //   __one(1) more__ "1" is needed (to create an even-numbered set of 1s). 
+            //
+            return (boolEvenNumber ? '0' : '1');
+
+        }
+
+        public static char GetOddParityBit(string par_strHugeBinary)
+        {
+            //
+            //Added 1/28/2019 td
+            //
+            //Reverse the parity bit.  
+            //
+            //If the number of "1"s is 133 (intNumberOfOnes = 133, for example), then
+            //   __zero(0) more__ "1"s are needed (to create an odd-numbered set of 1s). 
+            //
+            //If the number of "1"s is 124 (intNumberOfOnes = 124, for example), then
+            //   __one(1) more__ "1" is needed (to create an odd-numbered set of 1s). 
+            //
+            //return (GetEvenParityBit(par_strHugeBinary) == '0' ? '1' : '0');
+
+            int intNumberOfOnes;
+            intNumberOfOnes = GetNumberOfDigit1s(par_strHugeBinary);
+
+            bool boolOddNumber;
+            boolOddNumber = (1 == (intNumberOfOnes % 2));
+            return (boolOddNumber ? '0' : '1');
+
+        }
+
+        private static int GetNumberOfDigit1s(string par_strHugeBinary)
+        {
+            //
+            //Added 1/28/2019 td
+            //
+            string strHuge = par_strHugeBinary;
+            strHuge = strHuge.Replace("0b", "");
+            strHuge = strHuge.Replace(" ", "");
+            strHuge = strHuge.Replace("-", "");
+            strHuge = strHuge.Replace("_", "");
+
+            string strHugeBinary_NoZeros;
+            strHugeBinary_NoZeros = strHuge.Replace("0", "");
+            int intNumberOfOnes;
+            intNumberOfOnes = strHugeBinary_NoZeros.Length;
+            return intNumberOfOnes; 
+
+        }
 
     }
 }

@@ -12,7 +12,9 @@ Public Class Form1
         Dim strLongBinary As String
         ''Dim objClass As New WeigandCalculator_CS.ClassStatic
 
-        strLongBinary = ClassStatic.LongBinaryString
+        ''strLongBinary = ClassStatic.LongBinaryString
+
+        strLongBinary = ClassStatic.ConvertLongIntegerToBinaryString(3)
 
         strLongBinary &= "..."
 
@@ -20,6 +22,10 @@ Public Class Form1
 
 
 
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

@@ -73,6 +73,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryDataControl.Designer.vb">
+      <DependentUpon>BinaryDataControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BinaryDataControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BinaryData_BAK.Designer.vb">
+      <DependentUpon>BinaryData_BAK.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BinaryData_BAK.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -95,8 +107,50 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserControlC.Designer.vb">
+      <DependentUpon>UserControlC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlC.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlC4.Designer.vb">
+      <DependentUpon>UserControlC4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlC4.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlF.Designer.vb">
+      <DependentUpon>UserControlF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlF.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlF4.Designer.vb">
+      <DependentUpon>UserControlF4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlF4.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlP_Odd.Designer.vb">
+      <DependentUpon>UserControlP_Odd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlP_Odd.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlP_Even.Designer.vb">
+      <DependentUpon>UserControlP_Even.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlP_Even.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BinaryDataControl.resx">
+      <DependentUpon>BinaryDataControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinaryData_BAK.resx">
+      <DependentUpon>BinaryData_BAK.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +159,24 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlC.resx">
+      <DependentUpon>UserControlC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlC4.resx">
+      <DependentUpon>UserControlC4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlF.resx">
+      <DependentUpon>UserControlF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlF4.resx">
+      <DependentUpon>UserControlF4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlP_Even.resx">
+      <DependentUpon>UserControlP_Even.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlP_Odd.resx">
+      <DependentUpon>UserControlP_Odd.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
