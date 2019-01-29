@@ -51,14 +51,15 @@ Module modConvertDecToHex ''Added 1/29/2019 td
             ''Added 7/04/2016 Thomas Downes
             If (Not IsNumeric(pstrDecimal)) Then
                 pstrErrMessage = "A non-decimal digit is encoutered, """ & strDecimalDigit & """."
-                Exit Function
-            End If
+                ''1/29 td''Exit Function
+                Return pstrErrMessage
+            End If ''End of "If (Not IsNumeric(pstrDecimal)) Then"
 
             ''Added 7/04/2016 Thomas Downes
             If (strDecimalDigit = "0" And strRunningTotalHex <> "") Then
                 ''This calculation will not affect the running total.
                 GoTo Skip_GoToNextLoop
-            End If
+            End If ''End of "If (strDecimalDigit = "0" And strRunningTotalHex <> "") Then"
 
             strHex_Temp = GiveHexOfPowerOf10_TimesN(intPowerOf10, CInt(strDecimalDigit), pstrErrMessage)
 
@@ -67,7 +68,8 @@ Module modConvertDecToHex ''Added 1/29/2019 td
                 ''Don't return any values other than the error message.
                 strHex_Temp = ""
                 ConvertDecToHex = ""
-                Exit Function
+                ''1/29 td''Exit Function
+                Return "]]]]]]]]]]]]]]]]]]]]]]]]]]"
 
             ElseIf (strRunningTotalHex = "") Then
 
@@ -277,7 +279,10 @@ Skip_GoToNextLoop:
             ''Initialize the array.
             '7/3/2016'static_intLBound = pintPowerOf10
             '7/3/2016'ReDim arrayPowersOf10_Hex(static_intLBound To pintPowerOf10)
-            ReDim arrayPowersOf10_Hex(static_intLBound To static_intLBound)
+            ''1/29/2019 td''ReDim arrayPowersOf10_Hex(static_intLBound To static_intLBound)
+            Dim intUBound_Temp As Integer = static_intLBound ''Added 1/29/2019 td
+            ReDimArrayPowersOf10_Hex_Refresh(static_intLBound, intUBound_Temp) ''1/29 td''pintPowerOf10)
+
             '7/3/2016'boolMustCalculate = True
             '7/3/2016'boolMustCalculate = (pintPowerOf10 >= static_intLBound)
             arrayPowersOf10_Hex(static_intLBound) =
@@ -327,7 +332,8 @@ Skip_GoToNextLoop:
                 boolMustRedim = boolArraySizeError
 
                 If (boolMustRedim) Then
-                    ReDim Preserve arrayPowersOf10_Hex(static_intLBound To pintPowerOf10)
+                    ''1/29/2019 td''ReDim Preserve arrayPowersOf10_Hex(static_intLBound To pintPowerOf10)
+                    ReDimArrayPowersOf10_Hex_Preserve(static_intLBound, pintPowerOf10)
                 End If ''End of "If (boolMustRedim) Then"
                 boolMustCalculate = True
 
@@ -514,7 +520,8 @@ Skip_GoToNextLoop:
 
         If (boolUnequalLengths) Then
             pstrErrMessage = "Hex strings are unequal in length."
-            Exit Function
+            ''1/29/2019 td''Exit Function
+            Return "áááááááááááááááááááá"
         End If ''End of "If (boolUnequalLengths) Then"
 
         For intCharIndex = Len(pstrHex1) To 1 Step -1
@@ -603,10 +610,12 @@ Skip_GoToNextLoop:
         Dim intIndexCombined As Integer
 
         If (pstrHexDigit1 = " " Or pstrHexDigit2 = " ") Then
+            AddHexDigits_ByArrays = "" ''Added 1/29/2019 td
             If (pstrHexDigit1 = " ") Then AddHexDigits_ByArrays = pstrHexDigit2
             If (pstrHexDigit2 = " ") Then AddHexDigits_ByArrays = pstrHexDigit1
-            Exit Function
-        End If
+            ''1/29 td''Exit Function
+            Return AddHexDigits_ByArrays
+        End If ''End of "If (pstrHexDigit1 = " " Or pstrHexDigit2 = " ") Then"
 
         ReDim arrayHexDigs(0 To 15)
 
@@ -635,7 +644,8 @@ Skip_GoToNextLoop:
         If (Not boolMatched1) Then
             Beep()
             pstrErrMessage = "#1 The digit """ & pstrHexDigit1 & """ is not recognized. (AddHexDigits_ByArrays)  "
-            Exit Function
+            ''1/29 td''Exit Function
+            Return pstrErrMessage
         End If ''End of "If (Not boolMatched1) Then"
 
         intIndexCombined = intIndex1 ''Initialize.
@@ -703,5 +713,82 @@ Skip_GoToNextLoop:
         End If ''End of "If (Len(strSumOfHex) = 1) Then ... Else ..."
 
     End Function ''Private Function AddHexDigits_CInt
+
+    Private Sub ReDimArrayPowersOf10_Hex_Refresh(par_intLBound As Integer, par_intUBound As Integer)
+        ''
+        ''Added 1/29/2019 thomas downes  
+        ''
+        ''1/29/2019 td''ReDim arrayPowersOf10_Hex(static_intLBound To static_intLBound)
+        ''1/29/2019 td''ReDimArrayPowersOf10_Hex(static_intLBound, static_intUBound)
+
+        Const c_boolRefreshArray As Boolean = True
+        Dim boolPreserveValues As Boolean = (Not c_boolRefreshArray)
+
+        ReDimArrayPowersOf10_Hex(par_intLBound, par_intUBound, boolPreserveValues)
+
+        ''If (c_boolRefreshArray) Then
+        ''    ReDim arrayPowersOf10_Hex(par_intUBound)
+        ''Else
+        ''    ReDim Preserve arrayPowersOf10_Hex(par_intUBound)
+        ''End If ''End of "If (c_boolRefreshArray) Then"
+
+        ''''
+        ''''Below the lower bound, fill with garbage / non-integer values.   ---1/29/2019 td
+        ''''
+        ''For intEach As Integer = 0 To (-1 + par_intLBound)
+
+        ''    ''Fill these strings with nonsense / garbage characters.  ---1/29/2019 td
+        ''    arrayPowersOf10_Hex(intEach) = "@@@@@@@@"
+
+        ''Next intEach
+
+    End Sub ''eND OF "Private Sub ReDimArrayPowersOf10_Hex_Refresh()"
+
+    Private Sub ReDimArrayPowersOf10_Hex_Preserve(par_intLBound As Integer, par_intUBound As Integer)
+        ''
+        ''Added 1/29/2019 thomas downes  
+        ''
+        ''1/29/2019 td''ReDim arrayPowersOf10_Hex(static_intLBound To static_intLBound)
+        ''1/29/2019 td''ReDimArrayPowersOf10_Hex(static_intLBound, static_intUBound)
+
+        Const c_boolPreserveValues As Boolean = False ''(Not c_boolRefreshArray)
+
+        ReDimArrayPowersOf10_Hex(par_intLBound, par_intUBound, c_boolPreserveValues)
+
+        ''ReDim arrayPowersOf10_Hex(par_intUBound)
+
+        ''For intEach As Integer = 0 To (-1 + par_intLBound)
+
+        ''    ''Fill these strings with nonsense / garbage characters.
+        ''    arrayPowersOf10_Hex(intEach) = "+++++++++++++++++++++"
+
+        ''Next intEach
+
+    End Sub ''eND OF "Private Sub ReDimArrayPowersOf10_Hex()"
+
+    Private Sub ReDimArrayPowersOf10_Hex(par_intLBound As Integer, par_intUBound As Integer, par_boolPreserveValues As Boolean)
+        ''
+        ''Added 1/29/2019 thomas downes  
+        ''
+        ''1/29/2019 td''ReDim arrayPowersOf10_Hex(static_intLBound To static_intLBound)
+        ''1/29/2019 td''ReDimArrayPowersOf10_Hex(static_intLBound, static_intUBound)
+
+        If (par_boolPreserveValues) Then
+            ReDim Preserve arrayPowersOf10_Hex(par_intUBound)
+        Else
+            ReDim arrayPowersOf10_Hex(par_intUBound)
+        End If ''End of "If (c_boolRefreshArray) Then"
+
+        ''
+        ''Below the lower bound, fill with garbage / non-integer values.   ---1/29/2019 td
+        ''
+        For intEach As Integer = 0 To (-1 + par_intLBound)
+
+            ''Fill these strings with nonsense / garbage characters.  ---1/29/2019 td
+            arrayPowersOf10_Hex(intEach) = "@@@@@@@@"
+
+        Next intEach
+
+    End Sub ''eND OF "Private Sub ReDimArrayPowersOf10_Hex()"
 
 End Module
