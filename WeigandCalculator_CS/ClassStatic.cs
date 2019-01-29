@@ -235,15 +235,24 @@ namespace WeigandCalculator_CS
 
             //string strHugeBinary_NoZeros;
             //strHugeBinary_NoZeros = strHuge.Replace("0", "");
-            int intNumberOfOnes;
+            int intNumberOfOnes = 0;
+            bool boolEvenNumber = false;
+            bool boolParityBitMustBe1 = false; // Added 1/29/2019 td
+
             //intNumberOfOnes = strHugeBinary_NoZeros.Length;
             intNumberOfOnes = GetNumberOfDigit1s(par_strHugeBinary);
 
-            bool boolEvenNumber;
             boolEvenNumber = (0 == (intNumberOfOnes % 2));
+            boolParityBitMustBe1 = (false == boolEvenNumber);
 
             //Added 1/29/2019 thomas downes
-            pref_intNumOnes = (intNumberOfOnes + (int)(boolEvenNumber ? 0 : 1));
+            //   Note the number of non-Parity-positive bits, 
+            //   and add the value of 1 if the Boolean is False, 
+            //   because a positive-value Parity bit will be 
+            //   needeed.---1/29/2019 td  
+            //
+            //pref_intNumOnes = (intNumberOfOnes + (int)(boolEvenNumber ? 0 : 1));
+            pref_intNumOnes = (intNumberOfOnes + (int)(boolParityBitMustBe1 ? 1 : 0));
 
             //If the number of "1"s is 122 (intNumberOfOnes = 122, for example), then
             //   __zero(0) more__ "1"s are needed (to create an even-numbered set of 1s). 
@@ -251,7 +260,8 @@ namespace WeigandCalculator_CS
             //If the number of "1"s is 133 (intNumberOfOnes = 133, for example), then
             //   __one(1) more__ "1" is needed (to create an even-numbered set of 1s). 
             //
-            return (boolEvenNumber ? '0' : '1');
+            //return (boolEvenNumber ? '0' : '1');
+            return (boolParityBitMustBe1 ? '1' : '0');
 
         }
 
@@ -282,14 +292,18 @@ namespace WeigandCalculator_CS
 
             int intNumberOfOnes = 0;
             bool boolOddNumber = false;
+            bool boolParityBitMustBe1 = false; // Added 1/29/2019 td
 
             intNumberOfOnes = GetNumberOfDigit1s(par_strHugeBinary);
+            boolOddNumber = (1 == (intNumberOfOnes % 2));
+            boolParityBitMustBe1 = (false == boolOddNumber);
 
             //Added 1/29/2019 thomas downes
-            pref_intNumOnes = (intNumberOfOnes + (int)(boolOddNumber ? 0 : 1));
+            //pref_intNumOnes = (intNumberOfOnes + (int)(boolOddNumber ? 0 : 1));
+            pref_intNumOnes = (intNumberOfOnes + (int)(boolParityBitMustBe1 ? 1 : 0));
 
-            boolOddNumber = (1 == (intNumberOfOnes % 2));
-            return (boolOddNumber ? '0' : '1');
+            //return (boolOddNumber ? '0' : '1');
+            return (boolParityBitMustBe1 ? '1' : '0');
 
         }
 

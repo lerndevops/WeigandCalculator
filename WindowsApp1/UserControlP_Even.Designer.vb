@@ -56,7 +56,7 @@ Partial Class UserControlP_Even
         Me.LabelEvenParityField.Name = "LabelEvenParityField"
         Me.LabelEvenParityField.Size = New System.Drawing.Size(126, 20)
         Me.LabelEvenParityField.TabIndex = 28
-        Me.LabelEvenParityField.Tag = "Even Parity Field  ({0} P, there are {1} one digits)"
+        Me.LabelEvenParityField.Tag = "Even Parity Field  ({0}, there are {1} one digits)"
         Me.LabelEvenParityField.Text = "Even Parity Field"
         '
         'UserControlP_Even

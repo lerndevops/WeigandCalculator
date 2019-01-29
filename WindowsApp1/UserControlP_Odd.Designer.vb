@@ -58,7 +58,7 @@ Partial Class UserControlP_Odd
         Me.LabelOddParityField.Name = "LabelOddParityField"
         Me.LabelOddParityField.Size = New System.Drawing.Size(459, 20)
         Me.LabelOddParityField.TabIndex = 26
-        Me.LabelOddParityField.Tag = "Odd Parity Field  ({0} P, there are {1} one-1 digits)"
+        Me.LabelOddParityField.Tag = "Odd Parity Field  ({0}, there are {1} one-1 digits)"
         Me.LabelOddParityField.Text = "Odd Parity Field"
         Me.LabelOddParityField.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '

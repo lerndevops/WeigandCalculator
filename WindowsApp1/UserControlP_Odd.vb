@@ -50,7 +50,8 @@ Public Class UserControlP_Odd
             _intBinaryValue = Integer.Parse(TextBox1.Text) ''Added 1/29/2019 td
 
             ''Add "with" or "without" to  the label caption.   --- 1/29/2019 td
-            str_out = IIf("1" = TextBox1.Text, "with", "without").ToString() ''Added 1/29/2019 td
+            ''str_out = IIf("1" = TextBox1.Text, "with", "without").ToString() ''Added 1/29/2019 td
+            str_out = IIf("1" = TextBox1.Text, "with P (= 1)", "without P (= 0)").ToString() ''Added 1/29/2019 td
             ''1/29 td''LabelOddParityField.Text = String.Format(LabelOddParityField.Tag.ToString(), "out", intNumOnces)
             LabelOddParityField.Text = String.Format(LabelOddParityField.Tag.ToString(), str_out, intNumOnes)
 

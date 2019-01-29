@@ -46,11 +46,13 @@ Partial Class Form1
         Me.LabelCurrentlyOutputting = New System.Windows.Forms.Label()
         Me.LinkUpdateBinaryData = New System.Windows.Forms.LinkLabel()
         Me.BinaryDataControl1 = New WindowsApp1.BinaryDataControl()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCardCode_Dec_Start
         '
-        Me.txtCardCode_Dec_Start.Location = New System.Drawing.Point(508, 98)
+        Me.txtCardCode_Dec_Start.Location = New System.Drawing.Point(760, 88)
         Me.txtCardCode_Dec_Start.Name = "txtCardCode_Dec_Start"
         Me.txtCardCode_Dec_Start.Size = New System.Drawing.Size(100, 20)
         Me.txtCardCode_Dec_Start.TabIndex = 0
@@ -59,7 +61,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(379, 101)
+        Me.Label1.Location = New System.Drawing.Point(631, 91)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(123, 13)
         Me.Label1.TabIndex = 1
@@ -69,7 +71,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(503, 70)
+        Me.Label2.Location = New System.Drawing.Point(755, 60)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(115, 25)
         Me.Label2.TabIndex = 2
@@ -78,7 +80,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(379, 126)
+        Me.Label3.Location = New System.Drawing.Point(631, 116)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 13)
         Me.Label3.TabIndex = 4
@@ -86,7 +88,7 @@ Partial Class Form1
         '
         'txtCardCode_Dec_End
         '
-        Me.txtCardCode_Dec_End.Location = New System.Drawing.Point(508, 123)
+        Me.txtCardCode_Dec_End.Location = New System.Drawing.Point(760, 113)
         Me.txtCardCode_Dec_End.Name = "txtCardCode_Dec_End"
         Me.txtCardCode_Dec_End.Size = New System.Drawing.Size(100, 20)
         Me.txtCardCode_Dec_End.TabIndex = 3
@@ -96,7 +98,7 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(180, 70)
+        Me.Label5.Location = New System.Drawing.Point(482, 62)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(80, 25)
         Me.Label5.TabIndex = 7
@@ -105,7 +107,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(131, 101)
+        Me.Label6.Location = New System.Drawing.Point(433, 93)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 6
@@ -113,7 +115,7 @@ Partial Class Form1
         '
         'txtFacility_Dec
         '
-        Me.txtFacility_Dec.Location = New System.Drawing.Point(185, 98)
+        Me.txtFacility_Dec.Location = New System.Drawing.Point(487, 90)
         Me.txtFacility_Dec.Name = "txtFacility_Dec"
         Me.txtFacility_Dec.Size = New System.Drawing.Size(100, 20)
         Me.txtFacility_Dec.TabIndex = 5
@@ -190,16 +192,16 @@ Partial Class Form1
         '
         Me.LabelFormHeader1.AutoSize = True
         Me.LabelFormHeader1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelFormHeader1.Location = New System.Drawing.Point(15, 18)
+        Me.LabelFormHeader1.Location = New System.Drawing.Point(417, 9)
         Me.LabelFormHeader1.Name = "LabelFormHeader1"
-        Me.LabelFormHeader1.Size = New System.Drawing.Size(319, 39)
+        Me.LabelFormHeader1.Size = New System.Drawing.Size(479, 39)
         Me.LabelFormHeader1.TabIndex = 17
-        Me.LabelFormHeader1.Text = "Weigand Calculator"
+        Me.LabelFormHeader1.Text = "Weigand Loop by CI Solutions"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(389, 152)
+        Me.Label9.Location = New System.Drawing.Point(641, 142)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(95, 13)
         Me.Label9.TabIndex = 20
@@ -207,7 +209,7 @@ Partial Class Form1
         '
         'txtCardCode_Dec_Curr
         '
-        Me.txtCardCode_Dec_Curr.Location = New System.Drawing.Point(518, 149)
+        Me.txtCardCode_Dec_Curr.Location = New System.Drawing.Point(770, 139)
         Me.txtCardCode_Dec_Curr.Name = "txtCardCode_Dec_Curr"
         Me.txtCardCode_Dec_Curr.Size = New System.Drawing.Size(100, 20)
         Me.txtCardCode_Dec_Curr.TabIndex = 19
@@ -258,25 +260,38 @@ Partial Class Form1
         'LinkUpdateBinaryData
         '
         Me.LinkUpdateBinaryData.AutoSize = True
-        Me.LinkUpdateBinaryData.Location = New System.Drawing.Point(624, 152)
+        Me.LinkUpdateBinaryData.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkUpdateBinaryData.Location = New System.Drawing.Point(353, 177)
         Me.LinkUpdateBinaryData.Name = "LinkUpdateBinaryData"
-        Me.LinkUpdateBinaryData.Size = New System.Drawing.Size(100, 13)
+        Me.LinkUpdateBinaryData.Size = New System.Drawing.Size(149, 20)
         Me.LinkUpdateBinaryData.TabIndex = 25
         Me.LinkUpdateBinaryData.TabStop = True
         Me.LinkUpdateBinaryData.Text = "Update Binary Data"
         '
         'BinaryDataControl1
         '
+        Me.BinaryDataControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.BinaryDataControl1.Location = New System.Drawing.Point(22, 265)
         Me.BinaryDataControl1.Name = "BinaryDataControl1"
         Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 131)
         Me.BinaryDataControl1.TabIndex = 18
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Image = Global.WindowsApp1.My.Resources.Resources.CI_Logo
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 18)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(379, 131)
+        Me.PictureBox1.TabIndex = 26
+        Me.PictureBox1.TabStop = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1080, 682)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.LinkUpdateBinaryData)
         Me.Controls.Add(Me.LabelCurrentlyOutputting)
         Me.Controls.Add(Me.ListBox1)
@@ -302,7 +317,8 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtCardCode_Dec_Start)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Form1 - Weigand Loop by CI Solutions"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -332,4 +348,5 @@ Partial Class Form1
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents LabelCurrentlyOutputting As Label
     Friend WithEvents LinkUpdateBinaryData As LinkLabel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

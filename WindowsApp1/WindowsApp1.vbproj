@@ -208,5 +208,14 @@
       <Name>WeigandCalculator_CS</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CI Logo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\License_Logo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CI_Logo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
