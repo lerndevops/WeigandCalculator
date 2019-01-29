@@ -182,6 +182,12 @@ Public Class UserControlC4
         Dim boolWrongLength As Boolean
         Dim boolWrongDigits As Boolean
 
+        ''Padding with zeros.  
+        If ("0" = par_strBinary1111) Then par_strBinary1111 = "0000" ''Added 1/29/2019
+        If (3 = par_strBinary1111.Length) Then par_strBinary1111 = ("0" & par_strBinary1111) ''Added 1/29/2019
+        If (2 = par_strBinary1111.Length) Then par_strBinary1111 = ("00" & par_strBinary1111) ''Added 1/29/2019
+        If (1 = par_strBinary1111.Length) Then par_strBinary1111 = ("000" & par_strBinary1111) ''Added 1/29/2019
+
         boolWrongLength = (par_strBinary1111.Length <> 4)
         boolWrongDigits = ("" <> par_strBinary1111.Replace("0", "").Replace("1", ""))
         boolSuspicious = (boolWrongLength Or boolWrongDigits)

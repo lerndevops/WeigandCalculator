@@ -73,10 +73,7 @@ Public Class BinaryDataControl
             UserControlC4_0.NextOneToTheRight = Nothing
 
             ''Added 1/29/2019 td
-            If (_classCardNumber Is Nothing) Then
-                ''Added 1/29/2019 td
-                _classCardNumber = New ClassCardNumber(UserControlC4_3, UserControlC4_2, UserControlC4_1, UserControlC4_0)
-            End If ''End of "If (_classCardNumber Is Nothing) Then"
+            BuildClassNumberIfNeeded()
 
             ''Added 1/28/2019 td
             UpdateParityControls()
@@ -100,6 +97,9 @@ Public Class BinaryDataControl
             UserControlC4_1.PowerOf16 = "1"
             UserControlC4_2.PowerOf16 = "2"
             UserControlC4_3.PowerOf16 = "3"
+
+            ''Added 1/29/2019 td
+            BuildClassNumberIfNeeded()
 
             ''Propagate to the sub-controls.  
             ''  Doesn't work well. ---1/29 td''UserControlC4_0.CardNumber = _longCardNumber.ToString
@@ -174,6 +174,16 @@ Public Class BinaryDataControl
         Return strOutput
 
     End Function ''End of Public Function ToString_WithSeparator(pstrDash As String) As String
+
+    Public Sub BuildClassNumberIfNeeded()
+
+        ''Added 1/29/2019 td
+        If (_classCardNumber Is Nothing) Then
+            ''Added 1/29/2019 td
+            _classCardNumber = New ClassCardNumber(UserControlC4_3, UserControlC4_2, UserControlC4_1, UserControlC4_0)
+        End If ''End of "If (_classCardNumber Is Nothing) Then"
+
+    End Sub ''End of "Public Sub BuildClassNumberIfNeeded()"
 
     Public Sub UpdateParityControls()
 
