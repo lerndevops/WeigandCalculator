@@ -29,6 +29,10 @@ Public Class BinaryDataControl
             ''Propagate to the sub-controls.  
             UserControlF4_0.FacilityCode = _intFacilityCode.ToString
             UserControlF4_1.FacilityCode = _intFacilityCode.ToString
+
+            ''Added 1/28/2019 td
+            UpdateParityControls()
+
         End Set
     End Property
 

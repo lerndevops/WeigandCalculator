@@ -53,7 +53,16 @@ Public Class UserControlC4
             ''
             ''#1 1/28 td''_longMultiplicand_Clean = CLng(_longMultiplicand_Raw Mod (16 ^ CLng(1 + _intPowerOf16)))
             '' #2 1/28 td''_longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (16 ^ CLng(1 + _intPowerOf16))))
-            _longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (2 * (16 ^ CLng(_intPowerOf16)))))
+            ''  #3 1/28 td''_longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (2 * (16 ^ CLng(_intPowerOf16)))))
+
+            Select Case _intPowerOf16
+                ''Case 1 : _longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (2 * (16 ^ CLng(_intPowerOf16)))))
+                Case 1 : _longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (2 * (16 ^ CLng(_intPowerOf16)))))
+                Case 0 : _longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod 16))
+                Case Else
+                    _longMultiplicand_Clean = CLng(Math.Floor(_longMultiplicand_Raw Mod (16 ^ CLng(1 + _intPowerOf16))))
+            End Select
+
 
             ''Added 1/28/2019 td  
             ''_intMultiplicandOf8 = CInt(Math.Floor(_longMultiplicand_Clean / 8))

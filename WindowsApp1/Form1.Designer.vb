@@ -26,7 +26,7 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtCardCode_Dec_End = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtFacility_Dec = New System.Windows.Forms.TextBox()
@@ -38,6 +38,8 @@ Partial Class Form1
         Me.txtPadToThisManyHexDigits = New System.Windows.Forms.TextBox()
         Me.LabelOutputHeader = New System.Windows.Forms.Label()
         Me.LabelFormHeader1 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtCardCode_Dec_Curr = New System.Windows.Forms.TextBox()
         Me.BinaryDataControl1 = New WindowsApp1.BinaryDataControl()
         Me.SuspendLayout()
         '
@@ -77,13 +79,13 @@ Partial Class Form1
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Decimal, End of Range:"
         '
-        'TextBox2
+        'txtCardCode_Dec_End
         '
-        Me.TextBox2.Location = New System.Drawing.Point(504, 167)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 3
-        Me.TextBox2.Text = "1737"
+        Me.txtCardCode_Dec_End.Location = New System.Drawing.Point(504, 167)
+        Me.txtCardCode_Dec_End.Name = "txtCardCode_Dec_End"
+        Me.txtCardCode_Dec_End.Size = New System.Drawing.Size(100, 20)
+        Me.txtCardCode_Dec_End.TabIndex = 3
+        Me.txtCardCode_Dec_End.Text = "1737"
         '
         'Label5
         '
@@ -124,9 +126,10 @@ Partial Class Form1
         '
         'txtRawData_Dec
         '
+        Me.txtRawData_Dec.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRawData_Dec.Location = New System.Drawing.Point(219, 267)
         Me.txtRawData_Dec.Name = "txtRawData_Dec"
-        Me.txtRawData_Dec.Size = New System.Drawing.Size(100, 20)
+        Me.txtRawData_Dec.Size = New System.Drawing.Size(100, 26)
         Me.txtRawData_Dec.TabIndex = 11
         Me.txtRawData_Dec.Text = "53348409"
         '
@@ -142,9 +145,10 @@ Partial Class Form1
         '
         'txtRawData_Hex
         '
+        Me.txtRawData_Hex.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRawData_Hex.Location = New System.Drawing.Point(504, 267)
         Me.txtRawData_Hex.Name = "txtRawData_Hex"
-        Me.txtRawData_Hex.Size = New System.Drawing.Size(100, 20)
+        Me.txtRawData_Hex.Size = New System.Drawing.Size(100, 26)
         Me.txtRawData_Hex.TabIndex = 8
         Me.txtRawData_Hex.Text = "032E0839"
         '
@@ -187,6 +191,23 @@ Partial Class Form1
         Me.LabelFormHeader1.TabIndex = 17
         Me.LabelFormHeader1.Text = "Weigand Calculator"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(385, 196)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(95, 13)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "Decimal, Currently:"
+        '
+        'txtCardCode_Dec_Curr
+        '
+        Me.txtCardCode_Dec_Curr.Location = New System.Drawing.Point(514, 193)
+        Me.txtCardCode_Dec_Curr.Name = "txtCardCode_Dec_Curr"
+        Me.txtCardCode_Dec_Curr.Size = New System.Drawing.Size(100, 20)
+        Me.txtCardCode_Dec_Curr.TabIndex = 19
+        Me.txtCardCode_Dec_Curr.Text = "1659"
+        '
         'BinaryDataControl1
         '
         Me.BinaryDataControl1.Location = New System.Drawing.Point(18, 309)
@@ -199,6 +220,8 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(954, 602)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.txtCardCode_Dec_Curr)
         Me.Controls.Add(Me.BinaryDataControl1)
         Me.Controls.Add(Me.LabelFormHeader1)
         Me.Controls.Add(Me.LabelOutputHeader)
@@ -212,7 +235,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtFacility_Dec)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtCardCode_Dec_End)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtCardCode_Dec_Start)
@@ -227,7 +250,7 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtCardCode_Dec_End As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents txtFacility_Dec As TextBox
@@ -240,4 +263,6 @@ Partial Class Form1
     Friend WithEvents LabelOutputHeader As Label
     Friend WithEvents LabelFormHeader1 As Label
     Friend WithEvents BinaryDataControl1 As BinaryDataControl
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtCardCode_Dec_Curr As TextBox
 End Class

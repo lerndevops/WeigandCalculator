@@ -46,6 +46,7 @@ Public Class UserControlP_Even
             ''Dim int_Result As Integer
             _strLongBinaryString = value
             TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Even(_strLongBinaryString)
+            _intBinaryValue = Integer.Parse(TextBox1.Text) ''Added 1/29/2019 td
         End Set
     End Property
 

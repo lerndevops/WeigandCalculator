@@ -43,6 +43,7 @@ Public Class UserControlP_Odd
             ''Dim int_Result As Integer
             _strLongBinaryString = value
             TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Odd(_strLongBinaryString)
+            _intBinaryValue = Integer.Parse(TextBox1.Text) ''Added 1/29/2019 td
         End Set
     End Property
 

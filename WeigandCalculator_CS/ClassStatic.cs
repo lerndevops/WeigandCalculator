@@ -124,6 +124,7 @@ namespace WeigandCalculator_CS
             //Added 1/28/2019  thomas downes 
             //string strHuge = "0b11001011100000110011110111";
             string strHuge = par_strHugeBinary;
+            bool boolNextIteration_NotFirst = false;
 
             strHuge = strHuge.Replace("0b", "");
             strHuge = strHuge.Replace(" ", "");
@@ -140,12 +141,15 @@ namespace WeigandCalculator_CS
 
             foreach (char each_char in strHuge)
             {
-                intPowerOf2 -= 1;
+                //1/29 td''intPowerOf2 -= 1;
+                if (boolNextIteration_NotFirst) intPowerOf2 -= 1;
                 //longPowerOf2_calculated = (2 ^ intPowerOf2);
                 longPowerOf2_calculated = (long)System.Math.Pow(2, intPowerOf2);
                 multiplicand = long.Parse(each_char.ToString());
                 //System.Diagnostics.Debugger.Log(0, "", " ... " + longPowerOf2_calculated.ToString());
                 longSum += (multiplicand * longPowerOf2_calculated);
+                //Prepare for the next iteration. 
+                boolNextIteration_NotFirst = true;
 
             }
 
