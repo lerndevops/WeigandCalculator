@@ -9,7 +9,10 @@ Public Class UserControlC
     ''
     Public CardNumber As String ''Added 1/29/2019 td    
     Public PowerOf16 As Integer ''Added 1/29/2019 td    
+    Public ParentControlName As String ''Added 1/29/2019 td    
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
+    Public Verbose As Boolean ''Added 1/29/2019 td    
+    Public CurrentErrorMessage As String ''Added 1/29/2019 thomas downes
 
     Private _intBinaryValue As Integer
 
@@ -25,7 +28,7 @@ Public Class UserControlC
             Static s_boolRunOnce1 As Boolean
             Static s_boolRunOnce2 As Boolean
             Dim boolShowErrorMessage_Popup As Boolean ''Added 1/29/2019 thomas d. 
-            Dim strErrMessageWithCardNum As String = "" ''Added 1/29/2019 thomas d. 
+            ''1/29 td''Dim strErrMessageWithCardNum As String = "" ''Added 1/29/2019 thomas d. 
             Dim boolStoreErrorMessage_Bldr As Boolean ''Added 1/29/2019 thomas d. 
 
             Integer.TryParse(value, _intBinaryValue)
@@ -41,25 +44,30 @@ Public Class UserControlC
             boolStoreErrorMessage_Bldr = (_intBinaryValue > 1)
             If (boolStoreErrorMessage_Bldr) Then
                 ''Added 1/29/2019 td 
-                strErrMessageWithCardNum = String.Format("A non-binary value has been encountered, for Card Number [{0}], Power-of-16 [{1}]. ({2})",
-                                                         Me.CardNumber, Me.PowerOf16, Me.Name)
+                ''strErrMessageWithCardNum = String.Format("Non-binary value [{0}/{1}], Card Number [{2}], Power-of-16 [{3}]. ({4}/{5})",
+                ''                                       _intBinaryValue, value, Me.CardNumber, Me.PowerOf16, Me.Name, Me.ParentControlName)
+                Me.CurrentErrorMessage = String.Format("Non-binary value [{0}/{1}], Card Number [{2}], Power-of-16 [{3}]. ({4}/{5})",
+                                                         _intBinaryValue, value, Me.CardNumber, Me.PowerOf16, Me.Name, Me.ParentControlName)
                 If (ErrorMessageBuilder Is Nothing) Then ErrorMessageBuilder = New System.Text.StringBuilder(800)
-                ErrorMessageBuilder.AppendLine(strErrMessageWithCardNum)
+                ''ErrorMessageBuilder.AppendLine(strErrMessageWithCardNum)
+                ErrorMessageBuilder.AppendLine(Me.CurrentErrorMessage)
 
                 ''
                 ''Show a pop-up error message?  
                 ''
-                boolShowErrorMessage_Popup = ((_intBinaryValue > 1) And (Not s_boolRunOnce2))
+                boolShowErrorMessage_Popup = ((_intBinaryValue > 1) And ((Not s_boolRunOnce2) Or Me.Verbose))
                 If (boolShowErrorMessage_Popup) Then
                     ''[[[''If (value = "8") Then System.Diagnostics.Debugger.Break()
                     ''[[[''If (_intBinaryValue > 1) Then System.Diagnostics.Debugger.Break()
                     ''1/29 thomas downes''strErrMessageWithCardNum = String.Format("A non-binary value has been encountered, for Card Number {0}.", Me.CardNumber)
 
                     If (Not s_boolRunOnce1) Then
-                        MessageBox.Show(strErrMessageWithCardNum, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        ''MessageBox.Show(strErrMessageWithCardNum, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show(Me.CurrentErrorMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         s_boolRunOnce1 = True
                     Else
-                        MessageBox.Show(strErrMessageWithCardNum & vbCrLf & vbCrLf &
+                        ''MessageBox.Show(strErrMessageWithCardNum & vbCrLf & vbCrLf &
+                        MessageBox.Show(Me.CurrentErrorMessage & vbCrLf & vbCrLf &
                                         "No other messages will be shown.", "",
                                         MessageBoxButtons.OK, MessageBoxIcon.Stop)
                         s_boolRunOnce2 = True

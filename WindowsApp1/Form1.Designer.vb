@@ -45,6 +45,7 @@ Partial Class Form1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.BinaryDataControl1 = New WindowsApp1.BinaryDataControl()
         Me.LabelCurrentlyOutputting = New System.Windows.Forms.Label()
+        Me.LinkUpdateBinaryData = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'txtCardCode_Dec_Start
@@ -258,11 +259,22 @@ Partial Class Form1
         Me.LabelCurrentlyOutputting.Text = "Currently Outputting Card-Number Results..."
         Me.LabelCurrentlyOutputting.Visible = False
         '
+        'LinkUpdateBinaryData
+        '
+        Me.LinkUpdateBinaryData.AutoSize = True
+        Me.LinkUpdateBinaryData.Location = New System.Drawing.Point(624, 152)
+        Me.LinkUpdateBinaryData.Name = "LinkUpdateBinaryData"
+        Me.LinkUpdateBinaryData.Size = New System.Drawing.Size(100, 13)
+        Me.LinkUpdateBinaryData.TabIndex = 25
+        Me.LinkUpdateBinaryData.TabStop = True
+        Me.LinkUpdateBinaryData.Text = "Update Binary Data"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1080, 682)
+        Me.Controls.Add(Me.LinkUpdateBinaryData)
         Me.Controls.Add(Me.LabelCurrentlyOutputting)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.ButtonLoopAllCardNumbers)
@@ -316,4 +328,5 @@ Partial Class Form1
     Friend WithEvents ButtonLoopAllCardNumbers As Button
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents LabelCurrentlyOutputting As Label
+    Friend WithEvents LinkUpdateBinaryData As LinkLabel
 End Class

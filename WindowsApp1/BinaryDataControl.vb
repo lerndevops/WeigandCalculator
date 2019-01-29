@@ -10,8 +10,21 @@ Public Class BinaryDataControl
     ''Added 1/28/2019 td   
     ''
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
+    Public CurrentErrorMessage As String ''Added 1/29/2019 thomas downes
+
     Private _intFacilityCode As Integer ''Added 1/28/2019 td
     Private _longCardNumber As Long ''Added 1/28/2019 td
+
+    Public WriteOnly Property Verbose() As Boolean
+        ''Added 1/29/2019 td
+        Set(value As Boolean)
+            ''Added 1/29/2019 td
+            UserControlC4_3.Verbose = value ''Boolean
+            UserControlC4_2.Verbose = value ''Boolean
+            UserControlC4_1.Verbose = value ''Boolean
+            UserControlC4_0.Verbose = value ''Boolean
+        End Set
+    End Property
 
     Public Overrides Property Text() As String
         Get
@@ -45,6 +58,12 @@ Public Class BinaryDataControl
             UserControlC4_2.ErrorMessageBuilder = Me.ErrorMessageBuilder
             UserControlC4_1.ErrorMessageBuilder = Me.ErrorMessageBuilder
             UserControlC4_0.ErrorMessageBuilder = Me.ErrorMessageBuilder
+
+            ''Added 1/29/2019 td
+            UserControlC4_3.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC4_2.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC4_1.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC4_0.CurrentErrorMessage = Me.CurrentErrorMessage
 
             ''Added 1/28/2019 td
             UpdateParityControls()

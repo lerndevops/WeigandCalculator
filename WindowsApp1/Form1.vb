@@ -55,6 +55,9 @@ Public Class Form1
                 strOutputLine &= (vbTab & eachControl.Text)
             End If
 
+            ''Append the error message, if any. -----1/29/2019 td
+            If ("" <> BinaryDataControl1.CurrentErrorMessage) Then strOutputLine &= (vbTab & BinaryDataControl1.CurrentErrorMessage)
+
         Next eachControl
 
         Return strOutputLine
@@ -124,7 +127,9 @@ Public Class Form1
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtCardCode_Dec_Curr.TextChanged
 
         ''Aded 1/29/2019 td 
-        RefreshFormWithCardNumber(txtCardCode_Dec_Curr.Text)
+        ''BinaryDataControl1.Verbose = True ''Show all the relevant error messages right away. 
+
+        ''RefreshFormWithCardNumber(txtCardCode_Dec_Curr.Text)
 
     End Sub
 
@@ -135,6 +140,8 @@ Public Class Form1
         ''
         Dim boolHasTextAlready As Boolean = ("" <> txtAllOutputLines.Text)
         Dim boolClearPriorOutput As Boolean
+
+        BinaryDataControl1.Verbose = False ''Suppress a bunch of annoying pop-up messages. 
 
         ''Don't clear out the textbox unless the user confirms he or she wants to re-run the processing. 
         If (boolHasTextAlready) Then
@@ -162,6 +169,7 @@ Public Class Form1
 
         For intEachCard As Integer = Integer.Parse(txtCardCode_Dec_Start.Text) To Integer.Parse(txtCardCode_Dec_End.Text)
 
+            BinaryDataControl1.CurrentErrorMessage = "" ''Refresh the error message, so it can be filled if needed. 
             txtCardCode_Dec_Curr.Text = intEachCard.ToString()
 
             RefreshFormWithCardNumber(intEachCard.ToString())
@@ -187,6 +195,19 @@ Public Class Form1
             frm_ToShow.ErrorMessageBuilder = _ErrorMessageBuilder
             frm_ToShow.Show()
         End If ''End of "If (_ErrorMessageBuilder.Length > 0) Then"
+
+    End Sub
+
+    Private Sub txtCardCode_Dec_Curr_Leave(sender As Object, e As EventArgs) Handles txtCardCode_Dec_Curr.Leave
+
+        ''Aded 1/29/2019 td 
+
+        If (DialogResult.Yes = MessageBox.Show("Update Binary Data?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) Then
+
+            BinaryDataControl1.Verbose = True ''Show all the relevant error messages right away. 
+            RefreshFormWithCardNumber(txtCardCode_Dec_Curr.Text)
+
+        End If ''ENd of "If (DialogResult.Yes = ......................" Then
 
     End Sub
 End Class

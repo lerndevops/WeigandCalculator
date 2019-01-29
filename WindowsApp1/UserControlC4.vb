@@ -6,6 +6,7 @@ Imports System.ComponentModel ''Added 1/28/2019 td
 Public Class UserControlC4
 
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
+    Public CurrentErrorMessage As String ''Added 1/29/2019 thomas downes
 
     Private _intPowerOf16 As Integer = 0 ''Added 1/28/2019 td
     Private _longMultiplicand_Raw As Long ''Added 1/28/2019 td
@@ -16,6 +17,17 @@ Public Class UserControlC4
     Private _intMultiplicandOf4 As Integer = 0 ''Added 1/28/2019 td
     Private _intMultiplicandOf2 As Integer = 0 ''Added 1/28/2019 td
     Private _intMultiplicandOf1 As Integer = 0 ''Added 1/28/2019 td
+
+    Public WriteOnly Property Verbose() As Boolean
+        ''Added 1/29/2019 td
+        Set(value As Boolean)
+            ''Added 1/29/2019 td
+            UserControlC3.Verbose = value ''Boolean
+            UserControlC2.Verbose = value ''Boolean
+            UserControlC1.Verbose = value ''Boolean
+            UserControlC0.Verbose = value ''Boolean
+        End Set
+    End Property
 
     ''[Description("Test text displayed in the textbox"),Category("Data")]
 
@@ -41,6 +53,18 @@ Public Class UserControlC4
             UserControlC2.ErrorMessageBuilder = Me.ErrorMessageBuilder
             UserControlC1.ErrorMessageBuilder = Me.ErrorMessageBuilder
             UserControlC0.ErrorMessageBuilder = Me.ErrorMessageBuilder
+
+            ''Added 1/29/2019 td  
+            UserControlC3.ParentControlName = Me.Name
+            UserControlC2.ParentControlName = Me.Name
+            UserControlC1.ParentControlName = Me.Name
+            UserControlC0.ParentControlName = Me.Name
+
+            ''Added 1/29/2019 td  
+            UserControlC3.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC2.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC1.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC0.CurrentErrorMessage = Me.CurrentErrorMessage
 
         End Set
     End Property

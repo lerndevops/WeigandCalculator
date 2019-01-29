@@ -37,7 +37,6 @@ Partial Class FormErrMessages
         Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(912, 44)
         Me.LabelCurrentlyOutputting.TabIndex = 26
         Me.LabelCurrentlyOutputting.Text = "Error messages below."
-        Me.LabelCurrentlyOutputting.Visible = False
         '
         'txtAllOutputLines
         '
