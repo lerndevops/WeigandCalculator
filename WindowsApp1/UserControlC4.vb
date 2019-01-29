@@ -6,7 +6,8 @@ Imports System.ComponentModel ''Added 1/28/2019 td
 Public Class UserControlC4
 
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
-    Public CurrentErrorMessage As String ''Added 1/29/2019 thomas downes
+
+    Private _currentErrorMessage As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
 
     Private _intPowerOf16 As Integer = 0 ''Added 1/28/2019 td
     Private _longMultiplicand_Raw As Long ''Added 1/28/2019 td
@@ -17,6 +18,18 @@ Public Class UserControlC4
     Private _intMultiplicandOf4 As Integer = 0 ''Added 1/28/2019 td
     Private _intMultiplicandOf2 As Integer = 0 ''Added 1/28/2019 td
     Private _intMultiplicandOf1 As Integer = 0 ''Added 1/28/2019 td
+
+    Public WriteOnly Property CurrentErrorMessage() As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
+        ''Added 1/29/2019 td
+        Set(value As System.Text.StringBuilder)
+            ''Added 1/29/2019 td
+            _currentErrorMessage = value ''Me.CurrentErrorMessage
+            UserControlC3.CurrentErrorMessage = value ''Me.CurrentErrorMessage
+            UserControlC2.CurrentErrorMessage = value ''Me.CurrentErrorMessage
+            UserControlC1.CurrentErrorMessage = value ''Me.CurrentErrorMessage
+            UserControlC0.CurrentErrorMessage = value ''Me.CurrentErrorMessage
+        End Set
+    End Property
 
     Public WriteOnly Property Verbose() As Boolean
         ''Added 1/29/2019 td
@@ -61,10 +74,14 @@ Public Class UserControlC4
             UserControlC0.ParentControlName = Me.Name
 
             ''Added 1/29/2019 td  
-            UserControlC3.CurrentErrorMessage = Me.CurrentErrorMessage
-            UserControlC2.CurrentErrorMessage = Me.CurrentErrorMessage
-            UserControlC1.CurrentErrorMessage = Me.CurrentErrorMessage
-            UserControlC0.CurrentErrorMessage = Me.CurrentErrorMessage
+            ''UserControlC3.CurrentErrorMessage = Me.CurrentErrorMessage
+            ''UserControlC2.CurrentErrorMessage = Me.CurrentErrorMessage
+            ''UserControlC1.CurrentErrorMessage = Me.CurrentErrorMessage
+            ''UserControlC0.CurrentErrorMessage = Me.CurrentErrorMessage
+            UserControlC3.CurrentErrorMessage = _currentErrorMessage
+            UserControlC2.CurrentErrorMessage = _currentErrorMessage
+            UserControlC1.CurrentErrorMessage = _currentErrorMessage
+            UserControlC0.CurrentErrorMessage = _currentErrorMessage
 
         End Set
     End Property

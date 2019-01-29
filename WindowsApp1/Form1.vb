@@ -55,10 +55,14 @@ Public Class Form1
                 strOutputLine &= (vbTab & eachControl.Text)
             End If
 
-            ''Append the error message, if any. -----1/29/2019 td
-            If ("" <> BinaryDataControl1.CurrentErrorMessage) Then strOutputLine &= (vbTab & BinaryDataControl1.CurrentErrorMessage)
-
         Next eachControl
+
+        ''Append the error message, if any. -----1/29/2019 td
+        ''If ("" <> BinaryDataControl1.CurrentErrorMessage) Then
+        If (0 <> BinaryDataControl1.CurrentErrorMessage.Length) Then
+            ''Append the error message. -----1/29/2019 td
+            strOutputLine &= (vbTab & BinaryDataControl1.CurrentErrorMessage.ToString())
+        End If ''End of "If ("" <> BinaryDataControl1.CurrentErrorMessage) Then"
 
         Return strOutputLine
 
@@ -134,14 +138,15 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonLoopAllCardNumbers_Click(sender As Object, e As EventArgs) Handles ButtonLoopAllCardNumbers.Click
-
         ''
         ''Loop through the range of Card Numbers.  
         ''
         Dim boolHasTextAlready As Boolean = ("" <> txtAllOutputLines.Text)
         Dim boolClearPriorOutput As Boolean
 
+        BinaryDataControl1.CurrentErrorMessage = (New System.Text.StringBuilder())
         BinaryDataControl1.Verbose = False ''Suppress a bunch of annoying pop-up messages. 
+        BinaryDataControl1.FacilityCode = txtFacility_Dec.Text
 
         ''Don't clear out the textbox unless the user confirms he or she wants to re-run the processing. 
         If (boolHasTextAlready) Then
@@ -169,7 +174,8 @@ Public Class Form1
 
         For intEachCard As Integer = Integer.Parse(txtCardCode_Dec_Start.Text) To Integer.Parse(txtCardCode_Dec_End.Text)
 
-            BinaryDataControl1.CurrentErrorMessage = "" ''Refresh the error message, so it can be filled if needed. 
+            ''1/29 td''BinaryDataControl1.CurrentErrorMessage = "" ''Refresh the error message, so it can be filled if needed. 
+            BinaryDataControl1.CurrentErrorMessage.Clear() ''Refresh the error message, so it can be filled if needed. 
             txtCardCode_Dec_Curr.Text = intEachCard.ToString()
 
             RefreshFormWithCardNumber(intEachCard.ToString())

@@ -43,9 +43,9 @@ Partial Class Form1
         Me.txtAllOutputLines = New System.Windows.Forms.TextBox()
         Me.ButtonLoopAllCardNumbers = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.BinaryDataControl1 = New WindowsApp1.BinaryDataControl()
         Me.LabelCurrentlyOutputting = New System.Windows.Forms.Label()
         Me.LinkUpdateBinaryData = New System.Windows.Forms.LinkLabel()
+        Me.BinaryDataControl1 = New WindowsApp1.BinaryDataControl()
         Me.SuspendLayout()
         '
         'txtCardCode_Dec_Start
@@ -215,6 +215,9 @@ Partial Class Form1
         '
         'txtAllOutputLines
         '
+        Me.txtAllOutputLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 449)
         Me.txtAllOutputLines.Multiline = True
         Me.txtAllOutputLines.Name = "txtAllOutputLines"
@@ -241,13 +244,6 @@ Partial Class Form1
         Me.ListBox1.Size = New System.Drawing.Size(238, 212)
         Me.ListBox1.TabIndex = 23
         '
-        'BinaryDataControl1
-        '
-        Me.BinaryDataControl1.Location = New System.Drawing.Point(22, 265)
-        Me.BinaryDataControl1.Name = "BinaryDataControl1"
-        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 131)
-        Me.BinaryDataControl1.TabIndex = 18
-        '
         'LabelCurrentlyOutputting
         '
         Me.LabelCurrentlyOutputting.BackColor = System.Drawing.Color.Yellow
@@ -268,6 +264,13 @@ Partial Class Form1
         Me.LinkUpdateBinaryData.TabIndex = 25
         Me.LinkUpdateBinaryData.TabStop = True
         Me.LinkUpdateBinaryData.Text = "Update Binary Data"
+        '
+        'BinaryDataControl1
+        '
+        Me.BinaryDataControl1.Location = New System.Drawing.Point(22, 265)
+        Me.BinaryDataControl1.Name = "BinaryDataControl1"
+        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 131)
+        Me.BinaryDataControl1.TabIndex = 18
         '
         'Form1
         '

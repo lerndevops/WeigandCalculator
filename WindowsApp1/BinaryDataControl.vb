@@ -10,7 +10,7 @@ Public Class BinaryDataControl
     ''Added 1/28/2019 td   
     ''
     Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
-    Public CurrentErrorMessage As String ''Added 1/29/2019 thomas downes
+    Public CurrentErrorMessage As System.Text.StringBuilder ''String ''Added 1/29/2019 thomas downes
 
     Private _intFacilityCode As Integer ''Added 1/28/2019 td
     Private _longCardNumber As Long ''Added 1/28/2019 td
