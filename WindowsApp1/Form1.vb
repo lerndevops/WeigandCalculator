@@ -7,6 +7,8 @@ Imports WeigandCalculator_CS ''Added 1/28/2019 td
 
 Public Class Form1
 
+    Private _ErrorMessageBuilder As New System.Text.StringBuilder(800) ''Added 1/29/2019 thomas downes
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ''Encapsulated 1/29/2019 td 
@@ -15,6 +17,9 @@ Public Class Form1
 
         ''Fill Listbox. 
         FillListBoxOfValueTypes()
+
+        ''Added 1/29/2019 td
+        BinaryDataControl1.ErrorMessageBuilder = _ErrorMessageBuilder
 
     End Sub
 
@@ -144,6 +149,8 @@ Public Class Form1
             End If ''End of "If (boolClearPriorOutput) Then ... Else ...."
         End If ''End of "If (boolHasTextAlready) Then"
 
+        _ErrorMessageBuilder.Clear() ''Clear the previous error messages.  
+
         LabelCurrentlyOutputting.Visible = True
         Application.DoEvents()
         Application.DoEvents()
@@ -154,6 +161,8 @@ Public Class Form1
         Application.DoEvents()
 
         For intEachCard As Integer = Integer.Parse(txtCardCode_Dec_Start.Text) To Integer.Parse(txtCardCode_Dec_End.Text)
+
+            txtCardCode_Dec_Curr.Text = intEachCard.ToString()
 
             RefreshFormWithCardNumber(intEachCard.ToString())
 
@@ -168,6 +177,16 @@ Public Class Form1
         LabelCurrentlyOutputting.Visible = False
         Me.Cursor = Cursors.Default
         MessageBox.Show("Completed processing.", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        ''Added 1/29/2019 td
+        ''
+        '' Display all of the error messages.  
+        ''
+        If (_ErrorMessageBuilder.Length > 0) Then
+            Dim frm_ToShow As New FormErrMessages  ''Added 1/29/2019 td
+            frm_ToShow.ErrorMessageBuilder = _ErrorMessageBuilder
+            frm_ToShow.Show()
+        End If ''End of "If (_ErrorMessageBuilder.Length > 0) Then"
 
     End Sub
 End Class

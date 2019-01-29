@@ -9,6 +9,7 @@ Public Class BinaryDataControl
     ''
     ''Added 1/28/2019 td   
     ''
+    Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
     Private _intFacilityCode As Integer ''Added 1/28/2019 td
     Private _longCardNumber As Long ''Added 1/28/2019 td
 
@@ -38,6 +39,12 @@ Public Class BinaryDataControl
             ''Propagate to the sub-controls.  
             UserControlF4_0.FacilityCode = _intFacilityCode.ToString
             UserControlF4_1.FacilityCode = _intFacilityCode.ToString
+
+            ''Added 1/29/2019 td
+            UserControlC4_3.ErrorMessageBuilder = Me.ErrorMessageBuilder
+            UserControlC4_2.ErrorMessageBuilder = Me.ErrorMessageBuilder
+            UserControlC4_1.ErrorMessageBuilder = Me.ErrorMessageBuilder
+            UserControlC4_0.ErrorMessageBuilder = Me.ErrorMessageBuilder
 
             ''Added 1/28/2019 td
             UpdateParityControls()

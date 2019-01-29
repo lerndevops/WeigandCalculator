@@ -5,6 +5,8 @@ Imports System.ComponentModel ''Added 1/28/2019 td
 
 Public Class UserControlC4
 
+    Public ErrorMessageBuilder As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
+
     Private _intPowerOf16 As Integer = 0 ''Added 1/28/2019 td
     Private _longMultiplicand_Raw As Long ''Added 1/28/2019 td
     Private _longMultiplicand_Clean As Long ''Added 1/28/2019 td
@@ -27,6 +29,19 @@ Public Class UserControlC4
         Set(value As String)
             ''Dim int_Result As Integer
             Integer.TryParse(value, _intPowerOf16)
+
+            ''Added 1/29/2019 td  
+            UserControlC3.PowerOf16 = _intPowerOf16 ''value ''.ToString
+            UserControlC2.PowerOf16 = _intPowerOf16 ''value ''.ToString
+            UserControlC1.PowerOf16 = _intPowerOf16 ''value ''.ToString
+            UserControlC0.PowerOf16 = _intPowerOf16 ''value ''.ToString
+
+            ''Added 1/29/2019 td  
+            UserControlC3.ErrorMessageBuilder = Me.ErrorMessageBuilder
+            UserControlC2.ErrorMessageBuilder = Me.ErrorMessageBuilder
+            UserControlC1.ErrorMessageBuilder = Me.ErrorMessageBuilder
+            UserControlC0.ErrorMessageBuilder = Me.ErrorMessageBuilder
+
         End Set
     End Property
 
