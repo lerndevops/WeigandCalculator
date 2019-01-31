@@ -47,6 +47,8 @@ Partial Class Form1
         Me.LinkUpdateBinaryData = New System.Windows.Forms.LinkLabel()
         Me.BinaryDataControl1 = New WindowsApp1.BinaryDataControl()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -286,11 +288,34 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 26
         Me.PictureBox1.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(537, 641)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(238, 29)
+        Me.Button1.TabIndex = 27
+        Me.Button1.Text = "Copy Output for Pasting to Microsoft Excel"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel1.Location = New System.Drawing.Point(674, 182)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(349, 20)
+        Me.LinkLabel1.TabIndex = 28
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Open Wiegand Calculator (by CC Design Works)"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1080, 682)
+        Me.Controls.Add(Me.LinkLabel1)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.LinkUpdateBinaryData)
         Me.Controls.Add(Me.LabelCurrentlyOutputting)
@@ -317,7 +342,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtCardCode_Dec_Start)
         Me.Name = "Form1"
-        Me.Text = "Form1 - Weigand Loop by CI Solutions"
+        Me.Text = "Wiegand-Format Processing, by CI Solutions"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -349,4 +374,6 @@ Partial Class Form1
     Friend WithEvents LabelCurrentlyOutputting As Label
     Friend WithEvents LinkUpdateBinaryData As LinkLabel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class
