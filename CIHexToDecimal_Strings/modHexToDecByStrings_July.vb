@@ -21,7 +21,7 @@ Public Module modHexToDecByStrings
         Dim intCharIndex As Integer
         Dim strHeximalDigit As String
         Dim strDec_Temp As String
-        Dim strRunningTotalDec As String
+        Dim strRunningTotalDec As String = ""
         Dim intPowerOf16 As Integer
         Dim strPowerOf10Msg As String ''Added 7/14/2016
 
@@ -68,9 +68,10 @@ Public Module modHexToDecByStrings
 
                 strRunningTotalDec = AddAnyTwoDecStrings(strDec_Temp, strRunningTotalDec, pstrErrMessage)
 
-                If (pstrErrMessage <> "") Then Exit Function
+                ''2/1/2019 td''If (pstrErrMessage <> "") Then Exit Function
+                If (pstrErrMessage <> "") Then Return pstrErrMessage
 
-            End If
+            End If ''End of "If (pstrErrMessage <> "") Then .... ElseIf .... Else ..."
 
             ''Added 7/14/2016
             If (strPowerOf10Msg <> "") Then
@@ -92,7 +93,7 @@ Skip_GoToNextLoop:
                                            Optional ByRef pstrPowerMessage As String = "") As String
 
         Dim intLoop As Integer
-        Dim strRunningTotalDec As String
+        Dim strRunningTotalDec As String = ""
         Dim strPowerOf16_Dec As String
         Dim boolMissingPower As Boolean
         'now a parameter'Dim strPowerMessage As String ''Added 7/14/2016
@@ -110,10 +111,12 @@ Skip_GoToNextLoop:
         '7/14/2016'strPowerOf16_Dec = GetPowerOf16_InDec(pintPowerOf16, boolMissingPower, pstrErrMessage)
         strPowerOf16_Dec = GetPowerOf16_InDec_Main(pintPowerOf16, boolMissingPower, pstrErrMessage, pstrPowerMessage)
 
-        If ("" <> pstrErrMessage) Then Exit Function
+        ''2/1/2019 td''If ("" <> pstrErrMessage) Then Exit Function
+        If ("" <> pstrErrMessage) Then Return pstrErrMessage
 
         If (boolMissingPower) Then pstrErrMessage = GiveMsgToProgrammer(modstrHeximal, pintPowerOf16, pintPowerOf16)
-        If (boolMissingPower) Then Exit Function
+        ''2/1/2019 t''If (boolMissingPower) Then Exit Function
+        If (boolMissingPower) Then Return pstrErrMessage
 
         For intLoop = 1 To pintTimesN
 
@@ -125,9 +128,10 @@ Skip_GoToNextLoop:
 
                 strRunningTotalDec = AddAnyTwoDecStrings(strPowerOf16_Dec, strRunningTotalDec, pstrErrMessage)
 
-                If (pstrErrMessage <> "") Then Exit Function
+                ''2/1/2019 td''If (pstrErrMessage <> "") Then Exit Function
+                If (pstrErrMessage <> "") Then Return pstrErrMessage
 
-            End If
+            End If ''En of "If (strRunningTotalDec = "") Then ... Else ..."
 
         Next intLoop
 
@@ -140,13 +144,14 @@ Skip_GoToNextLoop:
                                pintPowerOf16_End As Integer) As String
 
         Dim intPower As Integer
-        Dim strListOfPowers As String
+        Dim strListOfPowers As String = ""
         Dim strMessage As String
 
         For intPower = pintPowerOf16_Start To pintPowerOf16_End
 
             '//'strListOfPowers = strListOfPowers & vbCrLf & _
             '//'                  CStr(16 ^ intPower)
+
             strListOfPowers = strListOfPowers & vbCrLf &
                           "1" & Left("000000000000000000000000000000000000", intPower) & vbCrLf &
                           CStr(16 ^ intPower) & "   (16 to the power of " & CStr(intPower) & ")"
@@ -408,7 +413,8 @@ Skip_GoToNextLoop:
         ''
         strDecTimes16 = GiveDecOfPowerOf16_TimesN(intNextLowerPower, 16, pstrErrMessage)
 
-        If (pstrErrMessage <> "") Then Exit Function
+        '' 2/1/22019 td''If (pstrErrMessage <> "") Then Exit Function
+        If (pstrErrMessage <> "") Then Return pstrErrMessage
 
         GetPowerOf16_ByAdding = strDecTimes16
 
@@ -510,9 +516,9 @@ Skip_GoToNextLoop:
                                      ByRef pstrErrMessage As String) As String
 
         Dim intCharIndex As Integer
-        Dim strConcatenated As String
+        Dim strConcatenated As String = ""
         Dim boolUnequalLengths As Boolean
-        Dim strNewDigit As String
+        Dim strNewDigit As String = ""
         '--'Dim boolCarryTheOne As String
         Dim strDecDigit1 As String
         Dim strDecDigit2 As String
@@ -524,8 +530,10 @@ Skip_GoToNextLoop:
 
         If (boolUnequalLengths) Then
             pstrErrMessage = "Dec strings are unequal in length."
-            Exit Function
-        End If
+            ''2/1/2019 td''Exit Function
+            Return pstrErrMessage ''Return the error message, to hopefully ensure that the program crashes with panache. (i.e. in a very obvious way,
+            ''  so that the problem can be easily traced. ---2/1/2019 td 
+        End If ''end of "If (boolUnequalLengths) Then"
 
         For intCharIndex = Len(pstrDec1) To 1 Step -1
 
@@ -538,7 +546,8 @@ Skip_GoToNextLoop:
                                           boolCarryTheOne_Next,
                                           pstrErrMessage)
 
-            If (pstrErrMessage <> "") Then Exit Function
+            ''2/1/2019 td''If (pstrErrMessage <> "") Then Exit Function
+            If (pstrErrMessage <> "") Then Return pstrErrMessage
 
             strConcatenated = (strNewDigit & strConcatenated)
 
@@ -554,6 +563,7 @@ Skip_GoToNextLoop:
         ''Added 7/11/2016 Thomas Downes
         If (boolIsALeadingZero) Then
             Call MsgBox("How strange!!  A leading zero!", vbExclamation)
+            Return "How strange!!  A leading zero!" ''Added 2/1/2019 thomas downes
         End If ''End of "If (strNewDigit = "0") Then"
 
         If (boolCarryTheOne_Curr) Then strConcatenated = ("1" & strConcatenated)
@@ -575,13 +585,13 @@ Skip_GoToNextLoop:
 
         strDecDigit_Temp = AddDecDigits_ByArrays(pstrDecDigit1, pstrDecDigit2, boolCarryThe1_Temp1, pstrErrMessage)
 
-        If (pstrErrMessage <> "") Then Exit Function
+        If (pstrErrMessage <> "") Then Return pstrErrMessage ''Exit Function
 
         If (pboolThenAdd1) Then
             pboolCarryThe1 = False ''Reinitialize.
             strDecDigit_Final = AddDecDigits_ByArrays(strDecDigit_Temp, "1", boolCarryThe1_Temp2, pstrErrMessage)
             pboolCarryThe1 = (boolCarryThe1_Temp1 Or boolCarryThe1_Temp2)
-            If (pstrErrMessage <> "") Then Exit Function
+            If (pstrErrMessage <> "") Then Return pstrErrMessage ''Exit Function
         Else
             strDecDigit_Final = strDecDigit_Temp
             pboolCarryThe1 = boolCarryThe1_Temp1
@@ -603,10 +613,13 @@ Skip_GoToNextLoop:
         Dim boolMatched2 As Boolean
         Dim intIndexCombined As Integer
 
+        AddDecDigits_ByArrays = "" ''Added 2/1/2019 td
+
         If (pstrDecDigit1 = " " Or pstrDecDigit2 = " ") Then
             If (pstrDecDigit1 = " ") Then AddDecDigits_ByArrays = pstrDecDigit2
             If (pstrDecDigit2 = " ") Then AddDecDigits_ByArrays = pstrDecDigit1
-            Exit Function
+            '' 2/1/2019 td''Exit Function
+            Return AddDecDigits_ByArrays
         End If ''End of "If (pstrDecDigit1 = " " Or pstrDecDigit2 = " ") Then"
 
         ReDim arrayDecDigs(0 To 9)
@@ -630,7 +643,8 @@ Skip_GoToNextLoop:
         If (Not boolMatched1) Then
             Beep()
             pstrErrMessage = "#1 The digit """ & pstrDecDigit1 & """ is not recognized. (AddDecDigits_ByArrays)  "
-            Exit Function
+            ''2/1/2019 td''Exit Function
+            Return pstrErrMessage
         End If ''End of "If (Not boolMatched1) Then"
 
         intIndexCombined = intIndex1 ''Initialize.
@@ -652,7 +666,8 @@ Skip_GoToNextLoop:
         If (Not boolMatched2) Then
             Beep()
             pstrErrMessage = "The digit """ & pstrDecDigit2 & """ is not recognized."
-            Exit Function
+            ''Exit Function
+            Return pstrErrMessage ''Added 2/1/2019 td 
         End If ''End of "If (Not boolMatched2) Then"
 
         ''

@@ -7,7 +7,7 @@ using System.Windows.Forms; //Added 2/1/2019 td
 
 namespace WeigandCalculator_CS
 {
-    class ClassStaticHexadecimal
+    public class ClassStaticHexadecimal
     {
 
         public static string ConvertLongIntegerToHexadecimal(long par_longInteger, int par_lengthOfString)

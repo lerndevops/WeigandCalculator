@@ -20,6 +20,11 @@ Public Class ClassCardNumber
         End Get
         Set(value As String)
             ''Dim int_Result As Integer
+            Dim strHexDigit____1 As String ''Added 2/1/2019 td
+            Dim strHexDigit___16 As String ''Added 2/1/2019 td
+            Dim strHexDigit__256 As String ''Added 2/1/2019 td
+            Dim strHexDigit_4096 As String ''Added 2/1/2019 td
+
             Long.TryParse(value, _longCardNumber)
 
             ''
@@ -48,7 +53,10 @@ Public Class ClassCardNumber
                 .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
                 ''Added 2/1/2019 thomas downes
-                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                ''#1 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                '' #2 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                strHexDigit_4096 = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                .HexadecimalDigit = strHexDigit_4096
             End With ''End of "With ControlC4_4096"
 
             With ControlC4__256
@@ -59,7 +67,10 @@ Public Class ClassCardNumber
                 .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
                 ''Added 2/1/2019 thomas downes
-                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                ''#1 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                '' #2 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                strHexDigit__256 = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                .HexadecimalDigit = strHexDigit__256
             End With ''End of "With ControlC4__256"
 
             ''ControlC4___16.ReceivedFromTheLeft = ControlC4__256.PushOutToTheRight
@@ -72,7 +83,10 @@ Public Class ClassCardNumber
                 .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
                 ''Added 2/1/2019 thomas downes
-                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                ''#1 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                '' #2 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                strHexDigit___16 = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                .HexadecimalDigit = strHexDigit___16
             End With ''End of " With ControlC4___16"
 
             ''ControlC4____1.ReceivedFromTheLeft = ControlC4___16.PushOutToTheRight
@@ -85,7 +99,12 @@ Public Class ClassCardNumber
                 .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
                 ''Added 2/1/2019 thomas downes
-                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                ''2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                ''#1 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
+                '' #2 2/1/2019 td''.HexadecimalDigit = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                strHexDigit____1 = WeigandCalculator_CS.ClassStaticHexadecimal.ConvertDecimalToHex(CStr(.JustForMe_Under16))
+                .HexadecimalDigit = strHexDigit____1
             End With ''End of " With ControlC4____1"
 
         End Set
