@@ -140,7 +140,7 @@ Public Class BinaryDataControl
             UserControlC4_1.ToString() & UserControlC4_0.ToString() &
             UserControlParityOdd.ToString()
 
-        Return WeigandCalculator_CS.ClassStatic.ConvertBinaryString_ToLong(strLongBinaryString)
+        Return WeigandCalculator_CS.ClassStaticBinary.ConvertBinaryString_ToLong(strLongBinaryString)
 
     End Function ''End of "Public Function GetDecimalValue() As Long"
 

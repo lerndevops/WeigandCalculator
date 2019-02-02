@@ -49,10 +49,11 @@ Partial Class UserControlP_Even
         '
         'LabelEvenParityField
         '
+        Me.LabelEvenParityField.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelEvenParityField.AutoSize = True
         Me.LabelEvenParityField.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelEvenParityField.ForeColor = System.Drawing.Color.Black
-        Me.LabelEvenParityField.Location = New System.Drawing.Point(3, 65)
+        Me.LabelEvenParityField.Location = New System.Drawing.Point(3, 84)
         Me.LabelEvenParityField.Name = "LabelEvenParityField"
         Me.LabelEvenParityField.Size = New System.Drawing.Size(126, 20)
         Me.LabelEvenParityField.TabIndex = 28
@@ -68,7 +69,7 @@ Partial Class UserControlP_Even
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "UserControlP_Even"
-        Me.Size = New System.Drawing.Size(515, 96)
+        Me.Size = New System.Drawing.Size(515, 104)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

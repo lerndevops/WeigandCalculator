@@ -231,9 +231,10 @@ Partial Class Form1
         '
         'ButtonLoopAllCardNumbers
         '
-        Me.ButtonLoopAllCardNumbers.Location = New System.Drawing.Point(22, 626)
+        Me.ButtonLoopAllCardNumbers.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonLoopAllCardNumbers.Location = New System.Drawing.Point(22, 620)
         Me.ButtonLoopAllCardNumbers.Name = "ButtonLoopAllCardNumbers"
-        Me.ButtonLoopAllCardNumbers.Size = New System.Drawing.Size(238, 29)
+        Me.ButtonLoopAllCardNumbers.Size = New System.Drawing.Size(238, 50)
         Me.ButtonLoopAllCardNumbers.TabIndex = 22
         Me.ButtonLoopAllCardNumbers.Text = "Output All Card Numbers in Range >>>>"
         Me.ButtonLoopAllCardNumbers.UseVisualStyleBackColor = True
@@ -291,9 +292,10 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(537, 641)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(439, 641)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(238, 29)
+        Me.Button1.Size = New System.Drawing.Size(402, 29)
         Me.Button1.TabIndex = 27
         Me.Button1.Text = "Copy Output for Pasting to Microsoft Excel"
         Me.Button1.UseVisualStyleBackColor = True

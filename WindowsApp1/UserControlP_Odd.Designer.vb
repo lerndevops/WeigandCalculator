@@ -51,10 +51,10 @@ Partial Class UserControlP_Odd
         '
         'LabelOddParityField
         '
-        Me.LabelOddParityField.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelOddParityField.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelOddParityField.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelOddParityField.ForeColor = System.Drawing.Color.Black
-        Me.LabelOddParityField.Location = New System.Drawing.Point(3, 67)
+        Me.LabelOddParityField.Location = New System.Drawing.Point(8, 85)
         Me.LabelOddParityField.Name = "LabelOddParityField"
         Me.LabelOddParityField.Size = New System.Drawing.Size(459, 20)
         Me.LabelOddParityField.TabIndex = 26
@@ -71,7 +71,7 @@ Partial Class UserControlP_Odd
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "UserControlP_Odd"
-        Me.Size = New System.Drawing.Size(470, 96)
+        Me.Size = New System.Drawing.Size(470, 105)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WeigandCalculator_CS
 {
-    public static class ClassStatic
+    public static class ClassStaticBinary
     {
         internal static void Main()
         {

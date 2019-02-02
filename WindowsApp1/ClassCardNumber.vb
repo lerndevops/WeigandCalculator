@@ -45,8 +45,10 @@ Public Class ClassCardNumber
                 .PushOutToTheRight = (.ReceivedFromTheLeft Mod 4096)
                 .JustForMe_Actual = (.ReceivedFromTheLeft - .PushOutToTheRight)
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 4096)
-                .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
+                .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
+                ''Added 2/1/2019 thomas downes
+                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
             End With ''End of "With ControlC4_4096"
 
             With ControlC4__256
@@ -54,8 +56,10 @@ Public Class ClassCardNumber
                 .PushOutToTheRight = (.ReceivedFromTheLeft Mod 256)
                 .JustForMe_Actual = (.ReceivedFromTheLeft - .PushOutToTheRight)
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 256)
-                .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
+                .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
+                ''Added 2/1/2019 thomas downes
+                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
             End With ''End of "With ControlC4__256"
 
             ''ControlC4___16.ReceivedFromTheLeft = ControlC4__256.PushOutToTheRight
@@ -65,8 +69,10 @@ Public Class ClassCardNumber
                 .PushOutToTheRight = (.ReceivedFromTheLeft Mod 16)
                 .JustForMe_Actual = (.ReceivedFromTheLeft - .PushOutToTheRight)
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 16)
-                .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
+                .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
+                ''Added 2/1/2019 thomas downes
+                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
             End With ''End of " With ControlC4___16"
 
             ''ControlC4____1.ReceivedFromTheLeft = ControlC4___16.PushOutToTheRight
@@ -76,8 +82,10 @@ Public Class ClassCardNumber
                 .PushOutToTheRight = (.ReceivedFromTheLeft Mod 1)
                 .JustForMe_Actual = (.ReceivedFromTheLeft - .PushOutToTheRight)
                 .JustForMe_Under16 = CShort(.JustForMe_Actual / 1)
-                .Binary1111 = WeigandCalculator_CS.ClassStatic.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
+                .Binary1111 = WeigandCalculator_CS.ClassStaticBinary.ConvertLongIntegerToBinaryString(.JustForMe_Under16)
                 .PopulateTextboxes(.Binary1111)
+                ''Added 2/1/2019 thomas downes
+                .HexadecimalDigit = WeigandCalculator_CS.ClassStaticBinary.ConvertDecimalToHex(CLng(.JustForMe_Under16))
             End With ''End of " With ControlC4____1"
 
         End Set

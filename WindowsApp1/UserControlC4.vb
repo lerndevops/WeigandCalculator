@@ -26,6 +26,8 @@ Public Class UserControlC4
     Private _intMultiplicandOf2 As Integer = 0 ''Added 1/28/2019 td
     Private _intMultiplicandOf1 As Integer = 0 ''Added 1/28/2019 td
 
+    Private _charHexadecimalDigit As Char = "0"c  ''Added 2/1/2019 td  
+
     Public WriteOnly Property CurrentErrorMessage() As System.Text.StringBuilder ''Added 1/29/2019 thomas downes
         ''Added 1/29/2019 td
         Set(value As System.Text.StringBuilder)
@@ -94,7 +96,7 @@ Public Class UserControlC4
     End Property
 
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-    Description("Card Number"),
+    Description("Card Number (Deprecated)"),
     Browsable(True)>
     Public Property CardNumber_Deprecated() As String
         Get
@@ -151,6 +153,20 @@ Public Class UserControlC4
 
         End Set
     End Property ''End of "Public Property CardNumber_Deprecated() As String"
+
+    <DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+    Description("Hexadecimal Digit"),
+    Browsable(True)>
+    Public Property HexadecimalDigit() As String ''Added 2/1/2019 thomas downes
+        ''Added 2/1/2019 td
+        Get
+            Return _charHexadecimalDigit.ToString()
+        End Get
+        Set(value As String)
+            ''Added 2/1/2019 td
+            _charHexadecimalDigit = Char.Parse(value.Trim().Substring(0, 1))
+        End Set
+    End Property
 
     Public Function PowerOf16_Calculated() As Long
 

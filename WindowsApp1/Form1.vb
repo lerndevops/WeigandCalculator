@@ -91,7 +91,7 @@ Public Class Form1
         txtRawData_Dec.Text = BinaryDataControl1.GetDecimalValue().ToString
 
         txtRawData_Hex.Text = ""
-        txtRawData_Hex.Text = modConvertDecToHex.ConvertDecToHex(txtRawData_Dec.Text, strErrorMessageText)
+        txtRawData_Hex.Text = modDecToHexByStrings.ConvertDecToHex(txtRawData_Dec.Text, strErrorMessageText)
         If ("" <> strErrorMessageText) Then MessageBox.Show(strErrorMessageText, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         ''

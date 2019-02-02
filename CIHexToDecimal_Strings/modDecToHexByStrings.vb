@@ -3,7 +3,7 @@ Option Strict On ''Added 1/29/2019 td
 
 ''Added 1/29/2019 td 
 
-Module modConvertDecToHex ''Added 1/29/2019 td 
+Public Module modDecToHexByStrings ''Added 1/29/2019 td 
 
 
     ''
@@ -13,7 +13,7 @@ Module modConvertDecToHex ''Added 1/29/2019 td
     ''   ---6/30/2016 Thomas Downes
     ''
     Private modstrDecimal As String ''added 6/30/2016
-    Private arrayPowersOf10_Hex() As String ''added 7/02/2016
+    Private mod_arrayPowersOf10_Hex() As String ''added 7/02/2016
 
     Public Function RandomHexDigit() As String
 
@@ -285,7 +285,7 @@ Skip_GoToNextLoop:
 
             '7/3/2016'boolMustCalculate = True
             '7/3/2016'boolMustCalculate = (pintPowerOf10 >= static_intLBound)
-            arrayPowersOf10_Hex(static_intLBound) =
+            mod_arrayPowersOf10_Hex(static_intLBound) =
                   GetPowerOf10_ByAdding(static_intLBound, pstrErrMessage)
             If (pstrErrMessage <> "") Then Exit Function
         End If ''End of "If (boolArrayNeedsFirstItem) Then"
@@ -295,7 +295,7 @@ Skip_GoToNextLoop:
         ''   has been stored in the array or not.
         ''
         On Error Resume Next
-        strOut = arrayPowersOf10_Hex(pintPowerOf10)
+        strOut = mod_arrayPowersOf10_Hex(pintPowerOf10)
 
         Dim intError As Integer
         Dim boolArraySizeError As Boolean
@@ -359,7 +359,7 @@ Skip_GoToNextLoop:
 
         If (boolTakeValueFromArray) Then
 
-            strOut = arrayPowersOf10_Hex(pintPowerOf10)
+            strOut = mod_arrayPowersOf10_Hex(pintPowerOf10)
 
         ElseIf (boolMustCalculate) Then
 
@@ -378,7 +378,7 @@ Skip_GoToNextLoop:
 
             ''Save the value.
             '7/03/2016'arrayPowersOf10_Hex(pintPowerOf10) = strHexTimes10
-            arrayPowersOf10_Hex(pintPowerOf10) = strHex_byAdding
+            mod_arrayPowersOf10_Hex(pintPowerOf10) = strHex_byAdding
             strOut = strHex_byAdding
 
         End If
@@ -774,9 +774,9 @@ Skip_GoToNextLoop:
         ''1/29/2019 td''ReDimArrayPowersOf10_Hex(static_intLBound, static_intUBound)
 
         If (par_boolPreserveValues) Then
-            ReDim Preserve arrayPowersOf10_Hex(par_intUBound)
+            ReDim Preserve mod_arrayPowersOf10_Hex(par_intUBound)
         Else
-            ReDim arrayPowersOf10_Hex(par_intUBound)
+            ReDim mod_arrayPowersOf10_Hex(par_intUBound)
         End If ''End of "If (c_boolRefreshArray) Then"
 
         ''
@@ -785,7 +785,7 @@ Skip_GoToNextLoop:
         For intEach As Integer = 0 To (-1 + par_intLBound)
 
             ''Fill these strings with nonsense / garbage characters.  ---1/29/2019 td
-            arrayPowersOf10_Hex(intEach) = "@@@@@@@@"
+            mod_arrayPowersOf10_Hex(intEach) = "@@@@@@@@"
 
         Next intEach
 

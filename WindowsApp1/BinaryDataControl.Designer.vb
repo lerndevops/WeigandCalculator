@@ -45,30 +45,34 @@ Partial Class BinaryDataControl
         '
         'UserControlC4_0
         '
+        Me.UserControlC4_0.BackColor = System.Drawing.Color.DarkRed
         Me.UserControlC4_0.Location = New System.Drawing.Point(712, 32)
         Me.UserControlC4_0.Name = "UserControlC4_0"
-        Me.UserControlC4_0.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC4_0.Size = New System.Drawing.Size(132, 74)
         Me.UserControlC4_0.TabIndex = 44
         '
         'UserControlC4_1
         '
+        Me.UserControlC4_1.BackColor = System.Drawing.Color.DarkRed
         Me.UserControlC4_1.Location = New System.Drawing.Point(574, 31)
         Me.UserControlC4_1.Name = "UserControlC4_1"
-        Me.UserControlC4_1.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC4_1.Size = New System.Drawing.Size(132, 74)
         Me.UserControlC4_1.TabIndex = 41
         '
         'UserControlC4_2
         '
+        Me.UserControlC4_2.BackColor = System.Drawing.Color.DarkRed
         Me.UserControlC4_2.Location = New System.Drawing.Point(436, 31)
         Me.UserControlC4_2.Name = "UserControlC4_2"
-        Me.UserControlC4_2.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC4_2.Size = New System.Drawing.Size(132, 74)
         Me.UserControlC4_2.TabIndex = 40
         '
         'UserControlC4_3
         '
+        Me.UserControlC4_3.BackColor = System.Drawing.Color.DarkRed
         Me.UserControlC4_3.Location = New System.Drawing.Point(298, 31)
         Me.UserControlC4_3.Name = "UserControlC4_3"
-        Me.UserControlC4_3.Size = New System.Drawing.Size(132, 59)
+        Me.UserControlC4_3.Size = New System.Drawing.Size(132, 74)
         Me.UserControlC4_3.TabIndex = 39
         '
         'UserControlF4_0
@@ -90,7 +94,7 @@ Partial Class BinaryDataControl
         Me.UserControlParityEven.BackColor = System.Drawing.Color.MediumTurquoise
         Me.UserControlParityEven.Location = New System.Drawing.Point(3, 31)
         Me.UserControlParityEven.Name = "UserControlParityEven"
-        Me.UserControlParityEven.Size = New System.Drawing.Size(427, 92)
+        Me.UserControlParityEven.Size = New System.Drawing.Size(427, 103)
         Me.UserControlParityEven.TabIndex = 42
         '
         'UserControlParityOdd
@@ -98,7 +102,7 @@ Partial Class BinaryDataControl
         Me.UserControlParityOdd.BackColor = System.Drawing.Color.LightCyan
         Me.UserControlParityOdd.Location = New System.Drawing.Point(436, 30)
         Me.UserControlParityOdd.Name = "UserControlParityOdd"
-        Me.UserControlParityOdd.Size = New System.Drawing.Size(461, 93)
+        Me.UserControlParityOdd.Size = New System.Drawing.Size(461, 104)
         Me.UserControlParityOdd.TabIndex = 43
         '
         'BinaryDataControl
@@ -116,7 +120,7 @@ Partial Class BinaryDataControl
         Me.Controls.Add(Me.UserControlParityEven)
         Me.Controls.Add(Me.UserControlParityOdd)
         Me.Name = "BinaryDataControl"
-        Me.Size = New System.Drawing.Size(899, 125)
+        Me.Size = New System.Drawing.Size(899, 135)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

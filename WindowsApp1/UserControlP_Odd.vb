@@ -46,7 +46,7 @@ Public Class UserControlP_Odd
 
             _strLongBinaryString = value
             ''/29 td''TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Odd(_strLongBinaryString)
-            TextBox1.Text = WeigandCalculator_CS.ClassStatic.GetParityBit_Odd(_strLongBinaryString, intNumOnes)
+            TextBox1.Text = WeigandCalculator_CS.ClassStaticBinary.GetParityBit_Odd(_strLongBinaryString, intNumOnes)
             _intBinaryValue = Integer.Parse(TextBox1.Text) ''Added 1/29/2019 td
 
             ''Add "with" or "without" to  the label caption.   --- 1/29/2019 td

@@ -99,7 +99,14 @@
     <Compile Include="FormErrMessages.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modConvertDecToHex.vb" />
+    <Compile Include="FormSelectHexDigit.Designer.vb">
+      <DependentUpon>FormSelectHexDigit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectHexDigit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modDecToHexByStrings.vb" />
+    <Compile Include="modDecToHexByStrings_June.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -164,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormErrMessages.resx">
       <DependentUpon>FormErrMessages.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectHexDigit.resx">
+      <DependentUpon>FormSelectHexDigit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
