@@ -53,7 +53,7 @@ Partial Class UserControlP_Even
         Me.LabelEvenParityField.AutoSize = True
         Me.LabelEvenParityField.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelEvenParityField.ForeColor = System.Drawing.Color.Black
-        Me.LabelEvenParityField.Location = New System.Drawing.Point(3, 84)
+        Me.LabelEvenParityField.Location = New System.Drawing.Point(3, 82)
         Me.LabelEvenParityField.Name = "LabelEvenParityField"
         Me.LabelEvenParityField.Size = New System.Drawing.Size(126, 20)
         Me.LabelEvenParityField.TabIndex = 28

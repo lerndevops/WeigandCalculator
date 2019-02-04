@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class FormCalculator
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -54,7 +54,7 @@ Partial Class Form1
         '
         'txtCardCode_Dec_Start
         '
-        Me.txtCardCode_Dec_Start.Location = New System.Drawing.Point(760, 88)
+        Me.txtCardCode_Dec_Start.Location = New System.Drawing.Point(770, 88)
         Me.txtCardCode_Dec_Start.Name = "txtCardCode_Dec_Start"
         Me.txtCardCode_Dec_Start.Size = New System.Drawing.Size(100, 20)
         Me.txtCardCode_Dec_Start.TabIndex = 0
@@ -63,7 +63,9 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(631, 91)
+        Me.Label1.BackColor = System.Drawing.Color.ForestGreen
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(641, 91)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(123, 13)
         Me.Label1.TabIndex = 1
@@ -71,18 +73,22 @@ Partial Class Form1
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.ForestGreen
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(755, 60)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(634, 60)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(115, 25)
+        Me.Label2.Size = New System.Drawing.Size(251, 112)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Card Code"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(631, 116)
+        Me.Label3.BackColor = System.Drawing.Color.ForestGreen
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(641, 116)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 13)
         Me.Label3.TabIndex = 4
@@ -90,7 +96,7 @@ Partial Class Form1
         '
         'txtCardCode_Dec_End
         '
-        Me.txtCardCode_Dec_End.Location = New System.Drawing.Point(760, 113)
+        Me.txtCardCode_Dec_End.Location = New System.Drawing.Point(770, 113)
         Me.txtCardCode_Dec_End.Name = "txtCardCode_Dec_End"
         Me.txtCardCode_Dec_End.Size = New System.Drawing.Size(100, 20)
         Me.txtCardCode_Dec_End.TabIndex = 3
@@ -98,17 +104,21 @@ Partial Class Form1
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.DarkRed
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(482, 62)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(424, 62)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(80, 25)
+        Me.Label5.Size = New System.Drawing.Size(184, 93)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Facility"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.DarkRed
+        Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(433, 93)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
@@ -203,6 +213,8 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.ForestGreen
+        Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(641, 142)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(95, 13)
@@ -222,11 +234,11 @@ Partial Class Form1
         Me.txtAllOutputLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 449)
+        Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 460)
         Me.txtAllOutputLines.Multiline = True
         Me.txtAllOutputLines.Name = "txtAllOutputLines"
         Me.txtAllOutputLines.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 206)
+        Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 195)
         Me.txtAllOutputLines.TabIndex = 21
         '
         'ButtonLoopAllCardNumbers
@@ -243,17 +255,17 @@ Partial Class Form1
         '
         Me.ListBox1.DisplayMember = "Name"
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(22, 402)
+        Me.ListBox1.Location = New System.Drawing.Point(22, 415)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox1.Size = New System.Drawing.Size(238, 212)
+        Me.ListBox1.Size = New System.Drawing.Size(238, 199)
         Me.ListBox1.TabIndex = 23
         '
         'LabelCurrentlyOutputting
         '
         Me.LabelCurrentlyOutputting.BackColor = System.Drawing.Color.Yellow
         Me.LabelCurrentlyOutputting.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(279, 402)
+        Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(279, 413)
         Me.LabelCurrentlyOutputting.Name = "LabelCurrentlyOutputting"
         Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(774, 44)
         Me.LabelCurrentlyOutputting.TabIndex = 24
@@ -276,7 +288,7 @@ Partial Class Form1
         Me.BinaryDataControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.BinaryDataControl1.Location = New System.Drawing.Point(22, 265)
         Me.BinaryDataControl1.Name = "BinaryDataControl1"
-        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 131)
+        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 144)
         Me.BinaryDataControl1.TabIndex = 18
         '
         'PictureBox1
@@ -311,7 +323,7 @@ Partial Class Form1
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Open Wiegand Calculator (by CC Design Works)"
         '
-        'Form1
+        'FormCalculator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -335,15 +347,15 @@ Partial Class Form1
         Me.Controls.Add(Me.txtRawData_Dec)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtRawData_Hex)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtFacility_Dec)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtCardCode_Dec_End)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtCardCode_Dec_Start)
-        Me.Name = "Form1"
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label2)
+        Me.Name = "FormCalculator"
         Me.Text = "Wiegand-Format Processing, by CI Solutions"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

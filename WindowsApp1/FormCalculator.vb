@@ -5,7 +5,7 @@ Option Strict On ''Added 1/28/2019 td
 
 Imports WeigandCalculator_CS ''Added 1/28/2019 td 
 
-Public Class Form1
+Public Class FormCalculator
 
     Private _ErrorMessageBuilder As New System.Text.StringBuilder(800) ''Added 1/29/2019 thomas downes
 

@@ -58,7 +58,8 @@ Public Module modHexToDecByStrings
                 ''Don't return any values other than the error message.
                 strDec_Temp = ""
                 ConvertHexToDec = ""
-                Exit Function
+                ''2/4/2019 td''Exit Function
+                Return "" ''Added 2/4/2019 td
 
             ElseIf (strRunningTotalDec = "") Then
 

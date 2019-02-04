@@ -61,9 +61,16 @@ Public Class ClassCardNumber
                 CardNumber_Set_ByHexDigits(par_longCardNumber)
 
             Case 3 ''Both of the above.  
-                CardNumber_Set_ByDivision(par_longCardNumber, True)
-                CardNumber_Set_ByHexDigits(par_longCardNumber, True)
+                ''
+                ''Let's compare the results for the two methods !!
+                ''
+                Const c_boolSaveResultsToCompare As Boolean = True ''Added 2/4/2019 td
+                CardNumber_Set_ByDivision(par_longCardNumber, c_boolSaveResultsToCompare) '' True)
+                CardNumber_Set_ByHexDigits(par_longCardNumber, c_boolSaveResultsToCompare) ''  True)
                 boolResultsMatch = (mod_quartets_byHex.Matches(mod_quartets_byDiv))
+
+                ''Added 2/4/2019 thomas d.
+                If (Not boolResultsMatch) Then MsgBox("There is a flaw in your calculation of the binary value.", vbExclamation)
 
         End Select ''End of "Select Case c_intWhichWayToDo"
 
@@ -98,13 +105,13 @@ Public Class ClassCardNumber
 
         ''Added 2/2/2019 td
         If (pboolStoreResults) Then
-            mod_quartets_byDiv.C4_4096 = ControlC4_4096.Binary1111
-            mod_quartets_byDiv.C4__256 = ControlC4__256.Binary1111
-            mod_quartets_byDiv.C4___16 = ControlC4___16.Binary1111
-            mod_quartets_byDiv.C4____1 = ControlC4____1.Binary1111
-        End If
+            mod_quartets_byHex.C4_4096 = ControlC4_4096.Binary1111
+            mod_quartets_byHex.C4__256 = ControlC4__256.Binary1111
+            mod_quartets_byHex.C4___16 = ControlC4___16.Binary1111
+            mod_quartets_byHex.C4____1 = ControlC4____1.Binary1111
+        End If ''ENd of "If (pboolStoreResults) Then"
 
-    End Sub ''End of "Private Sub CardNumber_Set_ByDivision"
+    End Sub ''End of "Private Sub CardNumber_Set_ByHexDigits"
 
     Private Sub CardNumber_Set_ByDivision(par_longCardNumber As Long, Optional ByVal pboolStoreResults As Boolean = False) ''2/2/2019 td'' (value As String)
         ''
@@ -205,6 +212,14 @@ Public Class ClassCardNumber
 
         ''2/2/2019 td''    End Set
         ''2/2/2019 td''End Property
+
+        ''Added 2/2/2019 td
+        If (pboolStoreResults) Then
+            mod_quartets_byDiv.C4_4096 = ControlC4_4096.Binary1111
+            mod_quartets_byDiv.C4__256 = ControlC4__256.Binary1111
+            mod_quartets_byDiv.C4___16 = ControlC4___16.Binary1111
+            mod_quartets_byDiv.C4____1 = ControlC4____1.Binary1111
+        End If ''End of "If (pboolStoreResults) Then"
 
     End Sub ''End of "Private Sub CardNumber_Set_ByDivision(par_longCardNumber As Long)"
 

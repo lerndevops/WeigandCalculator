@@ -86,11 +86,11 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ClassCardNumber.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="FormCalculator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FormCalculator.Designer.vb">
+      <DependentUpon>FormCalculator.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormErrMessages.Designer.vb">
@@ -166,8 +166,8 @@
     <EmbeddedResource Include="BinaryData_BAK.resx">
       <DependentUpon>BinaryData_BAK.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FormCalculator.resx">
+      <DependentUpon>FormCalculator.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormErrMessages.resx">
       <DependentUpon>FormErrMessages.vb</DependentUpon>

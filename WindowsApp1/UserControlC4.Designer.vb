@@ -38,6 +38,7 @@ Partial Class UserControlC4
         Me.LabelHexDigit.Name = "LabelHexDigit"
         Me.LabelHexDigit.Size = New System.Drawing.Size(104, 13)
         Me.LabelHexDigit.TabIndex = 4
+        Me.LabelHexDigit.Tag = "_____________Hex"
         Me.LabelHexDigit.Text = "_____________Hex"
         '
         'UserControlC0

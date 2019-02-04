@@ -165,6 +165,12 @@ Public Class UserControlC4
         Set(value As String)
             ''Added 2/1/2019 td
             _charHexadecimalDigit = Char.Parse(value.Trim().Substring(0, 1))
+
+            ''Added 2/4/2019 td
+            Dim strHexDigitLabelPrefix As String ''Added 2/4/2019 td 
+            ''Added 2/4/2019 td
+            strHexDigitLabelPrefix = LabelHexDigit.Tag.ToString()
+            LabelHexDigit.Text = (strHexDigitLabelPrefix & " " & _charHexadecimalDigit.ToString())
         End Set
     End Property
 
