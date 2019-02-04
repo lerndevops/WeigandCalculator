@@ -29,19 +29,19 @@ Partial Class UserControlP_Even
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(6, 13)
+        Me.Label1.Location = New System.Drawing.Point(6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(19, 20)
+        Me.Label1.Size = New System.Drawing.Size(32, 20)
         Me.Label1.TabIndex = 27
         Me.Label1.Text = "P"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(3, 36)
+        Me.TextBox1.Location = New System.Drawing.Point(7, 23)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(31, 26)
         Me.TextBox1.TabIndex = 26

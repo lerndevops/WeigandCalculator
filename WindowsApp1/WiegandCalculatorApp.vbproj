@@ -85,6 +85,12 @@
     <Compile Include="BinaryData_BAK.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BinaryQuartet.Designer.vb">
+      <DependentUpon>BinaryQuartet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BinaryQuartet.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ClassCardNumber.vb" />
     <Compile Include="FormCalculator.vb">
       <SubType>Form</SubType>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BinaryData_BAK.resx">
       <DependentUpon>BinaryData_BAK.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinaryQuartet.resx">
+      <DependentUpon>BinaryQuartet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCalculator.resx">
       <DependentUpon>FormCalculator.vb</DependentUpon>
