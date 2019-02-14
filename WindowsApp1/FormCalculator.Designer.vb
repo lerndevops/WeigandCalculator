@@ -137,7 +137,7 @@ Partial Class FormCalculator
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 217)
+        Me.Label4.Location = New System.Drawing.Point(16, 194)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(201, 25)
         Me.Label4.TabIndex = 13
@@ -146,7 +146,7 @@ Partial Class FormCalculator
         'txtRawData_Dec
         '
         Me.txtRawData_Dec.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRawData_Dec.Location = New System.Drawing.Point(223, 223)
+        Me.txtRawData_Dec.Location = New System.Drawing.Point(223, 200)
         Me.txtRawData_Dec.Name = "txtRawData_Dec"
         Me.txtRawData_Dec.Size = New System.Drawing.Size(100, 26)
         Me.txtRawData_Dec.TabIndex = 11
@@ -156,7 +156,7 @@ Partial Class FormCalculator
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(387, 217)
+        Me.Label8.Location = New System.Drawing.Point(387, 194)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(56, 25)
         Me.Label8.TabIndex = 10
@@ -165,7 +165,7 @@ Partial Class FormCalculator
         'txtRawData_Hex
         '
         Me.txtRawData_Hex.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRawData_Hex.Location = New System.Drawing.Point(508, 223)
+        Me.txtRawData_Hex.Location = New System.Drawing.Point(508, 200)
         Me.txtRawData_Hex.Name = "txtRawData_Hex"
         Me.txtRawData_Hex.Size = New System.Drawing.Size(100, 26)
         Me.txtRawData_Hex.TabIndex = 8
@@ -174,7 +174,7 @@ Partial Class FormCalculator
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(436, 204)
+        Me.Label7.Location = New System.Drawing.Point(436, 181)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(135, 13)
         Me.Label7.TabIndex = 14
@@ -183,7 +183,7 @@ Partial Class FormCalculator
         'txtPadToThisManyHexDigits
         '
         Me.txtPadToThisManyHexDigits.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPadToThisManyHexDigits.Location = New System.Drawing.Point(577, 202)
+        Me.txtPadToThisManyHexDigits.Location = New System.Drawing.Point(577, 179)
         Me.txtPadToThisManyHexDigits.MaxLength = 1
         Me.txtPadToThisManyHexDigits.Name = "txtPadToThisManyHexDigits"
         Me.txtPadToThisManyHexDigits.Size = New System.Drawing.Size(31, 18)
@@ -193,10 +193,10 @@ Partial Class FormCalculator
         'LabelOutputHeader
         '
         Me.LabelOutputHeader.AutoSize = True
-        Me.LabelOutputHeader.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelOutputHeader.Location = New System.Drawing.Point(16, 166)
+        Me.LabelOutputHeader.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelOutputHeader.Location = New System.Drawing.Point(12, 152)
         Me.LabelOutputHeader.Name = "LabelOutputHeader"
-        Me.LabelOutputHeader.Size = New System.Drawing.Size(228, 36)
+        Me.LabelOutputHeader.Size = New System.Drawing.Size(168, 26)
         Me.LabelOutputHeader.TabIndex = 16
         Me.LabelOutputHeader.Text = "Output / Results"
         '
@@ -234,17 +234,17 @@ Partial Class FormCalculator
         Me.txtAllOutputLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 460)
+        Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 514)
         Me.txtAllOutputLines.Multiline = True
         Me.txtAllOutputLines.Name = "txtAllOutputLines"
         Me.txtAllOutputLines.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 195)
+        Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 176)
         Me.txtAllOutputLines.TabIndex = 21
         '
         'ButtonLoopAllCardNumbers
         '
         Me.ButtonLoopAllCardNumbers.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLoopAllCardNumbers.Location = New System.Drawing.Point(22, 620)
+        Me.ButtonLoopAllCardNumbers.Location = New System.Drawing.Point(22, 640)
         Me.ButtonLoopAllCardNumbers.Name = "ButtonLoopAllCardNumbers"
         Me.ButtonLoopAllCardNumbers.Size = New System.Drawing.Size(238, 50)
         Me.ButtonLoopAllCardNumbers.TabIndex = 22
@@ -255,19 +255,19 @@ Partial Class FormCalculator
         '
         Me.ListBox1.DisplayMember = "Name"
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(22, 415)
+        Me.ListBox1.Location = New System.Drawing.Point(22, 500)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox1.Size = New System.Drawing.Size(238, 199)
+        Me.ListBox1.Size = New System.Drawing.Size(238, 134)
         Me.ListBox1.TabIndex = 23
         '
         'LabelCurrentlyOutputting
         '
         Me.LabelCurrentlyOutputting.BackColor = System.Drawing.Color.Yellow
-        Me.LabelCurrentlyOutputting.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(279, 413)
+        Me.LabelCurrentlyOutputting.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(280, 479)
         Me.LabelCurrentlyOutputting.Name = "LabelCurrentlyOutputting"
-        Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(774, 44)
+        Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(774, 32)
         Me.LabelCurrentlyOutputting.TabIndex = 24
         Me.LabelCurrentlyOutputting.Text = "Currently Outputting Card-Number Results..."
         Me.LabelCurrentlyOutputting.Visible = False
@@ -276,7 +276,7 @@ Partial Class FormCalculator
         '
         Me.LinkUpdateBinaryData.AutoSize = True
         Me.LinkUpdateBinaryData.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkUpdateBinaryData.Location = New System.Drawing.Point(353, 177)
+        Me.LinkUpdateBinaryData.Location = New System.Drawing.Point(269, 158)
         Me.LinkUpdateBinaryData.Name = "LinkUpdateBinaryData"
         Me.LinkUpdateBinaryData.Size = New System.Drawing.Size(149, 20)
         Me.LinkUpdateBinaryData.TabIndex = 25
@@ -286,9 +286,9 @@ Partial Class FormCalculator
         'BinaryDataControl1
         '
         Me.BinaryDataControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.BinaryDataControl1.Location = New System.Drawing.Point(22, 265)
+        Me.BinaryDataControl1.Location = New System.Drawing.Point(21, 232)
         Me.BinaryDataControl1.Name = "BinaryDataControl1"
-        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 144)
+        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 249)
         Me.BinaryDataControl1.TabIndex = 18
         '
         'PictureBox1
@@ -305,7 +305,7 @@ Partial Class FormCalculator
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(439, 641)
+        Me.Button1.Location = New System.Drawing.Point(439, 676)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(402, 29)
         Me.Button1.TabIndex = 27
@@ -327,7 +327,7 @@ Partial Class FormCalculator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1080, 682)
+        Me.ClientSize = New System.Drawing.Size(1080, 717)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)

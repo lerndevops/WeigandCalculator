@@ -85,6 +85,12 @@
     <Compile Include="BinaryData_BAK.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BinaryAll_NoParity.Designer.vb">
+      <DependentUpon>BinaryAll_NoParity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BinaryAll_NoParity.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="BinaryQuartet.Designer.vb">
       <DependentUpon>BinaryQuartet.vb</DependentUpon>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BinaryData_BAK.resx">
       <DependentUpon>BinaryData_BAK.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BinaryAll_NoParity.resx">
+      <DependentUpon>BinaryAll_NoParity.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BinaryQuartet.resx">
       <DependentUpon>BinaryQuartet.vb</DependentUpon>
