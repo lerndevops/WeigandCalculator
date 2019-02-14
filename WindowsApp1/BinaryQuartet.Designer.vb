@@ -30,6 +30,7 @@ Partial Class BinaryQuartet
         Me.LabelParity2 = New System.Windows.Forms.Label()
         Me.LabelParity3 = New System.Windows.Forms.Label()
         Me.LabelParity4 = New System.Windows.Forms.Label()
+        Me.LabelHex = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -73,7 +74,7 @@ Partial Class BinaryQuartet
         Me.LabelParity1.BackColor = System.Drawing.Color.DodgerBlue
         Me.LabelParity1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelParity1.ForeColor = System.Drawing.Color.White
-        Me.LabelParity1.Location = New System.Drawing.Point(1, 32)
+        Me.LabelParity1.Location = New System.Drawing.Point(1, 28)
         Me.LabelParity1.Name = "LabelParity1"
         Me.LabelParity1.Size = New System.Drawing.Size(17, 71)
         Me.LabelParity1.TabIndex = 25
@@ -85,7 +86,7 @@ Partial Class BinaryQuartet
         Me.LabelParity2.BackColor = System.Drawing.Color.DodgerBlue
         Me.LabelParity2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelParity2.ForeColor = System.Drawing.Color.White
-        Me.LabelParity2.Location = New System.Drawing.Point(20, 32)
+        Me.LabelParity2.Location = New System.Drawing.Point(20, 28)
         Me.LabelParity2.Name = "LabelParity2"
         Me.LabelParity2.Size = New System.Drawing.Size(17, 71)
         Me.LabelParity2.TabIndex = 26
@@ -97,7 +98,7 @@ Partial Class BinaryQuartet
         Me.LabelParity3.BackColor = System.Drawing.Color.DodgerBlue
         Me.LabelParity3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelParity3.ForeColor = System.Drawing.Color.White
-        Me.LabelParity3.Location = New System.Drawing.Point(40, 32)
+        Me.LabelParity3.Location = New System.Drawing.Point(40, 28)
         Me.LabelParity3.Name = "LabelParity3"
         Me.LabelParity3.Size = New System.Drawing.Size(17, 71)
         Me.LabelParity3.TabIndex = 27
@@ -109,17 +110,27 @@ Partial Class BinaryQuartet
         Me.LabelParity4.BackColor = System.Drawing.Color.DodgerBlue
         Me.LabelParity4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelParity4.ForeColor = System.Drawing.Color.White
-        Me.LabelParity4.Location = New System.Drawing.Point(59, 32)
+        Me.LabelParity4.Location = New System.Drawing.Point(59, 28)
         Me.LabelParity4.Name = "LabelParity4"
         Me.LabelParity4.Size = New System.Drawing.Size(17, 71)
         Me.LabelParity4.TabIndex = 28
         Me.LabelParity4.Text = "^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ "
         Me.LabelParity4.Visible = False
         '
+        'LabelHex
+        '
+        Me.LabelHex.BackColor = System.Drawing.Color.White
+        Me.LabelHex.Location = New System.Drawing.Point(20, 43)
+        Me.LabelHex.Name = "LabelHex"
+        Me.LabelHex.Size = New System.Drawing.Size(36, 30)
+        Me.LabelHex.TabIndex = 29
+        Me.LabelHex.Text = "Hex: "
+        '
         'BinaryQuartet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.LabelHex)
         Me.Controls.Add(Me.LabelParity4)
         Me.Controls.Add(Me.LabelParity3)
         Me.Controls.Add(Me.LabelParity2)
@@ -129,7 +140,7 @@ Partial Class BinaryQuartet
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "BinaryQuartet"
-        Me.Size = New System.Drawing.Size(79, 104)
+        Me.Size = New System.Drawing.Size(79, 102)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -143,4 +154,5 @@ Partial Class BinaryQuartet
     Friend WithEvents LabelParity2 As Label
     Friend WithEvents LabelParity3 As Label
     Friend WithEvents LabelParity4 As Label
+    Friend WithEvents LabelHex As Label
 End Class

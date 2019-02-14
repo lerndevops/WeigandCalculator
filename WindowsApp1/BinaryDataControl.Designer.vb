@@ -98,9 +98,9 @@ Partial Class BinaryDataControl
         'BinaryAll_NoParity1
         '
         Me.BinaryAll_NoParity1.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.BinaryAll_NoParity1.Location = New System.Drawing.Point(126, 112)
+        Me.BinaryAll_NoParity1.Location = New System.Drawing.Point(162, 97)
         Me.BinaryAll_NoParity1.Name = "BinaryAll_NoParity1"
-        Me.BinaryAll_NoParity1.Size = New System.Drawing.Size(599, 108)
+        Me.BinaryAll_NoParity1.Size = New System.Drawing.Size(599, 94)
         Me.BinaryAll_NoParity1.TabIndex = 45
         '
         'BinaryDataControl
@@ -118,7 +118,7 @@ Partial Class BinaryDataControl
         Me.Controls.Add(Me.UserControlParityEven)
         Me.Controls.Add(Me.UserControlParityOdd)
         Me.Name = "BinaryDataControl"
-        Me.Size = New System.Drawing.Size(901, 221)
+        Me.Size = New System.Drawing.Size(901, 194)
         Me.ResumeLayout(False)
 
     End Sub

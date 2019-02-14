@@ -83,12 +83,14 @@ Partial Class BinaryAll_NoParity
         '
         'LabelParity4
         '
+        Me.LabelParity4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelParity4.BackColor = System.Drawing.Color.DodgerBlue
         Me.LabelParity4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelParity4.ForeColor = System.Drawing.Color.White
-        Me.LabelParity4.Location = New System.Drawing.Point(3, 55)
+        Me.LabelParity4.Location = New System.Drawing.Point(0, 72)
         Me.LabelParity4.Name = "LabelParity4"
-        Me.LabelParity4.Size = New System.Drawing.Size(589, 23)
+        Me.LabelParity4.Size = New System.Drawing.Size(600, 23)
         Me.LabelParity4.TabIndex = 29
         Me.LabelParity4.Text = "All bits, re-grouped into quartet(4)s.   (Parity Bits included.)"
         Me.LabelParity4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -107,7 +109,7 @@ Partial Class BinaryAll_NoParity
         Me.Controls.Add(Me.BinaryQuartet2)
         Me.Controls.Add(Me.BinaryQuartet1)
         Me.Name = "BinaryAll_NoParity"
-        Me.Size = New System.Drawing.Size(600, 82)
+        Me.Size = New System.Drawing.Size(600, 95)
         Me.ResumeLayout(False)
 
     End Sub

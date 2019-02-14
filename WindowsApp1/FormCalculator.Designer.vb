@@ -234,11 +234,11 @@ Partial Class FormCalculator
         Me.txtAllOutputLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 514)
+        Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 475)
         Me.txtAllOutputLines.Multiline = True
         Me.txtAllOutputLines.Name = "txtAllOutputLines"
         Me.txtAllOutputLines.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 176)
+        Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 215)
         Me.txtAllOutputLines.TabIndex = 21
         '
         'ButtonLoopAllCardNumbers
@@ -255,17 +255,17 @@ Partial Class FormCalculator
         '
         Me.ListBox1.DisplayMember = "Name"
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(22, 500)
+        Me.ListBox1.Location = New System.Drawing.Point(22, 435)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.ListBox1.Size = New System.Drawing.Size(238, 134)
+        Me.ListBox1.Size = New System.Drawing.Size(238, 199)
         Me.ListBox1.TabIndex = 23
         '
         'LabelCurrentlyOutputting
         '
         Me.LabelCurrentlyOutputting.BackColor = System.Drawing.Color.Yellow
         Me.LabelCurrentlyOutputting.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(280, 479)
+        Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(280, 440)
         Me.LabelCurrentlyOutputting.Name = "LabelCurrentlyOutputting"
         Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(774, 32)
         Me.LabelCurrentlyOutputting.TabIndex = 24
@@ -288,7 +288,7 @@ Partial Class FormCalculator
         Me.BinaryDataControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.BinaryDataControl1.Location = New System.Drawing.Point(21, 232)
         Me.BinaryDataControl1.Name = "BinaryDataControl1"
-        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 249)
+        Me.BinaryDataControl1.Size = New System.Drawing.Size(901, 195)
         Me.BinaryDataControl1.TabIndex = 18
         '
         'PictureBox1
