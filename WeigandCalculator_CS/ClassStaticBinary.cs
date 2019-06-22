@@ -12,17 +12,17 @@ namespace WeigandCalculator_CS
             //InitializeComponent();
 
             //Added 1/28/2019  thomas downes 
-            int nineteen = 0b10011;
+            int nineteen = 19; // 0b10011;
 
             nineteen += 1;
 
             //Added 1/28/2019  thomas downes 
-            int Decimal1659 = 0b11001111011;
+            int Decimal1659 = 1659; // 0b11001111011;
 
             Decimal1659 += 0;
 
             //Added 1/28/2019  thomas downes 
-            int huge = 0b1_10010111_0000011001111011_1;
+            int huge = 99999; // 0b1_10010111_0000011001111011_1;
 
             huge += 0;
 
@@ -38,17 +38,17 @@ namespace WeigandCalculator_CS
         {
 
             //Added 1/28/2019  thomas downes 
-            int nineteen = 0b10011;
+            int nineteen = 19; // 0b10011;
 
             nineteen += 1;
 
             //Added 1/28/2019  thomas downes 
-            int Decimal1659 = 0b11001111011;
+            int Decimal1659 = 1659; // 0b11001111011;
 
             Decimal1659 += 0;
 
             //Added 1/28/2019  thomas downes 
-            int huge = 0b1_10010111_0000011001111011_1;
+            int huge = 9999;  // 0b1_10010111_0000011001111011_1;
 
             huge += 0;
 
@@ -69,7 +69,7 @@ namespace WeigandCalculator_CS
         internal static string LongBinary_ToString()
         {
             //Added 1/28/2019  thomas downes 
-            int huge = 0b1_10010111_0000011001111011_1;
+            int huge = 9999;  // 0b1_10010111_0000011001111011_1;
 
             var binary = System.Convert.ToString(huge, 2);
 
@@ -81,7 +81,7 @@ namespace WeigandCalculator_CS
         {
             //Added 1/28/2019  thomas downes 
             //long huge = 0b1_10010111_0000011001111011_1;
-            long huge = 0b11001011100000110011110111;
+            long huge = 9999; // 0b11001011100000110011110111;
 
             //var binary = System.Convert.ToString(huge, 2);
 
