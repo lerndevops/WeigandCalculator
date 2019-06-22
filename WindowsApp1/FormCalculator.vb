@@ -5,7 +5,7 @@ Option Strict On ''Added 1/28/2019 td
 
 Imports WeigandCalculator_CS ''Added 1/28/2019 td 
 
-Public Class Form1
+Public Class FormCalculator
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -154,6 +154,8 @@ Public Class Form1
         Application.DoEvents()
 
         For intEachCard As Integer = Integer.Parse(txtCardCode_Dec_Start.Text) To Integer.Parse(txtCardCode_Dec_End.Text)
+
+            txtCardCode_Dec_Curr.Text = intEachCard.ToString()
 
             RefreshFormWithCardNumber(intEachCard.ToString())
 

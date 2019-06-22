@@ -32,7 +32,9 @@ Module modConvertDecToHex ''Added 1/29/2019 td
     End Function
 
     Public Function ConvertDecToHex(pstrDecimal As String, ByRef pstrErrMessage As String) As String
-
+        ''
+        ''
+        ''
         Dim intCharIndex As Integer
         Dim strDecimalDigit As String
         Dim strHex_Temp As String

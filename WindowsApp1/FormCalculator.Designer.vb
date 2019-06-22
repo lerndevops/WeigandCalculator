@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class FormCalculator
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -217,6 +217,7 @@ Partial Class Form1
         Me.txtAllOutputLines.Location = New System.Drawing.Point(285, 449)
         Me.txtAllOutputLines.Multiline = True
         Me.txtAllOutputLines.Name = "txtAllOutputLines"
+        Me.txtAllOutputLines.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtAllOutputLines.Size = New System.Drawing.Size(768, 206)
         Me.txtAllOutputLines.TabIndex = 21
         '
@@ -248,11 +249,11 @@ Partial Class Form1
         '
         'LabelCurrentlyOutputting
         '
-        Me.LabelCurrentlyOutputting.AutoSize = True
+        Me.LabelCurrentlyOutputting.BackColor = System.Drawing.Color.Yellow
         Me.LabelCurrentlyOutputting.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelCurrentlyOutputting.Location = New System.Drawing.Point(279, 402)
         Me.LabelCurrentlyOutputting.Name = "LabelCurrentlyOutputting"
-        Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(601, 36)
+        Me.LabelCurrentlyOutputting.Size = New System.Drawing.Size(774, 36)
         Me.LabelCurrentlyOutputting.TabIndex = 24
         Me.LabelCurrentlyOutputting.Text = "Currently Outputting Card-Number Results..."
         Me.LabelCurrentlyOutputting.Visible = False

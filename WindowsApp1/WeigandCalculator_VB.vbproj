@@ -85,14 +85,18 @@
     <Compile Include="BinaryData_BAK.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="FormCalculator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FormCalculator.Designer.vb">
+      <DependentUpon>FormCalculator.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modAddingDecs.vb" />
+    <Compile Include="modAddingHexs.vb" />
     <Compile Include="modConvertDecToHex.vb" />
+    <Compile Include="modConvertHexToDec.vb" />
+    <Compile Include="mod_SubtractDecs.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -152,8 +156,8 @@
     <EmbeddedResource Include="BinaryData_BAK.resx">
       <DependentUpon>BinaryData_BAK.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FormCalculator.resx">
+      <DependentUpon>FormCalculator.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
