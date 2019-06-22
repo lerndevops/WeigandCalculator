@@ -7,6 +7,8 @@ Imports WeigandCalculator_CS ''Added 1/28/2019 td
 
 Public Class FormCalculator
 
+    Private _ErrorMessageBuilder As New System.Text.StringBuilder(800) ''Added 1/29/2019 thomas downes
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ''Encapsulated 1/29/2019 td 
@@ -15,6 +17,9 @@ Public Class FormCalculator
 
         ''Fill Listbox. 
         FillListBoxOfValueTypes()
+
+        ''Added 1/29/2019 td
+        BinaryDataControl1.ErrorMessageBuilder = _ErrorMessageBuilder
 
     End Sub
 
@@ -52,6 +57,13 @@ Public Class FormCalculator
 
         Next eachControl
 
+        ''Append the error message, if any. -----1/29/2019 td
+        ''If ("" <> BinaryDataControl1.CurrentErrorMessage) Then
+        If (0 <> BinaryDataControl1.CurrentErrorMessage.Length) Then
+            ''Append the error message. -----1/29/2019 td
+            strOutputLine &= (vbTab & BinaryDataControl1.CurrentErrorMessage.ToString())
+        End If ''End of "If ("" <> BinaryDataControl1.CurrentErrorMessage) Then"
+
         Return strOutputLine
 
     End Function ''End of "Private Function GetLineOfOutput() As String"
@@ -79,7 +91,7 @@ Public Class FormCalculator
         txtRawData_Dec.Text = BinaryDataControl1.GetDecimalValue().ToString
 
         txtRawData_Hex.Text = ""
-        txtRawData_Hex.Text = modConvertDecToHex.ConvertDecToHex(txtRawData_Dec.Text, strErrorMessageText)
+        txtRawData_Hex.Text = modDecToHexByStrings.ConvertDecToHex(txtRawData_Dec.Text, strErrorMessageText)
         If ("" <> strErrorMessageText) Then MessageBox.Show(strErrorMessageText, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         ''
@@ -119,17 +131,22 @@ Public Class FormCalculator
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtCardCode_Dec_Curr.TextChanged
 
         ''Aded 1/29/2019 td 
-        RefreshFormWithCardNumber(txtCardCode_Dec_Curr.Text)
+        ''BinaryDataControl1.Verbose = True ''Show all the relevant error messages right away. 
+
+        ''RefreshFormWithCardNumber(txtCardCode_Dec_Curr.Text)
 
     End Sub
 
     Private Sub ButtonLoopAllCardNumbers_Click(sender As Object, e As EventArgs) Handles ButtonLoopAllCardNumbers.Click
-
         ''
         ''Loop through the range of Card Numbers.  
         ''
         Dim boolHasTextAlready As Boolean = ("" <> txtAllOutputLines.Text)
         Dim boolClearPriorOutput As Boolean
+
+        BinaryDataControl1.CurrentErrorMessage = (New System.Text.StringBuilder())
+        BinaryDataControl1.Verbose = False ''Suppress a bunch of annoying pop-up messages. 
+        BinaryDataControl1.FacilityCode = txtFacility_Dec.Text
 
         ''Don't clear out the textbox unless the user confirms he or she wants to re-run the processing. 
         If (boolHasTextAlready) Then
@@ -144,6 +161,8 @@ Public Class FormCalculator
             End If ''End of "If (boolClearPriorOutput) Then ... Else ...."
         End If ''End of "If (boolHasTextAlready) Then"
 
+        _ErrorMessageBuilder.Clear() ''Clear the previous error messages.  
+
         LabelCurrentlyOutputting.Visible = True
         Application.DoEvents()
         Application.DoEvents()
@@ -155,6 +174,8 @@ Public Class FormCalculator
 
         For intEachCard As Integer = Integer.Parse(txtCardCode_Dec_Start.Text) To Integer.Parse(txtCardCode_Dec_End.Text)
 
+            ''1/29 td''BinaryDataControl1.CurrentErrorMessage = "" ''Refresh the error message, so it can be filled if needed. 
+            BinaryDataControl1.CurrentErrorMessage.Clear() ''Refresh the error message, so it can be filled if needed. 
             txtCardCode_Dec_Curr.Text = intEachCard.ToString()
 
             RefreshFormWithCardNumber(intEachCard.ToString())
@@ -170,6 +191,29 @@ Public Class FormCalculator
         LabelCurrentlyOutputting.Visible = False
         Me.Cursor = Cursors.Default
         MessageBox.Show("Completed processing.", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        ''Added 1/29/2019 td
+        ''
+        '' Display all of the error messages.  
+        ''
+        If (_ErrorMessageBuilder.Length > 0) Then
+            Dim frm_ToShow As New FormErrMessages  ''Added 1/29/2019 td
+            frm_ToShow.ErrorMessageBuilder = _ErrorMessageBuilder
+            frm_ToShow.Show()
+        End If ''End of "If (_ErrorMessageBuilder.Length > 0) Then"
+
+    End Sub
+
+    Private Sub txtCardCode_Dec_Curr_Leave(sender As Object, e As EventArgs) Handles txtCardCode_Dec_Curr.Leave
+
+        ''Aded 1/29/2019 td 
+
+        If (DialogResult.Yes = MessageBox.Show("Update Binary Data?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) Then
+
+            BinaryDataControl1.Verbose = True ''Show all the relevant error messages right away. 
+            RefreshFormWithCardNumber(txtCardCode_Dec_Curr.Text)
+
+        End If ''ENd of "If (DialogResult.Yes = ......................" Then
 
     End Sub
 End Class

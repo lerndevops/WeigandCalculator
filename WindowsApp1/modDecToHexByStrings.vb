@@ -3,7 +3,7 @@ Option Strict On ''Added 1/29/2019 td
 
 ''Added 1/29/2019 td 
 
-Module modConvertDecToHex ''Added 1/29/2019 td 
+Module modDecToHexByStrings ''Added 1/29/2019 td 
 
 
     ''
