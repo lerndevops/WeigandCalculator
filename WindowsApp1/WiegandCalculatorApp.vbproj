@@ -98,14 +98,15 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ClassCardNumber.vb" />
-    <Compile Include="FormCalculator.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormCalculator.vb" />
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modConvertDecToHex.vb" />
+    <Compile Include="modAddingDecs.vb" />
+    <Compile Include="modAddingHexs.vb" />
+    <Compile Include="modConvertHexToDec.vb" />
+    <Compile Include="mod_SubtractDecs.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
