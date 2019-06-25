@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.AddSubtractDecimals.FormAddSubract
+            Me.MainForm = Global.AddSubtractDecimals.FormAddSubtract
         End Sub
     End Class
 End Namespace

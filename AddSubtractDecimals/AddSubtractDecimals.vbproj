@@ -73,11 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAddSubract.vb">
+    <Compile Include="FormAddSubtract.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddSubract.Designer.vb">
-      <DependentUpon>FormAddSubract.vb</DependentUpon>
+    <Compile Include="FormAddSubtract.Designer.vb">
+      <DependentUpon>FormAddSubtract.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modAddingDecs.vb" />
@@ -103,8 +103,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormAddSubract.resx">
-      <DependentUpon>FormAddSubract.vb</DependentUpon>
+    <EmbeddedResource Include="FormAddSubtract.resx">
+      <DependentUpon>FormAddSubtract.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
