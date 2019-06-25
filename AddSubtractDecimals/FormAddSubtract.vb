@@ -1,7 +1,7 @@
 ﻿Public Class FormAddSubtract
 
 
-    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSummand1.KeyPress, txtSummand2.KeyPress, txtMinus1.KeyPress, txtMinus2.KeyPress
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSummand1.KeyPress, txtSummand2.KeyPress, txtMinusTop.KeyPress, txtMinusBottom.KeyPress
         ''
         ''For the _KeyPress event.  
         ''
@@ -129,7 +129,7 @@
         ''
         ''Added 6/25/2019 td
         ''
-        txtMinus1.Text = modUtilities.TwoToThePowerOf64
+        txtMinusTop.Text = modUtilities.TwoToThePowerOf64
 
         ''
         ''Add commas, if requested by the user.
@@ -140,7 +140,7 @@
             ''
             ''   Add commas. 
             ''
-            txtMinus1.Text = modUtilities.AddCommasForTriplets(txtMinus1.Text)
+            txtMinusTop.Text = modUtilities.AddCommasForTriplets(txtMinusTop.Text)
 
         End If ''end of "If (chkEnforceCommas.Checked) Then"
 
@@ -150,7 +150,7 @@
         ''
         ''Added 6/25/2019 td
         ''
-        txtMinus2.Text = modUtilities.TwoToThePowerOf64
+        txtMinusBottom.Text = modUtilities.TwoToThePowerOf64
         ''
         ''Add commas, if requested by the user.
         ''
@@ -160,7 +160,7 @@
             ''
             ''   Add commas. 
             ''
-            txtMinus2.Text = modUtilities.AddCommasForTriplets(txtMinus2.Text)
+            txtMinusBottom.Text = modUtilities.AddCommasForTriplets(txtMinusBottom.Text)
 
         End If ''end of "If (chkEnforceCommas.Checked) Then"
 
@@ -171,11 +171,40 @@
         ''
         ''Added 6/25/2019 td  
         ''
+        Dim strSubtractTop As String
+        Dim strSubtractBtm As String
+        Dim strErrorMessage As String = ""
 
+        ''
+        ''Remove any commas!!  
+        ''
+        strSubtractTop = txtMinusTop.Text.Replace(",", "")
+        strSubtractBtm = txtMinusBottom.Text.Replace(",", "")
 
+        If (chkEnforceCommas.Checked) Then
 
+            txtAnswerMinus.Text =
+            mod_SubtractDecs.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
 
+            ''Added 6/25/2019 td 
+            ''
+            ''   Add commas. 
+            ''
+            txtAnswerMinus.Text = modUtilities.AddCommasForTriplets(txtAnswerMinus.Text)
 
+        Else
+
+            txtAnswerAdd.Text =
+            mod_SubtractDecs.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
+
+        End If ''End of "If (chkEnforceCommas.Checked) Then ... Else ...."
+
+        If ("" <> strErrorMessage) Then
+
+            MessageBox.Show("Program error:  " & strErrorMessage, "Adding Decs",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End If ''ENd of "If ("" <> strErrorMessage) Then"
 
     End Sub
 End Class

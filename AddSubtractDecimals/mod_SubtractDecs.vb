@@ -31,7 +31,7 @@ Module mod_SubtractDecs
         strDec1_Padded = PadLeft(Trim(pstrDec1), intMaxLengthOfDec)
         strDec2_Padded = PadLeft(Trim(pstrDec2), intMaxLengthOfDec)
 
-        intCharIndex = 0
+        intCharIndex = -1 ''6/25/2019 td'' = 0 
         Do
             intCharIndex += 1
             oneSignificantDigit1 = strDec1_Padded.Substring(intCharIndex, 1)
@@ -40,6 +40,8 @@ Module mod_SubtractDecs
             boolDigit2_IsBigger = (Integer.Parse(oneSignificantDigit1) < Integer.Parse(oneSignificantDigit2))
             If (boolDigit1_IsBigger) Then Exit Do
             If (boolDigit2_IsBigger) Then Exit Do
+            If (intCharIndex >= (-1 + strDec1_Padded.Length)) Then Exit Do
+            If (intCharIndex >= (-1 + strDec1_Padded.Length)) Then Exit Do
         Loop
 
         If (boolDigit1_IsBigger) Then
@@ -152,7 +154,7 @@ Module mod_SubtractDecs
         If (pstrErrMessage <> "") Then Exit Function
 
         ''6/25/2019 td''If (pboolThenAdd1) Then
-        If (pboolBorrowThe1) Then
+        If (pboolThenSubtract1) Then
 
             pboolBorrowThe1 = False ''Reinitialize.
 
@@ -270,6 +272,7 @@ Module mod_SubtractDecs
         If (intLenOfInput < param_Length) Then
 
             PadLeft = Strings.Space(param_Length - intLenOfInput) & paramString
+            PadLeft = PadLeft.Replace(" ", "0") ''Added 6/25/2019 td
 
         Else
 

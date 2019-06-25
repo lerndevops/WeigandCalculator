@@ -38,9 +38,9 @@ Partial Class FormAddSubtract
         Me.LabelSub1TwoPowerOf64 = New System.Windows.Forms.Label()
         Me.txtAnswerMinus = New System.Windows.Forms.TextBox()
         Me.LabelLeftHdrEqualsMinus = New System.Windows.Forms.Label()
-        Me.txtMinus1 = New System.Windows.Forms.TextBox()
+        Me.txtMinusTop = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtMinus2 = New System.Windows.Forms.TextBox()
+        Me.txtMinusBottom = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -51,10 +51,11 @@ Partial Class FormAddSubtract
         '
         'txtSummand1
         '
+        Me.txtSummand1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSummand1.Location = New System.Drawing.Point(80, 14)
         Me.txtSummand1.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSummand1.Name = "txtSummand1"
-        Me.txtSummand1.Size = New System.Drawing.Size(530, 20)
+        Me.txtSummand1.Size = New System.Drawing.Size(530, 26)
         Me.txtSummand1.TabIndex = 0
         '
         'txtSummand2
@@ -67,10 +68,11 @@ Partial Class FormAddSubtract
         '
         'txtAnswerAdd
         '
+        Me.txtAnswerAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAnswerAdd.Location = New System.Drawing.Point(80, 93)
         Me.txtAnswerAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAnswerAdd.Name = "txtAnswerAdd"
-        Me.txtAnswerAdd.Size = New System.Drawing.Size(530, 20)
+        Me.txtAnswerAdd.Size = New System.Drawing.Size(530, 26)
         Me.txtAnswerAdd.TabIndex = 2
         '
         'LabelLeftHdrAdd
@@ -167,9 +169,9 @@ Partial Class FormAddSubtract
         Me.Panel1.Controls.Add(Me.LabelSub1TwoPowerOf64)
         Me.Panel1.Controls.Add(Me.txtAnswerMinus)
         Me.Panel1.Controls.Add(Me.LabelLeftHdrEqualsMinus)
-        Me.Panel1.Controls.Add(Me.txtMinus1)
+        Me.Panel1.Controls.Add(Me.txtMinusTop)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.txtMinus2)
+        Me.Panel1.Controls.Add(Me.txtMinusBottom)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Location = New System.Drawing.Point(9, 219)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
@@ -215,10 +217,11 @@ Partial Class FormAddSubtract
         '
         'txtAnswerMinus
         '
+        Me.txtAnswerMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAnswerMinus.Location = New System.Drawing.Point(80, 93)
         Me.txtAnswerMinus.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAnswerMinus.Name = "txtAnswerMinus"
-        Me.txtAnswerMinus.Size = New System.Drawing.Size(530, 20)
+        Me.txtAnswerMinus.Size = New System.Drawing.Size(530, 26)
         Me.txtAnswerMinus.TabIndex = 2
         '
         'LabelLeftHdrEqualsMinus
@@ -233,13 +236,14 @@ Partial Class FormAddSubtract
         Me.LabelLeftHdrEqualsMinus.TabIndex = 6
         Me.LabelLeftHdrEqualsMinus.Text = "Equals"
         '
-        'txtMinus1
+        'txtMinusTop
         '
-        Me.txtMinus1.Location = New System.Drawing.Point(80, 14)
-        Me.txtMinus1.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtMinus1.Name = "txtMinus1"
-        Me.txtMinus1.Size = New System.Drawing.Size(530, 20)
-        Me.txtMinus1.TabIndex = 0
+        Me.txtMinusTop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMinusTop.Location = New System.Drawing.Point(80, 14)
+        Me.txtMinusTop.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtMinusTop.Name = "txtMinusTop"
+        Me.txtMinusTop.Size = New System.Drawing.Size(530, 26)
+        Me.txtMinusTop.TabIndex = 0
         '
         'Label3
         '
@@ -251,13 +255,13 @@ Partial Class FormAddSubtract
         Me.Label3.Size = New System.Drawing.Size(558, 8)
         Me.Label3.TabIndex = 5
         '
-        'txtMinus2
+        'txtMinusBottom
         '
-        Me.txtMinus2.Location = New System.Drawing.Point(80, 46)
-        Me.txtMinus2.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtMinus2.Name = "txtMinus2"
-        Me.txtMinus2.Size = New System.Drawing.Size(530, 20)
-        Me.txtMinus2.TabIndex = 1
+        Me.txtMinusBottom.Location = New System.Drawing.Point(80, 46)
+        Me.txtMinusBottom.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtMinusBottom.Name = "txtMinusBottom"
+        Me.txtMinusBottom.Size = New System.Drawing.Size(530, 20)
+        Me.txtMinusBottom.TabIndex = 1
         '
         'Label4
         '
@@ -335,9 +339,9 @@ Partial Class FormAddSubtract
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtAnswerMinus As TextBox
     Friend WithEvents LabelLeftHdrEqualsMinus As Label
-    Friend WithEvents txtMinus1 As TextBox
+    Friend WithEvents txtMinusTop As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtMinus2 As TextBox
+    Friend WithEvents txtMinusBottom As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label5 As Label
