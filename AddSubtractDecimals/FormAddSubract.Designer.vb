@@ -22,31 +22,32 @@ Partial Class FormAddSubract
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextSummand1 = New System.Windows.Forms.TextBox()
+        Me.txtSummand1 = New System.Windows.Forms.TextBox()
         Me.txtSummand2 = New System.Windows.Forms.TextBox()
-        Me.textAnswerAdd = New System.Windows.Forms.TextBox()
+        Me.txtAnswerAdd = New System.Windows.Forms.TextBox()
         Me.LabelLeftHdrAdd = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LabelLeftHdrEqualsAdd = New System.Windows.Forms.Label()
         Me.PanelAdd = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextAnswerMinus = New System.Windows.Forms.TextBox()
+        Me.txtAnswerMinus = New System.Windows.Forms.TextBox()
         Me.LabelLeftHdrEqualsMinus = New System.Windows.Forms.Label()
         Me.txtMinus1 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtMinus2 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.PanelAdd.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TextSummand1
+        'txtSummand1
         '
-        Me.TextSummand1.Location = New System.Drawing.Point(106, 17)
-        Me.TextSummand1.Name = "TextSummand1"
-        Me.TextSummand1.Size = New System.Drawing.Size(705, 22)
-        Me.TextSummand1.TabIndex = 0
+        Me.txtSummand1.Location = New System.Drawing.Point(106, 17)
+        Me.txtSummand1.Name = "txtSummand1"
+        Me.txtSummand1.Size = New System.Drawing.Size(705, 22)
+        Me.txtSummand1.TabIndex = 0
         '
         'txtSummand2
         '
@@ -55,12 +56,12 @@ Partial Class FormAddSubract
         Me.txtSummand2.Size = New System.Drawing.Size(705, 22)
         Me.txtSummand2.TabIndex = 1
         '
-        'textAnswerAdd
+        'txtAnswerAdd
         '
-        Me.textAnswerAdd.Location = New System.Drawing.Point(106, 114)
-        Me.textAnswerAdd.Name = "textAnswerAdd"
-        Me.textAnswerAdd.Size = New System.Drawing.Size(705, 22)
-        Me.textAnswerAdd.TabIndex = 2
+        Me.txtAnswerAdd.Location = New System.Drawing.Point(106, 114)
+        Me.txtAnswerAdd.Name = "txtAnswerAdd"
+        Me.txtAnswerAdd.Size = New System.Drawing.Size(705, 22)
+        Me.txtAnswerAdd.TabIndex = 2
         '
         'LabelLeftHdrAdd
         '
@@ -94,9 +95,9 @@ Partial Class FormAddSubract
         'PanelAdd
         '
         Me.PanelAdd.BackColor = System.Drawing.Color.Honeydew
-        Me.PanelAdd.Controls.Add(Me.textAnswerAdd)
+        Me.PanelAdd.Controls.Add(Me.txtAnswerAdd)
         Me.PanelAdd.Controls.Add(Me.LabelLeftHdrEqualsAdd)
-        Me.PanelAdd.Controls.Add(Me.TextSummand1)
+        Me.PanelAdd.Controls.Add(Me.txtSummand1)
         Me.PanelAdd.Controls.Add(Me.Label1)
         Me.PanelAdd.Controls.Add(Me.txtSummand2)
         Me.PanelAdd.Controls.Add(Me.LabelLeftHdrAdd)
@@ -108,7 +109,7 @@ Partial Class FormAddSubract
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MintCream
-        Me.Panel1.Controls.Add(Me.TextAnswerMinus)
+        Me.Panel1.Controls.Add(Me.txtAnswerMinus)
         Me.Panel1.Controls.Add(Me.LabelLeftHdrEqualsMinus)
         Me.Panel1.Controls.Add(Me.txtMinus1)
         Me.Panel1.Controls.Add(Me.Label3)
@@ -119,12 +120,12 @@ Partial Class FormAddSubract
         Me.Panel1.Size = New System.Drawing.Size(883, 159)
         Me.Panel1.TabIndex = 8
         '
-        'TextAnswerMinus
+        'txtAnswerMinus
         '
-        Me.TextAnswerMinus.Location = New System.Drawing.Point(106, 114)
-        Me.TextAnswerMinus.Name = "TextAnswerMinus"
-        Me.TextAnswerMinus.Size = New System.Drawing.Size(705, 22)
-        Me.TextAnswerMinus.TabIndex = 2
+        Me.txtAnswerMinus.Location = New System.Drawing.Point(106, 114)
+        Me.txtAnswerMinus.Name = "txtAnswerMinus"
+        Me.txtAnswerMinus.Size = New System.Drawing.Size(705, 22)
+        Me.txtAnswerMinus.TabIndex = 2
         '
         'LabelLeftHdrEqualsMinus
         '
@@ -172,22 +173,34 @@ Partial Class FormAddSubract
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(42, 37)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(66, 52)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(288, 17)
+        Me.Label2.Size = New System.Drawing.Size(338, 20)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Reported Number = 2 ^ 64 - Printed Number"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 21)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(377, 26)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Add or Subtract Decimals of Any Size"
         '
         'FormAddSubract
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(926, 450)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelAdd)
         Me.Name = "FormAddSubract"
-        Me.Text = "  "
+        Me.Text = "  Add or Subtract Decimals of Any Size"
         Me.PanelAdd.ResumeLayout(False)
         Me.PanelAdd.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -197,19 +210,20 @@ Partial Class FormAddSubract
 
     End Sub
 
-    Friend WithEvents TextSummand1 As TextBox
+    Friend WithEvents txtSummand1 As TextBox
     Friend WithEvents txtSummand2 As TextBox
-    Friend WithEvents textAnswerAdd As TextBox
+    Friend WithEvents txtAnswerAdd As TextBox
     Friend WithEvents LabelLeftHdrAdd As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents LabelLeftHdrEqualsAdd As Label
     Friend WithEvents PanelAdd As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents TextAnswerMinus As TextBox
+    Friend WithEvents txtAnswerMinus As TextBox
     Friend WithEvents LabelLeftHdrEqualsMinus As Label
     Friend WithEvents txtMinus1 As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtMinus2 As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label5 As Label
 End Class
