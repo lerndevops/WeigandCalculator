@@ -125,7 +125,7 @@
 
     End Sub
 
-    Private Sub LabelSub1TwoPowerOf64_Click(sender As Object, e As EventArgs) Handles LabelSub1TwoPowerOf64.Click
+    Private Sub LabelSub1TwoPowerOf64_Click(sender As Object, e As EventArgs) Handles LabelSub1TwoPowerOf64.Click, LabelSub1TwoPowerOf64b.Click
         ''
         ''Added 6/25/2019 td
         ''

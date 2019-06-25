@@ -43,8 +43,12 @@ Partial Class FormAddSubtract
         Me.txtMinusBottom = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LabelHeader1Minus = New System.Windows.Forms.Label()
         Me.chkEnforceCommas = New System.Windows.Forms.CheckBox()
+        Me.LabelHeader2Add = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LabelSub1TwoPowerOf64b = New System.Windows.Forms.Label()
         Me.PanelAdd.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -119,7 +123,7 @@ Partial Class FormAddSubtract
         Me.PanelAdd.Controls.Add(Me.Label1)
         Me.PanelAdd.Controls.Add(Me.txtSummand2)
         Me.PanelAdd.Controls.Add(Me.LabelLeftHdrAdd)
-        Me.PanelAdd.Location = New System.Drawing.Point(9, 78)
+        Me.PanelAdd.Location = New System.Drawing.Point(184, 255)
         Me.PanelAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelAdd.Name = "PanelAdd"
         Me.PanelAdd.Size = New System.Drawing.Size(662, 129)
@@ -164,6 +168,9 @@ Partial Class FormAddSubtract
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MintCream
+        Me.Panel1.Controls.Add(Me.LabelSub1TwoPowerOf64b)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.LabelRightHdrEqualsMinus)
         Me.Panel1.Controls.Add(Me.LabelSub2TwoPowerOf64)
         Me.Panel1.Controls.Add(Me.LabelSub1TwoPowerOf64)
@@ -173,10 +180,10 @@ Partial Class FormAddSubtract
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.txtMinusBottom)
         Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Location = New System.Drawing.Point(9, 219)
+        Me.Panel1.Location = New System.Drawing.Point(13, 78)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(662, 129)
+        Me.Panel1.Size = New System.Drawing.Size(833, 129)
         Me.Panel1.TabIndex = 8
         '
         'LabelRightHdrEqualsMinus
@@ -196,7 +203,7 @@ Partial Class FormAddSubtract
         Me.LabelSub2TwoPowerOf64.AutoSize = True
         Me.LabelSub2TwoPowerOf64.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSub2TwoPowerOf64.ForeColor = System.Drawing.Color.Blue
-        Me.LabelSub2TwoPowerOf64.Location = New System.Drawing.Point(614, 49)
+        Me.LabelSub2TwoPowerOf64.Location = New System.Drawing.Point(759, 54)
         Me.LabelSub2TwoPowerOf64.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelSub2TwoPowerOf64.Name = "LabelSub2TwoPowerOf64"
         Me.LabelSub2TwoPowerOf64.Size = New System.Drawing.Size(37, 13)
@@ -206,44 +213,45 @@ Partial Class FormAddSubtract
         'LabelSub1TwoPowerOf64
         '
         Me.LabelSub1TwoPowerOf64.AutoSize = True
-        Me.LabelSub1TwoPowerOf64.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSub1TwoPowerOf64.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSub1TwoPowerOf64.ForeColor = System.Drawing.Color.Blue
         Me.LabelSub1TwoPowerOf64.Location = New System.Drawing.Point(614, 17)
         Me.LabelSub1TwoPowerOf64.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelSub1TwoPowerOf64.Name = "LabelSub1TwoPowerOf64"
-        Me.LabelSub1TwoPowerOf64.Size = New System.Drawing.Size(37, 13)
+        Me.LabelSub1TwoPowerOf64.Size = New System.Drawing.Size(51, 20)
         Me.LabelSub1TwoPowerOf64.TabIndex = 8
         Me.LabelSub1TwoPowerOf64.Text = "2 ^ 64"
         '
         'txtAnswerMinus
         '
         Me.txtAnswerMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAnswerMinus.Location = New System.Drawing.Point(80, 93)
+        Me.txtAnswerMinus.Location = New System.Drawing.Point(103, 93)
         Me.txtAnswerMinus.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAnswerMinus.Name = "txtAnswerMinus"
-        Me.txtAnswerMinus.Size = New System.Drawing.Size(530, 26)
+        Me.txtAnswerMinus.Size = New System.Drawing.Size(507, 26)
         Me.txtAnswerMinus.TabIndex = 2
         '
         'LabelLeftHdrEqualsMinus
         '
         Me.LabelLeftHdrEqualsMinus.AutoSize = True
-        Me.LabelLeftHdrEqualsMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLeftHdrEqualsMinus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelLeftHdrEqualsMinus.ForeColor = System.Drawing.Color.Blue
         Me.LabelLeftHdrEqualsMinus.Location = New System.Drawing.Point(37, 95)
         Me.LabelLeftHdrEqualsMinus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelLeftHdrEqualsMinus.Name = "LabelLeftHdrEqualsMinus"
-        Me.LabelLeftHdrEqualsMinus.Size = New System.Drawing.Size(39, 13)
+        Me.LabelLeftHdrEqualsMinus.Size = New System.Drawing.Size(58, 20)
         Me.LabelLeftHdrEqualsMinus.TabIndex = 6
         Me.LabelLeftHdrEqualsMinus.Text = "Equals"
         '
         'txtMinusTop
         '
         Me.txtMinusTop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMinusTop.Location = New System.Drawing.Point(80, 14)
+        Me.txtMinusTop.Location = New System.Drawing.Point(103, 14)
         Me.txtMinusTop.Margin = New System.Windows.Forms.Padding(2)
         Me.txtMinusTop.Name = "txtMinusTop"
-        Me.txtMinusTop.Size = New System.Drawing.Size(530, 26)
+        Me.txtMinusTop.Size = New System.Drawing.Size(507, 26)
         Me.txtMinusTop.TabIndex = 0
+        Me.txtMinusTop.Text = "18,446,744,073,709,551,616"
         '
         'Label3
         '
@@ -257,21 +265,23 @@ Partial Class FormAddSubtract
         '
         'txtMinusBottom
         '
-        Me.txtMinusBottom.Location = New System.Drawing.Point(80, 46)
+        Me.txtMinusBottom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMinusBottom.Location = New System.Drawing.Point(103, 46)
         Me.txtMinusBottom.Margin = New System.Windows.Forms.Padding(2)
         Me.txtMinusBottom.Name = "txtMinusBottom"
-        Me.txtMinusBottom.Size = New System.Drawing.Size(530, 20)
+        Me.txtMinusBottom.Size = New System.Drawing.Size(507, 26)
         Me.txtMinusBottom.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(41, 49)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(18, 49)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(35, 13)
+        Me.Label4.Size = New System.Drawing.Size(70, 20)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Minus"
+        Me.Label4.Text = "Minus (-)"
         '
         'Label2
         '
@@ -284,16 +294,16 @@ Partial Class FormAddSubtract
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Reported Number = 2 ^ 64 - Printed Number"
         '
-        'Label5
+        'LabelHeader1Minus
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(9, 17)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(308, 22)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Add or Subtract Decimals of Any Size"
+        Me.LabelHeader1Minus.AutoSize = True
+        Me.LabelHeader1Minus.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHeader1Minus.Location = New System.Drawing.Point(9, 17)
+        Me.LabelHeader1Minus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelHeader1Minus.Name = "LabelHeader1Minus"
+        Me.LabelHeader1Minus.Size = New System.Drawing.Size(250, 22)
+        Me.LabelHeader1Minus.TabIndex = 10
+        Me.LabelHeader1Minus.Text = "Subtract Decimals of Any Size"
         '
         'chkEnforceCommas
         '
@@ -307,13 +317,59 @@ Partial Class FormAddSubtract
         Me.chkEnforceCommas.Text = "Enforce commas to separate digital triplets"
         Me.chkEnforceCommas.UseVisualStyleBackColor = True
         '
+        'LabelHeader2Add
+        '
+        Me.LabelHeader2Add.AutoSize = True
+        Me.LabelHeader2Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHeader2Add.Location = New System.Drawing.Point(180, 220)
+        Me.LabelHeader2Add.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelHeader2Add.Name = "LabelHeader2Add"
+        Me.LabelHeader2Add.Size = New System.Drawing.Size(215, 22)
+        Me.LabelHeader2Add.TabIndex = 12
+        Me.LabelHeader2Add.Text = "Add Decimals of Any Size"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(614, 49)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(119, 20)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "Printed Number"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(660, 93)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(136, 20)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Reported Number"
+        '
+        'LabelSub1TwoPowerOf64b
+        '
+        Me.LabelSub1TwoPowerOf64b.AutoSize = True
+        Me.LabelSub1TwoPowerOf64b.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSub1TwoPowerOf64b.ForeColor = System.Drawing.Color.Blue
+        Me.LabelSub1TwoPowerOf64b.Location = New System.Drawing.Point(36, 17)
+        Me.LabelSub1TwoPowerOf64b.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelSub1TwoPowerOf64b.Name = "LabelSub1TwoPowerOf64b"
+        Me.LabelSub1TwoPowerOf64b.Size = New System.Drawing.Size(51, 20)
+        Me.LabelSub1TwoPowerOf64b.TabIndex = 13
+        Me.LabelSub1TwoPowerOf64b.Text = "2 ^ 64"
+        '
         'FormAddSubtract
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(724, 366)
+        Me.ClientSize = New System.Drawing.Size(921, 398)
+        Me.Controls.Add(Me.LabelHeader2Add)
         Me.Controls.Add(Me.chkEnforceCommas)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.LabelHeader1Minus)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelAdd)
@@ -344,7 +400,7 @@ Partial Class FormAddSubtract
     Friend WithEvents txtMinusBottom As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents LabelHeader1Minus As Label
     Friend WithEvents LabelAdd1TwoPowerOf64 As Label
     Friend WithEvents LabelSub1TwoPowerOf64 As Label
     Friend WithEvents LabelAdd2TwoPowerOf64 As Label
@@ -352,4 +408,8 @@ Partial Class FormAddSubtract
     Friend WithEvents chkEnforceCommas As CheckBox
     Friend WithEvents LabelRightHdrEqualsAdd As Label
     Friend WithEvents LabelRightHdrEqualsMinus As Label
+    Friend WithEvents LabelHeader2Add As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents LabelSub1TwoPowerOf64b As Label
 End Class
