@@ -172,11 +172,11 @@ Partial Class FormAddSubract
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 9)
+        Me.Label2.Location = New System.Drawing.Point(42, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(33, 17)
+        Me.Label2.Size = New System.Drawing.Size(288, 17)
         Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Add"
+        Me.Label2.Text = "Reported Number = 2 ^ 64 - Printed Number"
         '
         'FormAddSubract
         '
@@ -187,7 +187,7 @@ Partial Class FormAddSubract
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelAdd)
         Me.Name = "FormAddSubract"
-        Me.Text = "Add or Subtract - Decimal Number of Any Size"
+        Me.Text = "  "
         Me.PanelAdd.ResumeLayout(False)
         Me.PanelAdd.PerformLayout()
         Me.Panel1.ResumeLayout(False)
