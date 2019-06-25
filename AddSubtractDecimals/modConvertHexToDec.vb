@@ -16,20 +16,20 @@ Module modConvertHexToDec
     ''This module (modDecToHexByStrings_July) is modelled after module modHexToDecByStrings_June.bas
     ''   ---7/04/2016 Thomas Downes
     ''
-    Private modstrHeximal As String ''added 6/30/2016
-    Private arrayPowersOf16_Dec() As String ''added 7/02/2016
+    Private mod_strHeximal As String ''added 6/30/2016
+    Private mod_arrayPowersOf16_Dec() As String ''added 7/02/2016
 
     Public Function ConvertHexToDec(pstrHeximal As String, ByRef pstrErrMessage As String,
                                 Optional ByRef pstrAllPowersOf16Msg As String = "") As String
 
         Dim intCharIndex As Integer
-        Dim strHeximalDigit As String
-        Dim strDec_Temp As String
-        Dim strRunningTotalDec As String
+        Dim strHeximalDigit As String = ""
+        Dim strDec_Temp As String = ""
+        Dim strRunningTotalDec As String = ""
         Dim intPowerOf16 As Integer
-        Dim strPowerOf10Msg As String ''Added 7/14/2016
+        Dim strPowerOf10Msg As String = "" ''Added 7/14/2016
 
-        modstrHeximal = Trim(pstrHeximal)
+        mod_strHeximal = Trim(pstrHeximal)
         pstrHeximal = Trim(pstrHeximal)
 
         For intCharIndex = 1 To Len(pstrHeximal)
@@ -116,7 +116,7 @@ Skip_GoToNextLoop:
 
         If ("" <> pstrErrMessage) Then Exit Function
 
-        If (boolMissingPower) Then pstrErrMessage = GiveMsgToProgrammer(modstrHeximal, pintPowerOf16, pintPowerOf16)
+        If (boolMissingPower) Then pstrErrMessage = GiveMsgToProgrammer(mod_strHeximal, pintPowerOf16, pintPowerOf16)
         If (boolMissingPower) Then Exit Function
 
         For intLoop = 1 To pintTimesN
@@ -286,13 +286,17 @@ Skip_GoToNextLoop:
         boolArrayNeedsFirstItem = boolFirstRunOfThisFunction
 
         If (boolArrayNeedsFirstItem) Then
+            ''
             ''Initialize the array.
+            ''
             '7/3/2016'static_intLBound = pintPowerOf16
             '7/3/2016'ReDim arrayPowersOf16_Dec(static_intLBound To pintPowerOf16)
-            ReDim arrayPowersOf16_Dec(static_intLBound To static_intLBound)
+            ''6/25/2019 td''ReDim mod_arrayPowersOf16_Dec(static_intLBound To static_intLBound)
+            modUtilities.ReDim_VB6(mod_arrayPowersOf16_Dec, static_intLBound, static_intLBound)
+
             '7/3/2016'boolMustCalculate = True
             '7/3/2016'boolMustCalculate = (pintPowerOf16 >= static_intLBound)
-            arrayPowersOf16_Dec(static_intLBound) =
+            mod_arrayPowersOf16_Dec(static_intLBound) =
             GetPowerOf16_ByAdding(static_intLBound, pstrErrMessage)
             If (pstrErrMessage <> "") Then Exit Function
         End If ''End of "If (boolArrayNeedsFirstItem) Then"
@@ -302,7 +306,7 @@ Skip_GoToNextLoop:
         ''   has been stored in the array or not.
         ''
         On Error Resume Next
-        strOut = arrayPowersOf16_Dec(pintPowerOf16)
+        strOut = mod_arrayPowersOf16_Dec(pintPowerOf16)
 
         Dim intError As Integer
         Dim boolArraySizeError As Boolean
@@ -339,7 +343,8 @@ Skip_GoToNextLoop:
                 boolMustRedim = boolArraySizeError
 
                 If (boolMustRedim) Then
-                    ReDim Preserve arrayPowersOf16_Dec(static_intLBound To pintPowerOf16)
+                    ''6/25/2019 td''ReDim Preserve mod_arrayPowersOf16_Dec(static_intLBound To pintPowerOf16)
+                    modUtilities.ReDim_VB6_Preserve(mod_arrayPowersOf16_Dec, static_intLBound, pintPowerOf16)
                 End If ''End of "If (boolMustRedim) Then"
                 boolMustCalculate = True
 
@@ -365,7 +370,7 @@ Skip_GoToNextLoop:
 
         If (boolTakeValueFromArray) Then
 
-            strOut = arrayPowersOf16_Dec(pintPowerOf16)
+            strOut = mod_arrayPowersOf16_Dec(pintPowerOf16)
 
         ElseIf (boolMustCalculate) Then
 
@@ -384,7 +389,7 @@ Skip_GoToNextLoop:
 
             ''Save the value.
             '7/03/2016'arrayPowersOf16_Dec(pintPowerOf16) = strDecTimes16
-            arrayPowersOf16_Dec(pintPowerOf16) = strDec_byAdding
+            mod_arrayPowersOf16_Dec(pintPowerOf16) = strDec_byAdding
             strOut = strDec_byAdding
 
         End If

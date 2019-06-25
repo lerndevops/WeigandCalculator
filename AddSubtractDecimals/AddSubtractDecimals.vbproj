@@ -84,6 +84,7 @@
     <Compile Include="modAddingHexs.vb" />
     <Compile Include="modConvertHexToDec.vb" />
     <Compile Include="modDecToHexByStrings.vb" />
+    <Compile Include="modUtilities.vb" />
     <Compile Include="mod_SubtractDecs.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
