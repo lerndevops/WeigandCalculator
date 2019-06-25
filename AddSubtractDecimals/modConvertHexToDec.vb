@@ -17,7 +17,13 @@ Module modConvertHexToDec
     ''   ---7/04/2016 Thomas Downes
     ''
     Private mod_strHeximal As String ''added 6/30/2016
-    Private mod_arrayPowersOf16_Dec() As String ''added 7/02/2016
+    ''6/25/2019 td''Private mod_arrayPowersOf16_Dec() As String ''added 7/02/2016
+
+    ''Private Structure VB6_ArrayWithLowerBound ''Added 6/25/2019
+    ''    Dim array_ofStrings() As String ''added 6/25/2019 & 7/02/2016
+    ''    Dim lowerBound As Integer ''Added 6/25/2019
+    ''End Structure
+    Private mod_arrayPowersOf16_Dec As modUtilities.VB6_ArrayWithLowerBound
 
     Public Function ConvertHexToDec(pstrHeximal As String, ByRef pstrErrMessage As String,
                                 Optional ByRef pstrAllPowersOf16Msg As String = "") As String
@@ -296,8 +302,12 @@ Skip_GoToNextLoop:
 
             '7/3/2016'boolMustCalculate = True
             '7/3/2016'boolMustCalculate = (pintPowerOf16 >= static_intLBound)
-            mod_arrayPowersOf16_Dec(static_intLBound) =
-            GetPowerOf16_ByAdding(static_intLBound, pstrErrMessage)
+            ''6/25/2019 td''mod_arrayPowersOf16_Dec(static_intLBound) =
+            ''      GetPowerOf16_ByAdding(static_intLBound, pstrErrMessage)
+
+            mod_arrayPowersOf16_Dec.array_ofStrings(static_intLBound) =
+                  GetPowerOf16_ByAdding(static_intLBound, pstrErrMessage)
+
             If (pstrErrMessage <> "") Then Exit Function
         End If ''End of "If (boolArrayNeedsFirstItem) Then"
 
@@ -306,7 +316,9 @@ Skip_GoToNextLoop:
         ''   has been stored in the array or not.
         ''
         On Error Resume Next
-        strOut = mod_arrayPowersOf16_Dec(pintPowerOf16)
+
+        ''6/25/2019 td''strOut = mod_arrayPowersOf16_Dec(pintPowerOf16)
+        strOut = mod_arrayPowersOf16_Dec.array_ofStrings(pintPowerOf16)
 
         Dim intError As Integer
         Dim boolArraySizeError As Boolean
@@ -370,7 +382,8 @@ Skip_GoToNextLoop:
 
         If (boolTakeValueFromArray) Then
 
-            strOut = mod_arrayPowersOf16_Dec(pintPowerOf16)
+            ''6/25/2019 td''strOut = mod_arrayPowersOf16_Dec(pintPowerOf16)
+            strOut = mod_arrayPowersOf16_Dec.array_ofStrings(pintPowerOf16)
 
         ElseIf (boolMustCalculate) Then
 
@@ -389,7 +402,8 @@ Skip_GoToNextLoop:
 
             ''Save the value.
             '7/03/2016'arrayPowersOf16_Dec(pintPowerOf16) = strDecTimes16
-            mod_arrayPowersOf16_Dec(pintPowerOf16) = strDec_byAdding
+            ''6/25/2019 td''mod_arrayPowersOf16_Dec(pintPowerOf16) = strDec_byAdding
+            mod_arrayPowersOf16_Dec.array_ofStrings(pintPowerOf16) = strDec_byAdding
             strOut = strDec_byAdding
 
         End If
