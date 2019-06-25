@@ -126,7 +126,7 @@ Module mod_SubtractDecs
 
         ''Added 7/11/2016 Thomas Downes
         If (boolIsALeadingZero) Then
-            MsgBox("How strange!!  A leading zero!", vbExclamation)
+            ''6/25/2019 td''MsgBox("How strange!!  A leading zero!", vbExclamation)
         End If ''End of "If (strNewDigit = "0") Then"
 
         If (boolBorrowTheOne_Curr) Then strConcatenated = ("1" & strConcatenated)
