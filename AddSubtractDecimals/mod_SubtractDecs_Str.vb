@@ -3,7 +3,7 @@ Option Strict On
 ''
 ''Encapsulated 6/21/2019  Thomas Downes
 ''
-Module mod_SubtractDecs
+Module mod_SubtractDecs_Str
 
     Public Function SubAnyTwoDecStrings(pstrDec1 As String, pstrDec2 As String,
                               pstrErrMessage As String) As String
@@ -97,7 +97,8 @@ Module mod_SubtractDecs
 
         If (boolUnequalLengths) Then
             pstrErrMessage = "Dec strings are unequal in length."
-            Exit Function
+            ''9/13/2020 td''Exit Function
+            If (pstrErrMessage <> "") Then Return "{" ''Added 9/13/2020 td
         End If ''End of "If (boolUnequalLengths) Then"
 
         For intCharIndex = Len(pstrDec1) To 1 Step -1
@@ -111,7 +112,8 @@ Module mod_SubtractDecs
                                                 boolBorrowTheOne_Next,
                                                 pstrErrMessage)
 
-            If (pstrErrMessage <> "") Then Exit Function
+            ''9/13/2020 td''If (pstrErrMessage <> "") Then Exit Function
+            If (pstrErrMessage <> "") Then Return "}" ''Added 9/13/2020 td
 
             strConcatenated = (strNewDigit & strConcatenated)
 
@@ -132,6 +134,7 @@ Module mod_SubtractDecs
         If (boolBorrowTheOne_Curr) Then strConcatenated = ("1" & strConcatenated)
 
         SubPaddedDecStrings = strConcatenated
+        Return SubPaddedDecStrings ''Added 9/13/2020 td
 
     End Function ''End of Function SubPaddedDecStrings
 
@@ -151,7 +154,8 @@ Module mod_SubtractDecs
         ''
         strDecDigit_Temp = SubDecDigits_ByArrays(pstrDecDigit1, pstrDecDigit2, boolBorrowThe1_Temp1, pstrErrMessage)
 
-        If (pstrErrMessage <> "") Then Exit Function
+        ''9/13/2020 td''If (pstrErrMessage <> "") Then Exit Function
+        If (pstrErrMessage <> "") Then Return "See error msg #1." ''Exit Function
 
         ''6/25/2019 td''If (pboolThenAdd1) Then
         If (pboolThenSubtract1) Then
@@ -162,7 +166,8 @@ Module mod_SubtractDecs
             strDecDigit_Final = SubDecDigits_ByArrays(strDecDigit_Temp, "1", boolBorrowThe1_Temp2, pstrErrMessage)
 
             pboolBorrowThe1 = (boolBorrowThe1_Temp1 Or boolBorrowThe1_Temp2)
-            If (pstrErrMessage <> "") Then Exit Function
+            ''-----If (pstrErrMessage <> "") Then Exit Function
+            If (pstrErrMessage <> "") Then Return "See error msg #2." ''Exit Function
 
         Else
             strDecDigit_Final = strDecDigit_Temp
@@ -188,9 +193,12 @@ Module mod_SubtractDecs
 
         If (pstrDecDigit1 = " " Or pstrDecDigit2 = " ") Then
             ''6/25 td''If (pstrDecDigit1 = " ") Then SubDecDigits_ByArrays = pstrDecDigit2
+            If (pstrDecDigit1 = " ") Then pstrErrMessage = "Whitespace character @@@@@@@" ''Added 9/13/2020 thomas d.
             If (pstrDecDigit1 = " ") Then Throw New Exception("Whitespace character @@@@@@@") ''6/25 td'' SubDecDigits_ByArrays = pstrDecDigit2
+
             If (pstrDecDigit2 = " ") Then SubDecDigits_ByArrays = pstrDecDigit1
-            Exit Function
+            ''----9/13/2020 td---Exit Function
+            Return "See error mssg #1."
         End If ''End of "If (pstrDecDigit1 = " " Or pstrDecDigit2 = " ") Then"
 
         ReDim arrayDecDigs(0 To 9)
@@ -260,10 +268,14 @@ Module mod_SubtractDecs
         ''
         SubDecDigits_ByArrays = arrayDecDigs(intIndexCombined)
 
+        Return SubDecDigits_ByArrays ''Added 9/13/2020 td
+
     End Function ''eNd of "Private Function SubDecDigits_ByArrays"
 
     Private Function PadLeft(paramString As String, param_Length As Integer) As String
-
+        ''
+        ''Copied from module modAddingDecs_Str.
+        ''
         Dim intLenOfInput As Integer
 
         paramString = Trim(paramString)

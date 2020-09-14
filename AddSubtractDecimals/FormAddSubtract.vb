@@ -184,7 +184,7 @@
         If (chkEnforceCommas.Checked) Then
 
             txtAnswerMinus.Text =
-            mod_SubtractDecs.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
+            mod_SubtractDecs_Str.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
 
             ''Added 6/25/2019 td 
             ''
@@ -195,7 +195,7 @@
         Else
 
             txtAnswerAdd.Text =
-            mod_SubtractDecs.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
+            mod_SubtractDecs_Str.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
 
         End If ''End of "If (chkEnforceCommas.Checked) Then ... Else ...."
 

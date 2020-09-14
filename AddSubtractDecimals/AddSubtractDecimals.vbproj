@@ -85,8 +85,9 @@
     <Compile Include="modAddingHexs.vb" />
     <Compile Include="modConvertHexToDec.vb" />
     <Compile Include="modDecToHexByStrings.vb" />
+    <Compile Include="mod_SubtractDecs_Char.vb" />
     <Compile Include="modUtilities.vb" />
-    <Compile Include="mod_SubtractDecs.vb" />
+    <Compile Include="mod_SubtractDecs_Str.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
