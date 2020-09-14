@@ -1,14 +1,14 @@
 ﻿Option Explicit On
 Option Strict On
 ''
-''Encapsulated 6/21/2019  Thomas Downes
+''Added 9/13/2020  Thomas Downes
 ''
-Module modAddingDecs
+Module modAddingDecs_Char
 
     Public Function AddAnyTwoDecStrings(pstrDec1 As String, pstrDec2 As String,
                                  pstrErrMessage As String) As String
         ''
-        ''
+        ''Copied from module modAddingDecs_Str, on 9/13/2020.  
         ''
         Dim strDec1_Padded As String
         Dim strDec2_Padded As String
@@ -33,7 +33,9 @@ Module modAddingDecs
     End Function ''End of "Public Function AddAnyTwoDecStrings(pstrDec1 As String, pstrDec2 As String, ......"
 
     Private Function PadLeft(paramString As String, param_Length As Integer) As String
-
+        ''
+        ''Copied from module modAddingDecs_Str, on 9/13/2020.  
+        ''
         Dim intLenOfInput As Integer
 
         paramString = Trim(paramString)
@@ -53,7 +55,9 @@ Module modAddingDecs
 
     Private Function AddPaddedDecStrings(pstrDec1 As String, pstrDec2 As String,
                                      ByRef pstrErrMessage As String) As String
-
+        ''
+        ''Copied from module modAddingDecs_Str, on 9/13/2020.  
+        ''
         Dim intCharIndex As Integer
         Dim strConcatenated As String = ""
         Dim boolUnequalLengths As Boolean
@@ -69,21 +73,23 @@ Module modAddingDecs
 
         If (boolUnequalLengths) Then
             pstrErrMessage = "Dec strings are unequal in length."
-            Exit Function
-        End If
+            ''9/13/2020 td''Exit Function
+            Return "See error #1."
+        End If ''End of "If (boolUnequalLengths) Then"
 
         For intCharIndex = Len(pstrDec1) To 1 Step -1
 
             strDecDigit1 = Mid$(pstrDec1, intCharIndex, 1)
             strDecDigit2 = Mid$(pstrDec2, intCharIndex, 1)
 
-            strNewDigit = AddDecDigits_AddOne(strDecDigit1,
-                                          strDecDigit2,
+            strNewDigit = AddDecDigits_AddOne(strDecDigit1(0),
+                                          strDecDigit2(0),
                                           boolCarryTheOne_Curr,
                                           boolCarryTheOne_Next,
                                           pstrErrMessage)
 
-            If (pstrErrMessage <> "") Then Exit Function
+            ''9/13/2020 td''If (pstrErrMessage <> "") Then Exit Function
+            If (pstrErrMessage <> "") Then Return "See error #2."  ''---Exit Function
 
             strConcatenated = (strNewDigit & strConcatenated)
 
@@ -98,90 +104,98 @@ Module modAddingDecs
 
         ''Added 7/11/2016 Thomas Downes
         If (boolIsALeadingZero) Then
+            pstrErrMessage = "A leading zero is detected." ''Added 9/13/2020 td 
             MsgBox("How strange!!  A leading zero!", vbExclamation)
         End If ''End of "If (strNewDigit = "0") Then"
 
         If (boolCarryTheOne_Curr) Then strConcatenated = ("1" & strConcatenated)
 
         AddPaddedDecStrings = strConcatenated
+        Return AddPaddedDecStrings
 
     End Function ''End of Function AddPaddedDecStrings
 
-    Private Function AddDecDigits_AddOne(ByVal pstrDecDigit1 As String,
-                              ByVal pstrDecDigit2 As String,
+    Private Function AddDecDigits_AddOne(ByVal pcharDecDigit1 As Char,
+                              ByVal pcharDecDigit2 As Char,
                               ByVal pboolThenAdd1 As Boolean,
                               ByRef pboolCarryThe1 As Boolean,
-                              ByRef pstrErrMessage As String) As String
+                              ByRef pstrErrMessage As String) As Char ''9/13/2020 td ''String
 
-        Dim strDecDigit_Temp As String
-        Dim strDecDigit_Final As String
+        Dim strDecDigit_Temp As Char ''String
+        Dim strDecDigit_Final As Char ''String
         Dim boolCarryThe1_Temp1 As Boolean
         Dim boolCarryThe1_Temp2 As Boolean
 
-        strDecDigit_Temp = AddDecDigits_ByArrays(pstrDecDigit1, pstrDecDigit2, boolCarryThe1_Temp1, pstrErrMessage)
+        strDecDigit_Temp = AddDecDigits_ByArrays(pcharDecDigit1, pcharDecDigit2, boolCarryThe1_Temp1, pstrErrMessage)
 
-        If (pstrErrMessage <> "") Then Exit Function
+        ''9/13/2020 td''If (pstrErrMessage <> "") Then Exit Function
+        If (pstrErrMessage <> "") Then Return "z"c ''---"See error #1"
 
         If (pboolThenAdd1) Then
             pboolCarryThe1 = False ''Reinitialize.
-            strDecDigit_Final = AddDecDigits_ByArrays(strDecDigit_Temp, "1", boolCarryThe1_Temp2, pstrErrMessage)
+            strDecDigit_Final = AddDecDigits_ByArrays(strDecDigit_Temp, "1"c, boolCarryThe1_Temp2, pstrErrMessage)
             pboolCarryThe1 = (boolCarryThe1_Temp1 Or boolCarryThe1_Temp2)
-            If (pstrErrMessage <> "") Then Exit Function
+            ''9/13/2020 td''If (pstrErrMessage <> "") Then Exit Function
+            If (pstrErrMessage <> "") Then Return "y"c  '' "See error #2"
         Else
             strDecDigit_Final = strDecDigit_Temp
             pboolCarryThe1 = boolCarryThe1_Temp1
-        End If
+        End If ''End of "If (pboolThenAdd1) Then .... Else ..."
 
         AddDecDigits_AddOne = strDecDigit_Final
+        Return AddDecDigits_AddOne
 
     End Function ''end of "Private Function AddDecDigits_AddOne"
 
-    Private Function AddDecDigits_ByArrays(ByVal pstrDecDigit1 As String,
-                              ByVal pstrDecDigit2 As String,
+    Private Function AddDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
+                              ByVal pcharDecDigit2 As Char,
                               ByRef pboolCarryThe1 As Boolean,
-                              ByRef pstrErrMessage As String) As String
-
+                              ByRef pstrErrMessage As String) As Char
+        ''
+        ''Modified 9/13/2020 thomas downes
+        ''
         Dim intIndex1 As Integer
         Dim intIndex2 As Integer
-        Dim arrayDecDigs() As String
+        Dim arrayDecDigs() As Char ''9/13/2020 td''String
         Dim boolMatched1 As Boolean
         Dim boolMatched2 As Boolean
         Dim intIndexCombined As Integer
 
-        If (pstrDecDigit1 = " " Or pstrDecDigit2 = " ") Then
-            If (pstrDecDigit1 = " ") Then AddDecDigits_ByArrays = pstrDecDigit2
-            If (pstrDecDigit2 = " ") Then AddDecDigits_ByArrays = pstrDecDigit1
-            Exit Function
-        End If
+        If (pcharDecDigit1 = " "c Or pcharDecDigit2 = " "c) Then
+            AddDecDigits_ByArrays = "~"c ''Initialize value. 
+            If (pcharDecDigit1 = " "c) Then AddDecDigits_ByArrays = pcharDecDigit2
+            If (pcharDecDigit2 = " "c) Then AddDecDigits_ByArrays = pcharDecDigit1
+            Return AddDecDigits_ByArrays ''Exit Function
+        End If ''End of "If (pstrDecDigit1 = " " Or pstrDecDigit2 = " ") Then"
 
         ReDim arrayDecDigs(0 To 9)
 
-        arrayDecDigs(0) = "0"
-        arrayDecDigs(1) = "1"
-        arrayDecDigs(2) = "2"
-        arrayDecDigs(3) = "3"
-        arrayDecDigs(4) = "4"
-        arrayDecDigs(5) = "5"
-        arrayDecDigs(6) = "6"
-        arrayDecDigs(7) = "7"
-        arrayDecDigs(8) = "8"
-        arrayDecDigs(9) = "9"
+        arrayDecDigs(0) = "0"c
+        arrayDecDigs(1) = "1"c
+        arrayDecDigs(2) = "2"c
+        arrayDecDigs(3) = "3"c
+        arrayDecDigs(4) = "4"c
+        arrayDecDigs(5) = "5"c
+        arrayDecDigs(6) = "6"c
+        arrayDecDigs(7) = "7"c
+        arrayDecDigs(8) = "8"c
+        arrayDecDigs(9) = "9"c
 
         For intIndex1 = 0 To 9
-            boolMatched1 = (pstrDecDigit1 = arrayDecDigs(intIndex1))
+            boolMatched1 = (pcharDecDigit1 = arrayDecDigs(intIndex1))
             If boolMatched1 Then Exit For
         Next intIndex1
 
         If (Not boolMatched1) Then
             Beep()
-            pstrErrMessage = "#1 The digit """ & pstrDecDigit1 & """ is not recognized. (AddDecDigits_ByArrays)  "
-            Exit Function
+            pstrErrMessage = "#1 The digit """ & pcharDecDigit1 & """ is not recognized. (AddDecDigits_ByArrays)  "
+            Return "{"c ''  "[error #1]" ''---9/13/2020---Exit Function
         End If ''End of "If (Not boolMatched1) Then"
 
         intIndexCombined = intIndex1 ''Initialize.
 
         For intIndex2 = 0 To 9
-            boolMatched2 = (pstrDecDigit2 = arrayDecDigs(intIndex2))
+            boolMatched2 = (pcharDecDigit2 = arrayDecDigs(intIndex2))
             If boolMatched2 Then
                 Exit For
             Else
@@ -191,13 +205,13 @@ Module modAddingDecs
                     pboolCarryThe1 = True
                     intIndexCombined = 0
                 End If ''End of "If (intIndexCombined >= 10) Then"
-            End If
+            End If ''ENd of "If boolMatched2 Then .... Else ...."
         Next intIndex2
 
         If (Not boolMatched2) Then
             Beep()
-            pstrErrMessage = "The digit """ & pstrDecDigit2 & """ is not recognized."
-            Exit Function
+            pstrErrMessage = "The digit """ & pcharDecDigit2 & """ is not recognized."
+            Return "}"c '' "[error #2]" ''---9/13/2020---Exit Function
         End If ''End of "If (Not boolMatched2) Then"
 
         ''
@@ -209,6 +223,6 @@ Module modAddingDecs
         ''
         AddDecDigits_ByArrays = arrayDecDigs(intIndexCombined)
 
-    End Function
+    End Function ''ENd of "Private Function AddDecDigits_ByArrays"
 
 End Module

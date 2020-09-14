@@ -80,7 +80,8 @@
       <DependentUpon>FormAddSubtract.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modAddingDecs.vb" />
+    <Compile Include="modAddingDecs_Str.vb" />
+    <Compile Include="modAddingDecs_Char.vb" />
     <Compile Include="modAddingHexs.vb" />
     <Compile Include="modConvertHexToDec.vb" />
     <Compile Include="modDecToHexByStrings.vb" />

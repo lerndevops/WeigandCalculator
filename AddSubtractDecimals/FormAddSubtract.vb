@@ -59,7 +59,7 @@
         If (chkEnforceCommas.Checked) Then
 
             txtAnswerAdd.Text =
-            modAddingDecs.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
+            modAddingDecs_Str.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
 
             ''Added 6/25/2019 td 
             ''
@@ -70,7 +70,7 @@
         Else
 
             txtAnswerAdd.Text =
-            modAddingDecs.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
+            modAddingDecs_Str.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
 
         End If ''End of "If (chkEnforceCommas.Checked) Then ... Else ...."
 
