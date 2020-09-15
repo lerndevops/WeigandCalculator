@@ -1,7 +1,7 @@
 ﻿Option Explicit On
 Option Strict On
 ''
-''Added 9/13/2020  Thomas Downes
+''Added 9/13/2020  Thomas Downes.....
 ''
 Module mod_SubtractDecs_Char
 

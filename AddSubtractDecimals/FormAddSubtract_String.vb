@@ -5,7 +5,7 @@
         ''
         ''For the _KeyPress event.  
         ''
-        ''6/25/2019 td''e.Handled = Not Char.IsDigit(e.KeyChar)
+        ''6/25/2019 td''e.Handled = Not Char.IsDigit(e.KeyChar).....
 
         Select Case True
             Case Char.IsDigit(e.KeyChar)

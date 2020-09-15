@@ -2,7 +2,7 @@
 Option Strict On ''Added 6/25/2019 thomas d. 
 ''
 ''' <summary>
-''' This is for shared functions and procedures.   (module modUtilities)  ----Added 6/25/2019  td 
+''' This is for shared functions and procedures.   (module modUtilities)  -------Added 6/25/2019  td 
 ''' </summary>
 
 Module modUtilities

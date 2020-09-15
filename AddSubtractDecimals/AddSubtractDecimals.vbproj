@@ -86,6 +86,7 @@
       <DependentUpon>FormAddSubtract_String.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Interface1.vb" />
     <Compile Include="modAddingDecs_Str.vb" />
     <Compile Include="modAddingDecs_Char.vb" />
     <Compile Include="modAddingHexs.vb" />
