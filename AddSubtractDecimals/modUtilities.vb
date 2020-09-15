@@ -106,7 +106,7 @@ Module modUtilities
 
     End Sub ''End of "Public Sub ReDim_VB6(mod_arrayPowersOf16_Dec, static_intLBound, static_intLBound)"
 
-    Public Function AddCommasForTriplets(par_inputNumber As String) As String
+    Public Function AddCommasForTriplets(par_inputNumber As String, Optional pbFirstClearCommas As Boolean = False) As String
         ''
         ''Added 6/25/2019 td
         ''
@@ -115,6 +115,15 @@ Module modUtilities
         Dim each_char As Char
         Dim intTripletIndex As Integer = 0
 
+        ''Added 9/14/2020 td
+        If (par_inputNumber = "") Then Return ""
+
+        ''Added 9/14/2020 td
+        ''   If requested, as the initial step remove all commas which are already there. 
+        ''
+        If (pbFirstClearCommas) Then par_inputNumber = Replace(par_inputNumber, ",", "")
+
+        ''
         ''Exit, if not needed.
         ''
         If (0 < InStr(par_inputNumber, ",")) Then Return par_inputNumber

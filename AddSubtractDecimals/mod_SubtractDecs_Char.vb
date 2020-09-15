@@ -190,7 +190,7 @@ Module mod_SubtractDecs_Char
                               ByRef pstrErrMessage As String) As Char ''------String
         ''Private Function SubDecDigits_ByArrays(ByVal pcharDecDigit1 As String,
         ''                          ByVal pcharDecDigit2 As String,
-        ''                          ByRef pboolBorrowThe10 As Boolean,
+        ''                           ByRef pboolBorrowThe10 As Boolean,
         ''                          ByRef pstrErrMessage As String) As String
 
         Dim intIndex1 As Integer

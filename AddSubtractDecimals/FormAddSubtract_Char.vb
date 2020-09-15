@@ -1,6 +1,8 @@
-﻿Public Class FormAddSubtract
-
-
+﻿Public Class FormAddSubtract_Char
+    ''-------Public Class FormAddSubtract_String
+    ''
+    '' Added 9/14/2020 thomas downes
+    ''
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSummand1.KeyPress, txtSummand2.KeyPress, txtMinusTop.KeyPress, txtMinusBottom.KeyPress
         ''
         ''For the _KeyPress event.  
@@ -23,9 +25,15 @@
                 ''Allow the comma.
                 ''
             Case Char.IsControl(e.KeyChar)
+                    ''
+                    ''Allow control characters.  
+                    ''
+            Case (e.KeyChar = Char.Parse(" "))
                 ''
-                ''Allow control characters.  
+                ''Replace the space with 9.
                 ''
+                e.KeyChar = Char.Parse("9")
+
             Case Else
                 ''
                 ''To allow flexibility of use, and since we've supressed letters above, let's allow unexpected characters. 
@@ -57,20 +65,29 @@
         strSummand2 = txtSummand2.Text.Replace(",", "")
 
         If (chkEnforceCommas.Checked) Then
+            ''
+            ''Character processing (faster).
+            ''
+            txtAnswerAddChar.Text =
+            modAddingDecs_Char.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
 
-            txtAnswerAdd.Text =
+            ''
+            ''String processing (slower).
+            ''
+            txtAnswerAddStr.Text =
             modAddingDecs_Str.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
 
             ''Added 6/25/2019 td 
             ''
             ''   Add commas. 
             ''
-            txtAnswerAdd.Text = modUtilities.AddCommasForTriplets(txtAnswerAdd.Text)
+            txtAnswerAddChar.Text = modUtilities.AddCommasForTriplets(txtAnswerAddChar.Text)
+            txtAnswerAddStr.Text = modUtilities.AddCommasForTriplets(txtAnswerAddStr.Text)
 
         Else
 
-            txtAnswerAdd.Text =
-            modAddingDecs_Str.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
+            txtAnswerAddChar.Text =
+            modAddingDecs_Char.AddAnyTwoDecStrings(strSummand1, strSummand2, strErrorMessage)
 
         End If ''End of "If (chkEnforceCommas.Checked) Then ... Else ...."
 
@@ -173,7 +190,8 @@
         ''
         Dim strSubtractTop As String
         Dim strSubtractBtm As String
-        Dim strErrorMessage As String = ""
+        Dim strErrorMessageForChar As String = ""
+        Dim strErrorMessage_Strings As String = ""
 
         ''
         ''Remove any commas!!  
@@ -182,33 +200,103 @@
         strSubtractBtm = txtMinusBottom.Text.Replace(",", "")
 
         If (chkEnforceCommas.Checked) Then
+            ''
+            ''Using data type Char when appropriate:
+            ''
+            txtAnswerMinusChar.Text =
+            mod_SubtractDecs_Char.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessageForChar)
 
-            txtAnswerMinus.Text =
-            mod_SubtractDecs_Str.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
+            ''
+            ''Using data type String whenever possible, versus Char which is not used at all:
+            ''
+            txtAnswerMinusStr.Text =
+            mod_SubtractDecs_Str.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage_Strings)
 
             ''Added 6/25/2019 td 
             ''
             ''   Add commas. 
             ''
-            txtAnswerMinus.Text = modUtilities.AddCommasForTriplets(txtAnswerMinus.Text)
+            txtAnswerMinusChar.Text = modUtilities.AddCommasForTriplets(txtAnswerMinusChar.Text)
+            txtAnswerMinusStr.Text = modUtilities.AddCommasForTriplets(txtAnswerMinusStr.Text)
 
         Else
 
-            txtAnswerAdd.Text =
-            mod_SubtractDecs_Str.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage)
+            ''
+            ''Using data type Char when appropriate:
+            ''
+            txtAnswerAddChar.Text =
+            mod_SubtractDecs_Char.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessageForChar)
+
+            ''
+            ''Using data type String whenever possible, versus Char which is not used at all:
+            ''   (output to a 2nd textbox, directly underneath the 
+            ''
+            txtAnswerAddStr.Text =
+            mod_SubtractDecs_Str.SubAnyTwoDecStrings(strSubtractTop, strSubtractBtm, strErrorMessage_Strings)
 
         End If ''End of "If (chkEnforceCommas.Checked) Then ... Else ...."
 
-        If ("" <> strErrorMessage) Then
+        ''
+        ''Display error message.  
+        ''
+        If ("" <> strErrorMessageForChar) Then
 
-            MessageBox.Show("Program error:  " & strErrorMessage, "Adding Decs",
+            MessageBox.Show("Program error:  " & strErrorMessageForChar, "Adding Decs",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         End If ''ENd of "If ("" <> strErrorMessage) Then"
 
     End Sub
 
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+    Private Sub txtMinusBottom_TextChanged(sender As Object, e As EventArgs) Handles txtMinusBottom.TextChanged
+
+        ''Added 9/14/2020 td
+        Dim intLocationCaret_Initial As Integer = txtMinusBottom.SelectionStart
+        Dim intInitialLength As Integer = txtMinusBottom.TextLength
+        Dim intFinalLength As Integer
+        Dim boolAddOneForComma As Boolean
+        Dim intLocationCaret_Final As Integer
+
+        intLocationCaret_Initial = txtMinusBottom.SelectionStart
+        intInitialLength = txtMinusBottom.TextLength
+
+        txtMinusBottom.Text = modUtilities.AddCommasForTriplets(txtMinusBottom.Text, True)
+        ''----txtMinusBottom.SelectionStart = intLocationCaret_Initial
+
+        ''
+        ''Maintain the position of the text caret.
+        ''
+        intFinalLength = txtMinusBottom.TextLength
+        boolAddOneForComma = IIf(intFinalLength = (intInitialLength + 1), True, False)
+        ''---txtMinusTop.SelectionStart = intLocationCaret + IIf(boolAddOneForComma, 1, 0)
+        intLocationCaret_Final = intLocationCaret_Initial + IIf(boolAddOneForComma, 1, 0)
+        txtMinusBottom.SelectionStart = intLocationCaret_Final
+
+    End Sub
+
+    Private Sub txtMinusTop_TextChanged(sender As Object, e As EventArgs) Handles txtMinusTop.TextChanged
+
+        ''Added 9/14/2020 td
+
+        Dim intLocationCaret_Initial As Integer = txtMinusTop.SelectionStart
+        Dim intTextLength_Initial As Integer = txtMinusTop.TextLength
+        Dim intTextLength_Final As Integer
+        Dim boolAddOneForComma As Boolean
+        Dim intLocationCaret_Final As Integer
+
+        intLocationCaret_Initial = txtMinusTop.SelectionStart
+        intTextLength_Initial = txtMinusTop.TextLength
+
+        ''Added 9/14/2020 td
+        txtMinusTop.Text = modUtilities.AddCommasForTriplets(txtMinusTop.Text, Top)
+
+        ''
+        ''Maintain the position of the text caret.
+        ''
+        intTextLength_Final = txtMinusTop.TextLength
+        boolAddOneForComma = IIf(intTextLength_Final = (intTextLength_Initial + 1), True, False)
+        intLocationCaret_Final = intLocationCaret_Initial + IIf(boolAddOneForComma, 1, 0)
+        txtMinusTop.SelectionStart = intLocationCaret_Final
 
     End Sub
 End Class
