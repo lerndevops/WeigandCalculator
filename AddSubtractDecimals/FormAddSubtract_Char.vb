@@ -1,4 +1,7 @@
-﻿Public Class FormAddSubtract_Char
+﻿Option Explicit On ''Added 9/17/2020 thomas downes
+Option Strict On ''Added 9/17/2020 thomas downes
+
+Public Class FormAddSubtract_Char
     ''-------Public Class FormAddSubtract_String
     ''
     '' Added 9/14/2020 thomas downes
@@ -267,9 +270,9 @@
         ''Maintain the position of the text caret.
         ''
         intFinalLength = txtMinusBottom.TextLength
-        boolAddOneForComma = IIf(intFinalLength = (intInitialLength + 1), True, False)
+        boolAddOneForComma = CBool(IIf(intFinalLength = (intInitialLength + 1), True, False))
         ''---txtMinusTop.SelectionStart = intLocationCaret + IIf(boolAddOneForComma, 1, 0)
-        intLocationCaret_Final = intLocationCaret_Initial + IIf(boolAddOneForComma, 1, 0)
+        intLocationCaret_Final = intLocationCaret_Initial + CInt(IIf(boolAddOneForComma, 1, 0))
         txtMinusBottom.SelectionStart = intLocationCaret_Final
 
     End Sub
@@ -288,14 +291,17 @@
         intTextLength_Initial = txtMinusTop.TextLength
 
         ''Added 9/14/2020 td
-        txtMinusTop.Text = modUtilities.AddCommasForTriplets(txtMinusTop.Text, Top)
+        txtMinusTop.Text = modUtilities.AddCommasForTriplets(txtMinusTop.Text, True)
 
         ''
         ''Maintain the position of the text caret.
         ''
         intTextLength_Final = txtMinusTop.TextLength
-        boolAddOneForComma = IIf(intTextLength_Final = (intTextLength_Initial + 1), True, False)
-        intLocationCaret_Final = intLocationCaret_Initial + IIf(boolAddOneForComma, 1, 0)
+        Dim bPositionOffsetOfOne As Boolean ''Added 9/17/2020 td
+        bPositionOffsetOfOne = CBool(intTextLength_Final = (intTextLength_Initial + 1))
+        ''boolAddOneForComma = CBool(IIf(bPositionOffsetOfOne, True, False))
+        boolAddOneForComma = bPositionOffsetOfOne
+        intLocationCaret_Final = intLocationCaret_Initial + CInt(IIf(boolAddOneForComma, 1, 0))
         txtMinusTop.SelectionStart = intLocationCaret_Final
 
     End Sub

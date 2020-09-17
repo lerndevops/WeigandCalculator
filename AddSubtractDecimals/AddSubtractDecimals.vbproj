@@ -103,9 +103,12 @@
     <Compile Include="modDecToHexByStrings.vb" />
     <Compile Include="modTestingAddition.vb" />
     <Compile Include="modTestingSubtraction.vb" />
+    <Compile Include="mod_Division.vb" />
+    <Compile Include="mod_MultiplyNums.vb" />
     <Compile Include="mod_SubtractDecs_Char.vb" />
     <Compile Include="modUtilities.vb" />
     <Compile Include="mod_SubtractDecs_Str.vb" />
+    <Compile Include="mod_WhichIsBigger.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

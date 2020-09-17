@@ -1,4 +1,7 @@
-﻿Public Class FormAddSubtract_String
+﻿Option Explicit On ''Added 9/17/2020 thomas downes
+Option Strict On ''Added 9/17/2020 thomas downes
+
+Public Class FormAddSubtract_String
 
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSummand1.KeyPress, txtSummand2.KeyPress, txtMinusTop.KeyPress, txtMinusBottom.KeyPress
@@ -174,6 +177,18 @@
         Dim strSubtractTop As String
         Dim strSubtractBtm As String
         Dim strErrorMessage As String = ""
+
+        ''
+        ''Check for the minus sign (character "-"). ---Added 9/17/2020 thomas d.
+        ''
+        Dim boolMinusSignFound As Boolean ''Added 9/17/2020 thomas d.
+        boolMinusSignFound = (txtMinusTop.Text.Contains("-") Or txtMinusBottom.Text.Contains("-"))
+        If (boolMinusSignFound) Then
+            ''Added 9/17/2020 thomas downes
+            MessageBox.Show("Minus signs are not allowed in the entry boxes.", "",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If ''End of "If (boolMinusSignFound) Then"
 
         ''
         ''Remove any commas!!  

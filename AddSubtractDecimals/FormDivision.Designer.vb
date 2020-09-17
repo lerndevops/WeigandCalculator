@@ -22,23 +22,27 @@ Partial Class FormDivision
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.chkEnforceCommas = New System.Windows.Forms.CheckBox()
         Me.LabelHeader1Minus = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtAnswerMinusStr = New System.Windows.Forms.TextBox()
+        Me.txtAnswerRemainder = New System.Windows.Forms.TextBox()
         Me.LabelSub1TwoPowerOf64b = New System.Windows.Forms.Label()
         Me.LabelRightHdrEqualsMinus = New System.Windows.Forms.Label()
         Me.LabelSub2TwoPowerOf64 = New System.Windows.Forms.Label()
         Me.LabelSub1TwoPowerOf64 = New System.Windows.Forms.Label()
-        Me.txtAnswerMinusChar = New System.Windows.Forms.TextBox()
+        Me.txtQuotient = New System.Windows.Forms.TextBox()
         Me.LabelLeftHdrEqualsMinus = New System.Windows.Forms.Label()
-        Me.txtMinusTop = New System.Windows.Forms.TextBox()
+        Me.txtDividend = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtMinusBottom = New System.Windows.Forms.TextBox()
+        Me.txtDivisor = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -72,9 +76,9 @@ Partial Class FormDivision
         Me.LabelHeader1Minus.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelHeader1Minus.Location = New System.Drawing.Point(47, 59)
         Me.LabelHeader1Minus.Name = "LabelHeader1Minus"
-        Me.LabelHeader1Minus.Size = New System.Drawing.Size(287, 26)
+        Me.LabelHeader1Minus.Size = New System.Drawing.Size(543, 26)
         Me.LabelHeader1Minus.TabIndex = 25
-        Me.LabelHeader1Minus.Text = "Divide Decimals of Any Size"
+        Me.LabelHeader1Minus.Text = "Divide Decimal Numbers of Any Size (with Remainder)"
         '
         'Label2
         '
@@ -89,22 +93,23 @@ Partial Class FormDivision
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MintCream
+        Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.txtAnswerMinusStr)
+        Me.Panel1.Controls.Add(Me.txtAnswerRemainder)
         Me.Panel1.Controls.Add(Me.LabelSub1TwoPowerOf64b)
         Me.Panel1.Controls.Add(Me.LabelRightHdrEqualsMinus)
         Me.Panel1.Controls.Add(Me.LabelSub2TwoPowerOf64)
         Me.Panel1.Controls.Add(Me.LabelSub1TwoPowerOf64)
-        Me.Panel1.Controls.Add(Me.txtAnswerMinusChar)
+        Me.Panel1.Controls.Add(Me.txtQuotient)
         Me.Panel1.Controls.Add(Me.LabelLeftHdrEqualsMinus)
-        Me.Panel1.Controls.Add(Me.txtMinusTop)
+        Me.Panel1.Controls.Add(Me.txtDividend)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.txtMinusBottom)
+        Me.Panel1.Controls.Add(Me.txtDivisor)
         Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Location = New System.Drawing.Point(52, 182)
+        Me.Panel1.Location = New System.Drawing.Point(12, 182)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1111, 209)
+        Me.Panel1.Size = New System.Drawing.Size(1151, 209)
         Me.Panel1.TabIndex = 23
         '
         'Label7
@@ -117,23 +122,24 @@ Partial Class FormDivision
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "And the remainder:"
         '
-        'txtAnswerMinusStr
+        'txtAnswerRemainder
         '
-        Me.txtAnswerMinusStr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAnswerMinusStr.Location = New System.Drawing.Point(217, 148)
-        Me.txtAnswerMinusStr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtAnswerMinusStr.Name = "txtAnswerMinusStr"
-        Me.txtAnswerMinusStr.Size = New System.Drawing.Size(552, 30)
-        Me.txtAnswerMinusStr.TabIndex = 14
+        Me.txtAnswerRemainder.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAnswerRemainder.Location = New System.Drawing.Point(217, 148)
+        Me.txtAnswerRemainder.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtAnswerRemainder.Name = "txtAnswerRemainder"
+        Me.txtAnswerRemainder.Size = New System.Drawing.Size(552, 30)
+        Me.txtAnswerRemainder.TabIndex = 14
+        Me.ToolTip1.SetToolTip(Me.txtAnswerRemainder, "This is the remainder, which if divided, would lead to fractional results (< 1).")
         '
         'LabelSub1TwoPowerOf64b
         '
         Me.LabelSub1TwoPowerOf64b.AutoSize = True
-        Me.LabelSub1TwoPowerOf64b.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSub1TwoPowerOf64b.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSub1TwoPowerOf64b.ForeColor = System.Drawing.Color.Blue
-        Me.LabelSub1TwoPowerOf64b.Location = New System.Drawing.Point(48, 21)
+        Me.LabelSub1TwoPowerOf64b.Location = New System.Drawing.Point(101, 25)
         Me.LabelSub1TwoPowerOf64b.Name = "LabelSub1TwoPowerOf64b"
-        Me.LabelSub1TwoPowerOf64b.Size = New System.Drawing.Size(62, 25)
+        Me.LabelSub1TwoPowerOf64b.Size = New System.Drawing.Size(47, 18)
         Me.LabelSub1TwoPowerOf64b.TabIndex = 13
         Me.LabelSub1TwoPowerOf64b.Text = "2 ^ 64"
         '
@@ -170,14 +176,15 @@ Partial Class FormDivision
         Me.LabelSub1TwoPowerOf64.TabIndex = 8
         Me.LabelSub1TwoPowerOf64.Text = "2 ^ 64"
         '
-        'txtAnswerMinusChar
+        'txtQuotient
         '
-        Me.txtAnswerMinusChar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAnswerMinusChar.Location = New System.Drawing.Point(217, 114)
-        Me.txtAnswerMinusChar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtAnswerMinusChar.Name = "txtAnswerMinusChar"
-        Me.txtAnswerMinusChar.Size = New System.Drawing.Size(595, 30)
-        Me.txtAnswerMinusChar.TabIndex = 2
+        Me.txtQuotient.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtQuotient.Location = New System.Drawing.Point(217, 114)
+        Me.txtQuotient.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtQuotient.Name = "txtQuotient"
+        Me.txtQuotient.Size = New System.Drawing.Size(595, 30)
+        Me.txtQuotient.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.txtQuotient, "The quotient is the answer to the division problem.")
         '
         'LabelLeftHdrEqualsMinus
         '
@@ -186,19 +193,20 @@ Partial Class FormDivision
         Me.LabelLeftHdrEqualsMinus.ForeColor = System.Drawing.Color.Blue
         Me.LabelLeftHdrEqualsMinus.Location = New System.Drawing.Point(49, 117)
         Me.LabelLeftHdrEqualsMinus.Name = "LabelLeftHdrEqualsMinus"
-        Me.LabelLeftHdrEqualsMinus.Size = New System.Drawing.Size(72, 25)
+        Me.LabelLeftHdrEqualsMinus.Size = New System.Drawing.Size(151, 25)
         Me.LabelLeftHdrEqualsMinus.TabIndex = 6
-        Me.LabelLeftHdrEqualsMinus.Text = "Equals"
+        Me.LabelLeftHdrEqualsMinus.Text = "Quotient Equals"
         '
-        'txtMinusTop
+        'txtDividend
         '
-        Me.txtMinusTop.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMinusTop.Location = New System.Drawing.Point(154, 17)
-        Me.txtMinusTop.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtMinusTop.Name = "txtMinusTop"
-        Me.txtMinusTop.Size = New System.Drawing.Size(658, 30)
-        Me.txtMinusTop.TabIndex = 0
-        Me.txtMinusTop.Text = "18,446,744,073,709,551,616"
+        Me.txtDividend.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDividend.Location = New System.Drawing.Point(154, 17)
+        Me.txtDividend.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtDividend.Name = "txtDividend"
+        Me.txtDividend.Size = New System.Drawing.Size(658, 30)
+        Me.txtDividend.TabIndex = 0
+        Me.txtDividend.Text = "18,446,744,073,709,551,616"
+        Me.ToolTip1.SetToolTip(Me.txtDividend, "Dividend, the number  being divided")
         '
         'Label3
         '
@@ -209,14 +217,15 @@ Partial Class FormDivision
         Me.Label3.Size = New System.Drawing.Size(744, 10)
         Me.Label3.TabIndex = 5
         '
-        'txtMinusBottom
+        'txtDivisor
         '
-        Me.txtMinusBottom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMinusBottom.Location = New System.Drawing.Point(154, 57)
-        Me.txtMinusBottom.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtMinusBottom.Name = "txtMinusBottom"
-        Me.txtMinusBottom.Size = New System.Drawing.Size(658, 30)
-        Me.txtMinusBottom.TabIndex = 1
+        Me.txtDivisor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDivisor.Location = New System.Drawing.Point(154, 57)
+        Me.txtDivisor.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtDivisor.Name = "txtDivisor"
+        Me.txtDivisor.Size = New System.Drawing.Size(658, 30)
+        Me.txtDivisor.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.txtDivisor, "Divisor")
         '
         'Label4
         '
@@ -228,18 +237,40 @@ Partial Class FormDivision
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Divide by ( ÷ )"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(88, 25)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "Dividend"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel1.Location = New System.Drawing.Point(82, 407)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(536, 25)
+        Me.LinkLabel1.TabIndex = 28
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "https://www.math-only-math.com/terms-used-in-division.html"
+        '
         'FormDivision
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1211, 450)
+        Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.chkEnforceCommas)
         Me.Controls.Add(Me.LabelHeader1Minus)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormDivision"
-        Me.Text = "FormDivision"
+        Me.Text = "Division with Remainder"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -253,15 +284,18 @@ Partial Class FormDivision
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label7 As Label
-    Friend WithEvents txtAnswerMinusStr As TextBox
+    Friend WithEvents txtAnswerRemainder As TextBox
     Friend WithEvents LabelSub1TwoPowerOf64b As Label
     Friend WithEvents LabelRightHdrEqualsMinus As Label
     Friend WithEvents LabelSub2TwoPowerOf64 As Label
     Friend WithEvents LabelSub1TwoPowerOf64 As Label
-    Friend WithEvents txtAnswerMinusChar As TextBox
+    Friend WithEvents txtQuotient As TextBox
     Friend WithEvents LabelLeftHdrEqualsMinus As Label
-    Friend WithEvents txtMinusTop As TextBox
+    Friend WithEvents txtDividend As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtMinusBottom As TextBox
+    Friend WithEvents txtDivisor As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Label1 As Label
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

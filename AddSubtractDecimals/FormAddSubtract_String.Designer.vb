@@ -330,7 +330,7 @@ Partial Class FormAddSubtract_String
         Me.chkEnforceCommas.Checked = True
         Me.chkEnforceCommas.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkEnforceCommas.Location = New System.Drawing.Point(564, 69)
-        Me.chkEnforceCommas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkEnforceCommas.Margin = New System.Windows.Forms.Padding(4)
         Me.chkEnforceCommas.Name = "chkEnforceCommas"
         Me.chkEnforceCommas.Size = New System.Drawing.Size(298, 21)
         Me.chkEnforceCommas.TabIndex = 11
@@ -375,7 +375,7 @@ Partial Class FormAddSubtract_String
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1228, 541)
+        Me.ClientSize = New System.Drawing.Size(1228, 551)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.LabelHeader2Add)
