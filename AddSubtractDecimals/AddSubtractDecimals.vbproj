@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\..\..\Microsoft\Xamarin\NuGet\nunit\3.12.0\lib\netstandard2.0\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -86,12 +89,20 @@
       <DependentUpon>FormAddSubtract_String.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormDivision.Designer.vb">
+      <DependentUpon>FormDivision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDivision.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interface1.vb" />
     <Compile Include="modAddingDecs_Str.vb" />
     <Compile Include="modAddingDecs_Char.vb" />
     <Compile Include="modAddingHexs.vb" />
     <Compile Include="modConvertHexToDec.vb" />
     <Compile Include="modDecToHexByStrings.vb" />
+    <Compile Include="modTestingAddition.vb" />
+    <Compile Include="modTestingSubtraction.vb" />
     <Compile Include="mod_SubtractDecs_Char.vb" />
     <Compile Include="modUtilities.vb" />
     <Compile Include="mod_SubtractDecs_Str.vb" />
@@ -118,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddSubtract_String.resx">
       <DependentUpon>FormAddSubtract_String.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDivision.resx">
+      <DependentUpon>FormDivision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

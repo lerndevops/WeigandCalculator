@@ -184,10 +184,14 @@ Module mod_SubtractDecs_Char
 
     End Function ''end of "Private Function SubDecDigits_BorrowOne"
 
-    Private Function SubDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
+    Public Function SubDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
                                            ByVal pcharDecDigit2 As Char,
                               ByRef pboolBorrowThe10 As Boolean,
                               ByRef pstrErrMessage As String) As Char ''------String
+        ''9/17/2020 td''Private Function SubDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
+        ''                                       ByVal pcharDecDigit2 As Char,
+        ''                          ByRef pboolBorrowThe10 As Boolean,
+        ''                          ByRef pstrErrMessage As String) As Char ''------String
         ''Private Function SubDecDigits_ByArrays(ByVal pcharDecDigit1 As String,
         ''                          ByVal pcharDecDigit2 As String,
         ''                           ByRef pboolBorrowThe10 As Boolean,

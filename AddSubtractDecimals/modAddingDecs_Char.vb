@@ -147,10 +147,14 @@ Module modAddingDecs_Char
 
     End Function ''end of "Private Function AddDecDigits_AddOne"
 
-    Private Function AddDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
+    Public Function AddDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
                               ByVal pcharDecDigit2 As Char,
                               ByRef pboolCarryThe1 As Boolean,
                               ByRef pstrErrMessage As String) As Char
+        ''9/16/2020 td''Public Function AddDecDigits_ByArrays(ByVal pcharDecDigit1 As Char,
+        ''                          ByVal pcharDecDigit2 As Char,
+        ''                          ByRef pboolCarryThe1 As Boolean,
+        ''                          ByRef pstrErrMessage As String) As Char
         ''
         ''Modified 9/13/2020 thomas downes
         ''
