@@ -289,7 +289,8 @@ Skip_GoToNextLoop:
             ''Initialize the array.
             '7/3/2016'static_intLBound = pintPowerOf16
             '7/3/2016'ReDim arrayPowersOf16_Dec(static_intLBound To pintPowerOf16)
-            ReDim arrayPowersOf16_Dec(static_intLBound To static_intLBound)
+            ''9/17/2020 td''ReDim arrayPowersOf16_Dec(static_intLBound To static_intLBound)
+            ReDim arrayPowersOf16_Dec(static_intLBound)
             '7/3/2016'boolMustCalculate = True
             '7/3/2016'boolMustCalculate = (pintPowerOf16 >= static_intLBound)
             arrayPowersOf16_Dec(static_intLBound) =
@@ -339,7 +340,8 @@ Skip_GoToNextLoop:
                 boolMustRedim = boolArraySizeError
 
                 If (boolMustRedim) Then
-                    ReDim Preserve arrayPowersOf16_Dec(static_intLBound To pintPowerOf16)
+                    ''----ReDim Preserve arrayPowersOf16_Dec(static_intLBound To pintPowerOf16)
+                    ReDim Preserve arrayPowersOf16_Dec(pintPowerOf16)
                 End If ''End of "If (boolMustRedim) Then"
                 boolMustCalculate = True
 

@@ -76,6 +76,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormMultiply.Designer.vb">
+      <DependentUpon>FormMultiply.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMultiply.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAddSubtract_Char.Designer.vb">
       <DependentUpon>FormAddSubtract_Char.vb</DependentUpon>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDivision.resx">
       <DependentUpon>FormDivision.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMultiply.resx">
+      <DependentUpon>FormMultiply.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
