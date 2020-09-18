@@ -6,7 +6,7 @@ Option Strict On
 Module modAddingDecs_Char
 
     Public Function AddAnyTwoDecStrings(pstrDec1 As String, pstrDec2 As String,
-                                 pstrErrMessage As String) As String
+                                ByRef pstrErrMessage As String) As String
         ''
         ''Copied from module modAddingDecs_Str, on 9/13/2020.  
         ''

@@ -15,10 +15,15 @@ Public Class FormMultiply
         Dim intLargeNumber As Integer
         Dim intMultiplier As Integer
         Dim bgWorker As BackgroundWorker = CType(sender, BackgroundWorker)
+        Dim objMultiply As ClassMultiply
 
         ''???????????strHugeNumber = mod_strHugeNumber
-        intLargeNumber = mod_integer
-        intMultiplier = mod_integer
+        ''???????????intLargeNumber = mod_integer
+        ''???????????intMultiplier = mod_integer
+
+        objMultiply = CType(e.Argument, ClassMultiply)
+        intLargeNumber = objMultiply.LargeInteger
+        strHugeNumber = objMultiply.HugeNumber
 
         Dim strRunningTotal As String = "0"
         Dim intLoopIndex As Integer
@@ -29,16 +34,29 @@ Public Class FormMultiply
         ''
         ''Exit the looping if the user has requested a cancellation of processing. 
         ''
-        If (e.Cancel Or bgworker.CancellationPending) Then
+        If (e.Cancel Or bgWorker.CancellationPending) Then
             e.Cancel = True
             Return ''Exit For
         End If ''End of "If (e.Cancel Or BackgroundWorker1.CancellationPending) Then"
 
+        intMultiplier = intLargeNumber ''Added 9/17/2020 thomas downes
+
         If (intMultiplier = 0) Then strRunningTotal = "000000000"
         If (intMultiplier = 1) Then strRunningTotal = strHugeNumber
 
-        If (intMultiplier = 0) Then Return '' "000000000"
-        If (intMultiplier = 1) Then Return '' pstrLargerNum
+        ''----If (intMultiplier = 0) Then Return '' "000000000"
+        ''----If (intMultiplier = 1) Then Return '' pstrLargerNum
+
+        Select Case intMultiplier
+
+            Case 0, 1
+
+                objMultiply.CompletedOkay = True
+                objMultiply.FinalResult = strRunningTotal
+                e.Result = objMultiply
+                Return
+
+        End Select ''End of "Select Case intMultiplier"
 
         ''
         '' To achieve (LargerNum x 2), we will add the larger number to itself. 
@@ -47,9 +65,15 @@ Public Class FormMultiply
                                                                      strHugeNumber,
                                                                  strErrorMessage)
 
-        If (mod_strErrorMessage <> "") Then
+        ''----If (mod_strErrorMessage <> "") Then
+        If (strErrorMessage <> "") Then
             ''Added 9/17/2020 thomas downes
-            e.Cancel = True
+            ''----e.Cancel = True
+            ''----e.Result = strErrorMessage
+            objMultiply.ErrorMessage = strErrorMessage
+            objMultiply.CompletedOkay = False
+            e.Result = objMultiply
+
             ''--------MessageBox.Show("Error message: " & strErrorMessage, "Error",
             ''             MessageBoxButtons.OK, MessageBoxIcon.Error)
             ''---pstrErrorMessage = strError
@@ -57,8 +81,19 @@ Public Class FormMultiply
             Return
         End If ''End of "If (mod_strErrorMessage <> "") Then"
 
-        If (intMultiplier = 2) Then Return ''----strRunningTotal
-        If (intMultiplier < 3) Then Return ''----strRunningTotal
+        ''-----If (intMultiplier = 2) Then Return ''----strRunningTotal
+        ''-----If (intMultiplier < 3) Then Return ''----strRunningTotal
+
+        Select Case intMultiplier
+
+            Case 1, 2
+
+                objMultiply.CompletedOkay = True
+                objMultiply.FinalResult = strRunningTotal
+                e.Result = objMultiply
+                Return
+
+        End Select ''End of "Select Case intMultiplier"
 
         ''
         ''
@@ -83,7 +118,12 @@ Public Class FormMultiply
             ''--------MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             ''-----------mod_strErrorMessage = strError
-            If (strErrorMessage <> "") Then Return '' ----"[error]"
+            If (strErrorMessage <> "") Then
+                objMultiply.CompletedOkay = False
+                objMultiply.ErrorMessage = strErrorMessage
+                e.Result = objMultiply
+                Return '' ----"[error]"
+            End If ''End of "If (strErrorMessage <> "") Then"
 
             ''
             ''Show progress. 
@@ -92,7 +132,11 @@ Public Class FormMultiply
 
         Next intLoopIndex
 
-        e.Result = mod_strRunningTotal
+        ''----e.Result = mod_strRunningTotal
+        ''----e.Result = strRunningTotal
+        objMultiply.FinalResult = strRunningTotal
+        objMultiply.CompletedOkay = True
+        e.Result = objMultiply
 
         Return ''-------------strRunningTotal
 
@@ -107,26 +151,44 @@ Public Class FormMultiply
         ''
         '' Added 9/17/2020 thomas downes 
         ''
-        mod_strHugeNumber = txtHugeNumberString.Text
+        ''----mod_strHugeNumber = txtHugeNumberString.Text
+        mod_strHugeNumber = txtHugeNumberString.Text.Replace(",", "")
 
         Dim boolParsedOkay As Boolean
-        Dim intResult As Integer
+        Dim strLargeInteger As String
+        Dim intLargeInteger As Integer
+        Dim objMultiply As New ClassMultiply
 
-        boolParsedOkay = Integer.TryParse(txtLargeInteger.Text, intResult)
+        ''
+        ''Remove any commas!!  
+        ''
+        strLargeInteger = txtLargeInteger.Text.Replace(",", "")
+
+        ''----boolParsedOkay = Integer.TryParse(txtLargeInteger.Text, intLargeInteger)
+        boolParsedOkay = Integer.TryParse(strLargeInteger, intLargeInteger)
 
         If (boolParsedOkay) Then
 
-            mod_integer = intResult
+            mod_integer = intLargeInteger ''  intResult
             ProgressBar1.Minimum = 0
-            ProgressBar1.Maximum = intResult
-            BackgroundWorker1.RunWorkerAsync(intResult)
+            ProgressBar1.Value = 0
+            ProgressBar1.Maximum = intLargeInteger ''  intResult
+            ''----BackgroundWorker1.RunWorkerAsync(intResult)
+            objMultiply.LargeInteger = intLargeInteger ''  mod_integer
+            ''---objMultiply.HugeNumber = txtHugeNumberString.Text
+            objMultiply.HugeNumber = mod_strHugeNumber
+
+            ''
+            ''Huge call....!!
+            ''
+            BackgroundWorker1.RunWorkerAsync(objMultiply)
 
         Else
             ''Added 9/17/2020 thomas downes
             MessageBox.Show("The number < 1,000,000 is too large, or cannot be understood as an integer.",
                "", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-        End If
+        End If ''End of "If (boolParsedOkay) Then .... Else ..."
 
     End Sub
 
@@ -142,10 +204,35 @@ Public Class FormMultiply
         ''
         ''Added 9/17/2020 thomas downes
         ''
-        txtQuotient.Text = e.Result.ToString()
+        Dim objMultiply As ClassMultiply
+        Dim strFinalResult As String
 
-        MessageBox.Show("The answer is: " & e.Result.ToString(), "",
+        ''----txtQuotient.Text = e.Result.ToString()
+        objMultiply = CType(e.Result, ClassMultiply)
+
+        If (objMultiply.CompletedOkay) Then
+
+            ProgressBar1.Value = ProgressBar1.Maximum
+            Application.DoEvents()
+
+            strFinalResult = objMultiply.FinalResult
+
+            ''Added 9/17/2020 thomas d.
+            If (chkEnforceCommas.Checked) Then strFinalResult = modUtilities.AddCommasForTriplets(strFinalResult)
+
+            txtQuotient.Text = strFinalResult
+
+            ''MessageBox.Show("The answer is: " & e.Result.ToString(), "",
+            ''      MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("The answer is: " & strFinalResult, "",
                         MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Else
+            ''Added 9/17/2020 thomas downes
+            MessageBox.Show("The error is: " & objMultiply.ErrorMessage, "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End If ''End of "If (objMultiply.CompletedOkay) Then ..... Else ...."
 
     End Sub
 
@@ -154,7 +241,39 @@ Public Class FormMultiply
         ''----------DIFFICULT AND CONFUSING-----
         ''The righthand property reference is confusing here, since we are not 
         ''   using the Integer property as a Percentage. 
-        ProgressBar1.Value = e.ProgressPercentage
+        ''
+        ''-----ProgressBar1.Value = e.ProgressPercentage
+        With ProgressBar1
+            If (.Value < .Maximum) Then
+                .Value = e.ProgressPercentage
+            End If ''ENd of "If (.Value < .Maximum) Then"
+        End With
+
+    End Sub
+
+    Private Sub FormMultiply_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub LabelSub2TwoPowerOf64_Click(sender As Object, e As EventArgs) Handles LabelSub2TwoPowerOf64.Click
+        ''
+        ''Added 6/25/2019 td
+        ''
+        txtHugeNumberString.Text = modUtilities.TwoToThePowerOf64
+
+        ''
+        ''Add commas, if requested by the user.
+        ''
+        If (chkEnforceCommas.Checked) Then
+
+            ''Added 6/25/2019 td 
+            ''
+            ''   Add commas. 
+            ''
+            txtHugeNumberString.Text = modUtilities.AddCommasForTriplets(txtHugeNumberString.Text)
+
+        End If ''end of "If (chkEnforceCommas.Checked) Then"
+
 
     End Sub
 End Class
