@@ -25,18 +25,41 @@ Module mod_WhichIsBigger
         Dim intLength1 As Integer
         Dim intLength2 As Integer
 
+        ''Check for the minus sign.
+        If (pstrFirstNum.Contains("-")) Then System.Diagnostics.Debugger.Break()
+        If (pstrSecondNum.Contains("-")) Then System.Diagnostics.Debugger.Break()
+
         ''Remove any initial or ending spaces. 
         pstrFirstNum = pstrFirstNum.Trim() '' .Replace(" ", "")
-        pstrFirstNum = pstrFirstNum.Trim() '' .Replace(" ", "")
+        pstrSecondNum = pstrSecondNum.Trim() '' .Replace(" ", "")
 
         ''Remove any commas. 
         pstrFirstNum = pstrFirstNum.Replace(",", "")
-        pstrFirstNum = pstrFirstNum.Replace(",", "")
+        pstrSecondNum = pstrSecondNum.Replace(",", "")
 
         ''Remove any minus sign. 
         pstrFirstNum = pstrFirstNum.Replace("-", "")
-        pstrFirstNum = pstrFirstNum.Replace("-", "")
+        pstrSecondNum = pstrSecondNum.Replace("-", "")
 
+        ''Remove leading zeros.  -----9/18/2020 td 
+        Do
+            If (pstrFirstNum.Length = 0) Then Exit Do
+            If (pstrFirstNum.Length = 1) Then Exit Do
+            If (pstrFirstNum(0) <> "0"c) Then Exit Do ''We have removed all the leading zeros. 
+            ''Remove the leading zero. 
+            pstrFirstNum = pstrFirstNum.Substring(1)
+        Loop
+
+        ''Remove leading zeros.  -----9/18/2020 td 
+        Do
+            If (pstrSecondNum.Length = 0) Then Exit Do
+            If (pstrSecondNum.Length = 1) Then Exit Do
+            If (pstrSecondNum(0) <> "0"c) Then Exit Do ''We have removed all the leading zeros. 
+            ''Remove the leading zero. 
+            pstrSecondNum = pstrSecondNum.Substring(1)
+        Loop
+
+        ''Check lengths.
         intLength1 = Len(Trim(pstrFirstNum))
         intLength2 = Len(Trim(pstrSecondNum))
 

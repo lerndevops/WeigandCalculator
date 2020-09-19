@@ -28,6 +28,7 @@ Partial Class FormDivision
         Me.LabelHeader1Minus = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtAnswerRemainder = New System.Windows.Forms.TextBox()
         Me.LabelSub1TwoPowerOf64b = New System.Windows.Forms.Label()
@@ -41,7 +42,6 @@ Partial Class FormDivision
         Me.txtDivisor = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -111,6 +111,16 @@ Partial Class FormDivision
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1151, 209)
         Me.Panel1.TabIndex = 23
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(88, 25)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "Dividend"
         '
         'Label7
         '
@@ -205,7 +215,7 @@ Partial Class FormDivision
         Me.txtDividend.Name = "txtDividend"
         Me.txtDividend.Size = New System.Drawing.Size(658, 30)
         Me.txtDividend.TabIndex = 0
-        Me.txtDividend.Text = "18,446,744,073,709,551,616"
+        Me.txtDividend.Text = "18,446,744"
         Me.ToolTip1.SetToolTip(Me.txtDividend, "Dividend, the number  being divided")
         '
         'Label3
@@ -236,16 +246,6 @@ Partial Class FormDivision
         Me.Label4.Size = New System.Drawing.Size(133, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Divide by ( ÷ )"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(88, 25)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Dividend"
         '
         'LinkLabel1
         '

@@ -32,6 +32,7 @@ Module mod_SubtractDecs_Char
         strDec2_Padded = PadLeft(Trim(pstrDec2), intMaxLengthOfDec)
 
         intCharIndex = -1 ''6/25/2019 td'' = 0 
+
         Do
             intCharIndex += 1
             oneSignificantDigit1 = strDec1_Padded.Substring(intCharIndex, 1)
